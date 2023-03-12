@@ -6,7 +6,7 @@ public class Player : Node2D
 {
 	// Declare member variables here.
 	private int player_id{get;}
-	private List<Provinces> provincesOwned{get;set;}
+	private List<Province> provincesOwned{get;set;}
 	/*
 	private List<Units> unitsOwned{get;set;}
 	*/
