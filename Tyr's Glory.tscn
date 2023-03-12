@@ -1,0 +1,25 @@
+[gd_scene format=2]
+
+[node name="Game" type="Node"]
+
+[node name="Player" type="Node2D" parent="."]
+
+[node name="Player - View Info" type="Control" parent="Player"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Provinces" type="Node2D" parent="."]
+
+[node name="Units" type="Node2D" parent="."]
+
+[node name="Cavalry" type="Node2D" parent="Units"]
+
+[node name="Artillery" type="Node2D" parent="Units"]
+
+[node name="Infantry" type="Node2D" parent="Units"]
+
+[node name="Board" type="Node2D" parent="."]
+
+[node name="Board - View Info" type="Control" parent="Board"]
+margin_right = 40.0
+margin_bottom = 40.0
