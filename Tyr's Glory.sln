@@ -1,6 +1,6 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tyr's Glory", "Tyr's Glory.csproj", "{A845ED94-56B5-4803-8012-877A740D8D0E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tyr's Glory", "Tyr's Glory.csproj", "{17849921-82C3-4F27-B55E-25D360D95F24}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,11 +9,11 @@ Global
 	ExportRelease|Any CPU = ExportRelease|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A845ED94-56B5-4803-8012-877A740D8D0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A845ED94-56B5-4803-8012-877A740D8D0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A845ED94-56B5-4803-8012-877A740D8D0E}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
-		{A845ED94-56B5-4803-8012-877A740D8D0E}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
-		{A845ED94-56B5-4803-8012-877A740D8D0E}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
-		{A845ED94-56B5-4803-8012-877A740D8D0E}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+		{17849921-82C3-4F27-B55E-25D360D95F24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17849921-82C3-4F27-B55E-25D360D95F24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17849921-82C3-4F27-B55E-25D360D95F24}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{17849921-82C3-4F27-B55E-25D360D95F24}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{17849921-82C3-4F27-B55E-25D360D95F24}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{17849921-82C3-4F27-B55E-25D360D95F24}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
 	EndGlobalSection
 EndGlobal
