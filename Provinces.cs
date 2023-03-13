@@ -9,7 +9,7 @@ public class Province : Node2D
 	/*
 	private List<Units> currentUnits{get;set;}
 	*/
-	private int numUnits;
+	private int numUnits{get;}
 
 	private List<Province> adjacency;
 
