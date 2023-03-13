@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class game : Node
 {
     private int currentPlayer = 0;
-    private int playerNum;
+    private int playerNum = 6;
 
     private List<Player> PARR;
     private Board top;
