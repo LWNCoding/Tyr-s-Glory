@@ -3,16 +3,71 @@ using System;
 using System.Collections.Generic;
 
 public class Player : Node2D
-{
-	// Declare member variables here.
-	private int player_id{get;}
-	private List<Province> provincesOwned{get;set;}
+{	
+
+	private int playerId{get;}
+	private List<Province> provincesOwned;
 	/*
-	private List<Units> unitsOwned{get;set;}
+	private List<Units> unitsOwned;
 	*/
-	private int numProvincesOwned{get;}
-	private int numUnitsOwned{get;}
-	
+
+	/// <summary>
+    /// Constructor for the Player user defined type.
+    /// </summary>
+    /// <param name="playerId">The unique identification integer for this Player. Must be a nonnegative number.</param>
+    /// <exception cref="ArgumentException">Thrown when the playerId parameter is less than 0.</exception>
+	public Player(int playerId){
+		if(playerId < 0){
+			throw new ArgumentException("Construction aborted: The player id must be greater than or equal to 0");
+		}
+		this.playerId = playerId;
+		this.provincesOwned = new List<Province>();
+	}
+
+	/// <summary>
+    /// Checks whether two players are equal to each other by comparing their unique id. Overrides the Equals method from the Object class.
+    /// </summary>
+    /// <param name="obj">The object to compare to.</param>
+    /// <returns>True if the object is an instance of Player and the unique id matches. False otherwise.</returns>
+	public override bool Equals(object? obj){
+		if(obj != null && obj is Player){
+			Player secondPlayer = (Player)obj;
+			return this.playerId == secondPlayer.playerId;
+		}
+		return false;
+	}
+
+	/// <summary>
+    /// Allows for adding a province to the players list of provinces owned.
+    /// </summary>
+    /// <param name="label"> The name of the province that should be added.</param>
+	public void addProvince(string label){
+
+	}
+
+	/// <summary>
+    /// Allows for removing a province from the players list of provinces owned.
+    /// </summary>
+    /// <param name="label">The name of the province that should be removed.</param>
+	public void removeProvince(string label){
+
+	}
+
+	/// <summary>
+    /// Determines whether the player has any provinces owned.
+    /// </summary>
+    /// <returns>True if the player has at least one province owned. False otherwise.</returns>
+	public bool hasProvince(){
+		return this.provincesOwned.Count > 0;
+	}
+
+	/// <summary>
+    /// Gives the number of provinces owned by the player.
+    /// </summary>
+    /// <returns>An integer representing the number of provinces owned by this player.</returns>
+	public int numProvinces(){
+		return this.provincesOwned.Count;
+	}
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
