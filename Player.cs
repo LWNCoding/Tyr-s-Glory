@@ -5,10 +5,10 @@ using System.Drawing;
 using System.Reflection.Emit;
 
 public class Player : Node2D
-{	
+{
 
-	private int playerId{get;}
-	private List<string> provincesOwned;
+    private int playerId;
+    private List<string> provincesOwned;
     /*
 	private List<Units> unitsOwned;
 	*/
@@ -20,15 +20,6 @@ public class Player : Node2D
     {
         this.playerId = -1;
         this.provincesOwned = new List<string>();
-    }
-
-    //This is only temporary, I need to use getPlayerID
-    //for some of my programming in board and Game, so I need this
-    // until I figure out how to use the C# getLabel
-    //-Nick
-    public int getPlayerID()
-    {
-        return playerId;
     }
 
     /// <summary>
@@ -57,7 +48,15 @@ public class Player : Node2D
 		return false;
 	}
 
-	/// <summary>
+    /// <summary>
+    /// Accessor method for player id.
+    /// </summary>
+    /// <returns>The player id.</returns>
+    public int getPlayerID(){
+        return playerId;
+    }
+
+    /// <summary>
     /// Allows for adding a province to the players list of provinces owned.
     /// </summary>
     /// <param Province="label"> The province to be added.</param>
@@ -69,8 +68,7 @@ public class Player : Node2D
     /// Allows for removing a province from the players list of provinces owned.
     /// </summary>
     /// <param Province="label">The province to be removed.</param>
-    public void removeProvince(string label)
-    {
+    public void removeProvince(string label){
         provincesOwned.Remove(label);
     }
 

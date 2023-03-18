@@ -4,38 +4,16 @@ using System.Collections.Generic;
 
 public class Province : Node2D
 {
-	// Declare member variables here.
-	private Player currentPlayer{get;set;}
-	/*
+    private Player currentPlayer;
+    /*
 	Color provinceColor{get;set;}
 	private List<Units> currentUnits;
 	*/
-	private string label{ get; }
-	private string region { get; set; }
-	private LinkedList<Province> adjacency;
+    private string label;
+    private string region;
+    private LinkedList<Province> adjacency;
 	private bool visited;
 
-	//Begin temporary stuff
-
-	//This is only temporary, I need to use getRegion
-	//for some of my programming in board and Game, so I need this
-	// until I figure out how to use the C# getLabel
-	//-Nick
-	public string getRegion()
-	{
-		return region;
-	}
-
-    //This is only temporary, I need to use getCurrentPlayer
-    //for some of my programming in board and Game, so I need this
-    // until I figure out how to use the C# getLabel
-    //-Nick
-    public Player getPlayer()
-    {
-        return currentPlayer;
-    }
-
-    //End temporary stuff
 
     /// <summary>
     /// Constructor for the Province defined type.
@@ -60,9 +38,40 @@ public class Province : Node2D
 		this.currentPlayer = null;
     }
 
+	public string getRegion()
+	{
+		return this.region;
+	}
 
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
+    public void setRegion(string newRegion) {
+        this.region = newRegion;
+    }
+
+    public Player getPlayer()
+    {
+    	return this.currentPlayer;
+    }
+
+    public void setPlayer(string newPlayer) {
+    	this.currentPlayer = newPlayer;
+    }
+
+    public string getLabel() {
+        return this.label;
+    }
+
+    public bool getVisited() {
+        return this.visited;
+    }
+
+    public void setVisited(bool hasVisited) {
+        this.visited = hasVisited;
+    }
+
+
+
+    // Called when the node enters the scene tree for the first time.
+    public override void _Ready()
 	{
 		
 	}
