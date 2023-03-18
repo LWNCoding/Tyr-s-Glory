@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 public class Board : Node2D
 {
@@ -25,28 +26,108 @@ public class Board : Node2D
         return provDict[label];
     }
 
-    public int[] getRegionControl()
-    {
-        Province NAP = null;
-        Province SAP = null;
-        Province EUP = null;
-        Province AFP = null;
-        Province ASP = null;
-        Province MEP = null;
-        Province OCP = null;
-        foreach (Province i in provDict.Values)
-        {
-            if (i.label)
-            {
-
-            }
-        }
-        return regionControl;
-    }
-
     public void updateRegionControl()
     {
+        int NAP = -1;
+        int SAP = -1;
+        int EUP = -1;
+        int AFP = -1;
+        int ASP = -1;
+        int MEP = -1;
+        int OCP = -1;
+        foreach (Province i in provDict.Values)
+        {
+            if (i.getRegion() == "NA" && NAP > -2)
+            {
+                if (NAP == -1)
+                {
+                    NAP = i.getPlayer().getPlayerID();
+                }
+                else if (NAP != i.getPlayer().getPlayerID())
+                {
+                    NAP = -2;
+                }
+            }
+            else if (i.getRegion() == "SA" && SAP > -2)
+            {
+                if (SAP == -1)
+                {
+                    SAP = i.getPlayer().getPlayerID();
+                }
+                else if (SAP != i.getPlayer().getPlayerID())
+                {
+                    SAP = -2;
+                }
+            }
+            else if (i.getRegion() == "EU" && EUP > -2)
+            {
+                if (EUP == -1)
+                {
+                    EUP = i.getPlayer().getPlayerID();
+                }
+                else if (EUP != i.getPlayer().getPlayerID())
+                {
+                    EUP = -2;
+                }
+            }
+            else if (i.getRegion() == "AF" && AFP > -2)
+            {
+                if (AFP == -1)
+                {
+                    AFP = i.getPlayer().getPlayerID();
+                }
+                else if (AFP != i.getPlayer().getPlayerID())
+                {
+                    AFP = -2;
+                }
+            }
+            else if (i.getRegion() == "AS" && ASP > -2)
+            {
+                if (ASP == -1)
+                {
+                    ASP = i.getPlayer().getPlayerID();
+                }
+                else if (ASP != i.getPlayer().getPlayerID())
+                {
+                    ASP = -2;
+                }
+            }
+            else if (i.getRegion() == "ME" && MEP > -2)
+            {
+                if (MEP == -1)
+                {
+                    MEP = i.getPlayer().getPlayerID();
+                }
+                else if (MEP != i.getPlayer().getPlayerID())
+                {
+                    MEP = -2;
+                }
+            }
+            else if (i.getRegion() == "OC" && OCP > -2)
+            {
+                if (OCP == -1)
+                {
+                    OCP = i.getPlayer().getPlayerID();
+                }
+                else if (OCP != i.getPlayer().getPlayerID())
+                {
+                    OCP = -2;
+                }
+            }
+        }
 
+        regionControl[0] = NAP;
+        regionControl[1] = SAP;
+        regionControl[2] = EUP;
+        regionControl[3] = AFP;
+        regionControl[4] = ASP;
+        regionControl[5] = MEP;
+        regionControl[6] = OCP;
+    }
+
+    public int[] getRegionControl()
+    {
+        return regionControl;
     }
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()

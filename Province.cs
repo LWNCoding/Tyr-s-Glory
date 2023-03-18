@@ -10,11 +10,28 @@ public class Province : Node2D
 	Color provinceColor{get;set;}
 	private List<Units> currentUnits;
 	*/
-	private string label{ get { return label; } set { } }
+	private string label{ get; }
 	private string region { get; set; }
 	private LinkedList<Province> adjacency;
 	private bool visited;
 
+	//This is only temporary, I need to use getRegion
+	//for some of my programming in board and Game, so I need this
+	// until I figure out how to use the C# getLabel
+	//-Nick
+	public string getRegion()
+	{
+		return region;
+	}
+
+    //This is only temporary, I need to use getCurrentPlayer
+    //for some of my programming in board and Game, so I need this
+    // until I figure out how to use the C# getLabel
+    //-Nick
+    public Player getPlayer()
+    {
+        return currentPlayer;
+    }
 
     /// <summary>
     /// Constructor for the Province defined type.

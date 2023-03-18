@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Reflection.Emit;
 
 public class Player : Node2D
@@ -19,6 +20,15 @@ public class Player : Node2D
     {
         this.playerId = -1;
         this.provincesOwned = new List<string>();
+    }
+
+    //This is only temporary, I need to use getPlayerID
+    //for some of my programming in board and Game, so I need this
+    // until I figure out how to use the C# getLabel
+    //-Nick
+    public int getPlayerID()
+    {
+        return playerId;
     }
 
     /// <summary>
