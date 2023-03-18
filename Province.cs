@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public class Province : Node2D
+public class Province : Node2D,IEnumerable<Province>
 {
     private Player currentPlayer;
     /*
@@ -50,6 +50,10 @@ public class Province : Node2D
 
     public override int GetHashCode() {
         return this.label.toLower().GetHashCode();
+    }
+
+    public override IEnumerator<Province> GetEnumerator() {
+        return (IEnumerator<Province>)this.adjacency.GetEnumerator();
     }
 
     /// <summary>
