@@ -1,2 +1,2 @@
-﻿54367
-C:/Users/nicho/OneDrive/Desktop/Godot_v3.5-stable_mono_win64/Godot_v3.5-stable_mono_win64/Godot_v3.5-stable_mono_win64.exe
+﻿63487
+/private/var/folders/rt/6rn4hll13bd6h_h398qp_wz00000gn/T/AppTranslocation/9D7086B6-C100-4248-AD94-5915F4F2B757/d/Godot_mono.app/Contents/MacOS/Godot
