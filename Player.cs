@@ -34,15 +34,6 @@ public class Player : Node2D
 	}
 
     /// <summary>
-    /// Returns the ID of the player.
-    /// </summary>
-    /// <returns>ID of the player.</returns>
-    public int getPlayerID()
-    {
-        return playerId;
-    }
-
-    /// <summary>
     /// Checks whether two players are equal to each other by comparing their unique id. Overrides the Equals method from the Object class.
     /// </summary>
     /// <param name="obj">The object to compare to.</param>
