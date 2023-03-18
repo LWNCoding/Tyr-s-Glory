@@ -10,7 +10,7 @@ public class Province : Node2D
 	Color provinceColor{get;set;}
 	private List<Units> currentUnits;
 	*/
-	private string label{get;}
+	private string label{ get { return label; } set { } }
 	private string region { get; set; }
 	private LinkedList<Province> adjacency;
 	private bool visited;

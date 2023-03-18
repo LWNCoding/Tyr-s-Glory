@@ -1,12 +1,13 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Reflection.Emit;
 
 public class Player : Node2D
 {	
 
 	private int playerId{get;}
-	private List<Province> provincesOwned;
+	private List<string> provincesOwned;
     /*
 	private List<Units> unitsOwned;
 	*/
@@ -17,7 +18,7 @@ public class Player : Node2D
     public Player()
     {
         this.playerId = -1;
-        this.provincesOwned = new List<Province>();
+        this.provincesOwned = new List<string>();
     }
 
     /// <summary>
@@ -30,7 +31,7 @@ public class Player : Node2D
 			throw new ArgumentException("Construction aborted: The player id must be greater than or equal to 0");
 		}
 		this.playerId = playerId;
-		this.provincesOwned = new List<Province>();
+		this.provincesOwned = new List<string>();
 	}
 
     /// <summary>
@@ -50,17 +51,17 @@ public class Player : Node2D
     /// Allows for adding a province to the players list of provinces owned.
     /// </summary>
     /// <param Province="label"> The province to be added.</param>
-	public void addProvince(Province prov){
-		provincesOwned.Add(prov);
+	public void addProvince(string label){
+		provincesOwned.Add(label);
 	}
 
     /// <summary>
     /// Allows for removing a province from the players list of provinces owned.
     /// </summary>
-    /// <param Province="prov">The province to be removed.</param>
-    public void removeProvince(Province prov)
+    /// <param Province="label">The province to be removed.</param>
+    public void removeProvince(string label)
     {
-        provincesOwned.Remove(prov);
+        provincesOwned.Remove(label);
     }
 
 	/// <summary>

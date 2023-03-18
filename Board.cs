@@ -27,6 +27,20 @@ public class Board : Node2D
 
     public int[] getRegionControl()
     {
+        Province NAP = null;
+        Province SAP = null;
+        Province EUP = null;
+        Province AFP = null;
+        Province ASP = null;
+        Province MEP = null;
+        Province OCP = null;
+        foreach (Province i in provDict.Values)
+        {
+            if (i.label)
+            {
+
+            }
+        }
         return regionControl;
     }
 
