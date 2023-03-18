@@ -41,11 +41,22 @@ public class Province : Node2D
 		this.currentPlayer = new Player(playerId);
     }
 
-	/// <summary>
+    public override bool Equals(object? obj) {
+        if (obj != null && obj is Province) {
+            Province secondProvince = (Province)obj;
+            return this.label.ToLower().Equals(secondProvince.getLabel().ToLower());
+        }
+    }
+
+    public override int GetHashCode() {
+        return this.label.toLower().GetHashCode();
+    }
+
+    /// <summary>
     /// Accessor for the region member.
     /// </summary>
     /// <returns>The string region.</returns>
-	public string getRegion()
+    public string getRegion()
 	{
 		return this.region;
 	}
@@ -94,6 +105,28 @@ public class Province : Node2D
     public void setVisited(bool hasVisited) {
         this.visited = hasVisited;
     }
+
+    public bool addEdge(Province neighbor) {
+		//cannot have loops and multiple edges i.e. a simple graph
+        if (!this.Equals(neighbor) && !this.adjacency.Contains(neighbor)) { 
+			this.adjacency.AddFirst(neighbor);
+            return true;
+        }
+        return false;
+    }
+
+    public bool removeEdge(Province neighbor) { 
+		if(!this.adjacency.Contains(neighbor))
+            return false;
+        this.adjacency.Remove(neighbor);
+        return true;
+    }
+
+    public bool hasNeighbor() {
+        return this.adjacency.Count > 0;
+    }
+
+
 
 
 
