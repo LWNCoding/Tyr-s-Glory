@@ -27,7 +27,7 @@ public abstract class Unit : Node2D
 			this.health -= total;
 		}
 
-		return health > 0 ? true : false;
+		return health > 0;
 	}
 	
 	/// <summary>
