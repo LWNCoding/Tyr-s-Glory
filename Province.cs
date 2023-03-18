@@ -26,15 +26,6 @@ public class Province : Node2D
 		return region;
 	}
 
-	//This one is here because I'm writing the functions for distributing units
-	//And I just need a function to call from Province that takes a player click as input
-	//Feel free to remove it or edit it as you see fit
-	//-Nick
-	public void AddOnClick(InputEvent @event)
-	{
-        
-    }
-
     //This is only temporary, I need to use getCurrentPlayer
     //for some of my programming in board and Game, so I need this
     // until I figure out how to use the C# getLabel
@@ -55,10 +46,6 @@ public class Province : Node2D
         this.adjacency = new LinkedList<Province>();
         this.visited = false;
         this.currentPlayer = null;
-
-        //Temporary stuff
-        Connect("AddOnClick", GetParent(), nameof(Game));
-        //Temporary Stuff
     }
 
     /// <summary>
@@ -71,10 +58,6 @@ public class Province : Node2D
 		this.adjacency = new LinkedList<Province>();
 		this.visited = false;
 		this.currentPlayer = null;
-
-        //Temporary stuff
-        Connect("AddOnClick", GetParent(), nameof(Game));
-		//Temporary Stuff
     }
 
 
