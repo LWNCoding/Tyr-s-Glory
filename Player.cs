@@ -7,27 +7,27 @@ using System.Reflection.Emit;
 public class Player : Node2D
 {
 
-    private int playerId;
-    private List<string> provincesOwned;
-    /*
+	private int playerId;
+	private List<string> provincesOwned;
+	/*
 	private List<Units> unitsOwned;
 	*/
 
-    /// <summary>
-    /// Constructor for the Player user defined type.
-    /// </summary>
-    public Player()
-    {
-        this.playerId = -1;
-        this.provincesOwned = new List<string>();
-    }
+	/// <summary>
+	/// Constructor for the Player user defined type.
+	/// </summary>
+	public Player()
+	{
+		this.playerId = -1;
+		this.provincesOwned = new List<string>();
+	}
 
-    /// <summary>
-    /// Constructor for the Player user defined type.
-    /// </summary>
-    /// <param name="playerId">The unique identification integer for this Player. Must be a nonnegative number.</param>
-    /// <exception cref="ArgumentException">Thrown when the playerId parameter is less than 0.</exception>
-    public Player(int playerId){
+	/// <summary>
+	/// Constructor for the Player user defined type.
+	/// </summary>
+	/// <param name="playerId">The unique identification integer for this Player. Must be a nonnegative number.</param>
+	/// <exception cref="ArgumentException">Thrown when the playerId parameter is less than 0.</exception>
+	public Player(int playerId){
 		if(playerId < 0){
 			throw new ArgumentException("Construction aborted: The player id must be greater than or equal to 0");
 		}
@@ -35,12 +35,12 @@ public class Player : Node2D
 		this.provincesOwned = new List<string>();
 	}
 
-    /// <summary>
-    /// Checks whether two players are equal to each other by comparing their unique id. Overrides the Equals method from the Object class.
-    /// </summary>
-    /// <param name="obj">The object to compare to.</param>
-    /// <returns>True if the object is an instance of Player and the unique id matches. False otherwise.</returns>
-    public override bool Equals(object? obj){
+	/// <summary>
+	/// Checks whether two players are equal to each other by comparing their unique id. Overrides the Equals method from the Object class.
+	/// </summary>
+	/// <param name="obj">The object to compare to.</param>
+	/// <returns>True if the object is an instance of Player and the unique id matches. False otherwise.</returns>
+	public override bool Equals(object? obj){
 		if(obj != null && obj is Player){
 			Player secondPlayer = (Player)obj;
 			return this.playerId == secondPlayer.playerId;
@@ -48,42 +48,42 @@ public class Player : Node2D
 		return false;
 	}
 
-    /// <summary>
-    /// Accessor method for player id.
-    /// </summary>
-    /// <returns>The player id.</returns>
-    public int getPlayerID(){
-        return playerId;
-    }
+	/// <summary>
+	/// Accessor method for player id.
+	/// </summary>
+	/// <returns>The player id.</returns>
+	public int getPlayerID(){
+		return playerId;
+	}
 
-    /// <summary>
-    /// Allows for adding a province to the players list of provinces owned.
-    /// </summary>
-    /// <param Province="label"> The province to be added.</param>
+	/// <summary>
+	/// Allows for adding a province to the players list of provinces owned.
+	/// </summary>
+	/// <param Province="label"> The province to be added.</param>
 	public void addProvince(string label){
 		provincesOwned.Add(label);
 	}
 
-    /// <summary>
-    /// Allows for removing a province from the players list of provinces owned.
-    /// </summary>
-    /// <param Province="label">The province to be removed.</param>
-    public void removeProvince(string label){
-        provincesOwned.Remove(label);
-    }
+	/// <summary>
+	/// Allows for removing a province from the players list of provinces owned.
+	/// </summary>
+	/// <param Province="label">The province to be removed.</param>
+	public void removeProvince(string label){
+		provincesOwned.Remove(label);
+	}
 
 	/// <summary>
-    /// Determines whether the player has any provinces owned.
-    /// </summary>
-    /// <returns>True if the player has at least one province owned. False otherwise.</returns>
+	/// Determines whether the player has any provinces owned.
+	/// </summary>
+	/// <returns>True if the player has at least one province owned. False otherwise.</returns>
 	public bool hasProvince(){
 		return this.provincesOwned.Count > 0;
 	}
 
 	/// <summary>
-    /// Gives the number of provinces owned by the player.
-    /// </summary>
-    /// <returns>An integer representing the number of provinces owned by this player.</returns>
+	/// Gives the number of provinces owned by the player.
+	/// </summary>
+	/// <returns>An integer representing the number of provinces owned by this player.</returns>
 	public int numProvinces(){
 		return this.provincesOwned.Count;
 	}

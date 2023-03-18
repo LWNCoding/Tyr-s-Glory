@@ -4,138 +4,138 @@ using System.Collections.Generic;
 
 public class Province : Node2D,IEnumerable<Province>
 {
-    private Player currentPlayer;
-    /*
+	private Player currentPlayer;
+	/*
 	Color provinceColor{get;set;}
 	private List<Units> currentUnits;
 	*/
-    private string label;
-    private string region;
-    private LinkedList<Province> adjacency;
+	private string label;
+	private string region;
+	private LinkedList<Province> adjacency;
 	private bool visited;
 
 
-    /// <summary>
-    /// Constructor for the Province defined type.
-    /// </summary>
-    public Province()
-    {
-        this.label = "";
-        this.region = "";
-        this.adjacency = new LinkedList<Province>();
-        this.visited = false;
-        this.currentPlayer = null;
-    }
+	/// <summary>
+	/// Constructor for the Province defined type.
+	/// </summary>
+	public Province()
+	{
+		this.label = "";
+		this.region = "";
+		this.adjacency = new LinkedList<Province>();
+		this.visited = false;
+		this.currentPlayer = null;
+	}
 
 	/// <summary>
-    /// Constructor for the Province defined type.
-    /// </summary>
-    /// <param name="label">Parameter for the label of the province.</param>
-    /// <param name="region">Parameter for the region this province is grouped under.</param>
-    /// <param name="playerId">Parameter for the playerId of the player that currently owns this province.</param>
-    public Province(string label,string region,int playerId){
+	/// Constructor for the Province defined type.
+	/// </summary>
+	/// <param name="label">Parameter for the label of the province.</param>
+	/// <param name="region">Parameter for the region this province is grouped under.</param>
+	/// <param name="playerId">Parameter for the playerId of the player that currently owns this province.</param>
+	public Province(string label,string region,int playerId){
 		this.label = label;
-        this.region = region;
-        this.adjacency = new LinkedList<Province>();
+		this.region = region;
+		this.adjacency = new LinkedList<Province>();
 		this.visited = false;
 		this.currentPlayer = new Player(playerId);
-    }
+	}
 
-    public override bool Equals(object? obj) {
-        if (obj != null && obj is Province) {
-            Province secondProvince = (Province)obj;
-            return this.label.ToLower().Equals(secondProvince.getLabel().ToLower());
-        }
-    }
+	public override bool Equals(object? obj) {
+		if (obj != null && obj is Province) {
+			Province secondProvince = (Province)obj;
+			return this.label.ToLower().Equals(secondProvince.getLabel().ToLower());
+		}
+	}
 
-    public override int GetHashCode() {
-        return this.label.toLower().GetHashCode();
-    }
+	public override int GetHashCode() {
+		return this.label.toLower().GetHashCode();
+	}
 
-    public override IEnumerator<Province> GetEnumerator() {
-        return (IEnumerator<Province>)this.adjacency.GetEnumerator();
-    }
+	public override IEnumerator<Province> GetEnumerator() {
+		return (IEnumerator<Province>)this.adjacency.GetEnumerator();
+	}
 
-    /// <summary>
-    /// Accessor for the region member.
-    /// </summary>
-    /// <returns>The string region.</returns>
-    public string getRegion()
+	/// <summary>
+	/// Accessor for the region member.
+	/// </summary>
+	/// <returns>The string region.</returns>
+	public string getRegion()
 	{
 		return this.region;
 	}
 
 	/// <summary>
-    /// Accessor for the player member.
-    /// </summary>
-    /// <returns>The current player at this province.</returns>
-    public Player getPlayer()
-    {
-    	return this.currentPlayer;
-    }
+	/// Accessor for the player member.
+	/// </summary>
+	/// <returns>The current player at this province.</returns>
+	public Player getPlayer()
+	{
+		return this.currentPlayer;
+	}
 
 	/// <summary>
-    /// Mutator for the player member.
-    /// </summary>
-    /// <param name="newPlayerId">The player id for the new player that owns this current province.</param>
-    /// <exception cref="ArgumentException">Thrown when the newPlayerId parameter is less than 0.</exception>
-    public void setPlayer(int newPlayerId) {
-        if (newPlayerId < 0) {
-            throw new ArgumentException("Construction aborted: The player id must be greater than or equal to 0");
-        }
-        this.currentPlayer = new Player(newPlayerId);
-    }
+	/// Mutator for the player member.
+	/// </summary>
+	/// <param name="newPlayerId">The player id for the new player that owns this current province.</param>
+	/// <exception cref="ArgumentException">Thrown when the newPlayerId parameter is less than 0.</exception>
+	public void setPlayer(int newPlayerId) {
+		if (newPlayerId < 0) {
+			throw new ArgumentException("Construction aborted: The player id must be greater than or equal to 0");
+		}
+		this.currentPlayer = new Player(newPlayerId);
+	}
 
 	/// <summary>
-    /// Accessor for the label member.
-    /// </summary>
-    /// <returns>The string label.</returns>
-    public string getLabel() {
-        return this.label;
-    }
+	/// Accessor for the label member.
+	/// </summary>
+	/// <returns>The string label.</returns>
+	public string getLabel() {
+		return this.label;
+	}
 
 	/// <summary>
-    /// Accessor for the visited member.
-    /// </summary>
-    /// <returns>The boolean visited</returns>
-    public bool getVisited() {
-        return this.visited;
-    }
+	/// Accessor for the visited member.
+	/// </summary>
+	/// <returns>The boolean visited</returns>
+	public bool getVisited() {
+		return this.visited;
+	}
 
 	/// <summary>
-    /// Mutator for the visited member.
-    /// </summary>
-    /// <param name="hasVisited">The new boolean value for the visited member.</param>
-    public void setVisited(bool hasVisited) {
-        this.visited = hasVisited;
-    }
+	/// Mutator for the visited member.
+	/// </summary>
+	/// <param name="hasVisited">The new boolean value for the visited member.</param>
+	public void setVisited(bool hasVisited) {
+		this.visited = hasVisited;
+	}
 
-    public bool addEdge(Province neighbor) {
+	public bool addEdge(Province neighbor) {
 		//cannot have loops and multiple edges i.e. a simple graph
-        if (!this.Equals(neighbor) && !this.adjacency.Contains(neighbor)) { 
+		if (!this.Equals(neighbor) && !this.adjacency.Contains(neighbor)) { 
 			this.adjacency.AddFirst(neighbor);
-            return true;
-        }
-        return false;
-    }
+			return true;
+		}
+		return false;
+	}
 
-    public bool removeEdge(Province neighbor) { 
+	public bool removeEdge(Province neighbor) { 
 		if(!this.adjacency.Contains(neighbor))
-            return false;
-        this.adjacency.Remove(neighbor);
-        return true;
-    }
+			return false;
+		this.adjacency.Remove(neighbor);
+		return true;
+	}
 
-    public bool hasNeighbor() {
-        return this.adjacency.Count > 0;
-    }
-
-
+	public bool hasNeighbor() {
+		return this.adjacency.Count > 0;
+	}
 
 
 
-    // Called when the node enters the scene tree for the first time.
-    public override void _Ready()
+
+
+	// Called when the node enters the scene tree for the first time.
+	public override void _Ready()
 	{
 		
 	}
