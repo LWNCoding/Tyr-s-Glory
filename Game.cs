@@ -6,6 +6,7 @@ public class Game : Node
 {
     private int currentPlayer = 0;
     private int playerNum;
+    private SignalAttribute SIGNA;
 
     private List<Player> PARR;
     private Board top;
@@ -52,9 +53,18 @@ public class Game : Node
         return 0;
     }
 
+    private async void signalReceived() { 
+        await ToSignal(this, "AddOnClick");
+    }
+
     public int distributeMen(int PLID)
     {
         int addAmount = countScore(PLID);
+        while (addAmount > 0)
+        {
+            signalReceived();
+            addAmount--;
+        }
         return 0;
     }
 
