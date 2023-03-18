@@ -11,14 +11,32 @@ public class Province : Node2D
 	private List<Units> currentUnits;
 	*/
 	private string label{get;}
+	private string region { get; set; }
 	private LinkedList<Province> adjacency;
 	private bool visited;
 
-	public Province(string label,int playerId){
+
+    /// <summary>
+    /// Constructor for the Province defined type.
+    /// </summary>
+    public Province()
+    {
+        this.label = "";
+        this.adjacency = new LinkedList<Province>();
+        this.visited = false;
+        this.currentPlayer = null;
+    }
+
+    /// <summary>
+    /// Constructor for the Province defined type.
+    /// </summary>
+    /// <param name="label">The unique identifier which specifies the name of a province.</param>
+    /// <exception cref="ArgumentException">Thrown when the playerId parameter is less than 0.</exception>
+    public Province(string label,int playerId){
 		this.label = label;
 		this.adjacency = new LinkedList<Province>();
 		this.visited = false;
-		this.currentPlayer = new Player(playerId);
+		this.currentPlayer = null;
 	}
 
 

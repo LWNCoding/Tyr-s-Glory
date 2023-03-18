@@ -7,16 +7,25 @@ public class Player : Node2D
 
 	private int playerId{get;}
 	private List<Province> provincesOwned;
-	/*
+    /*
 	private List<Units> unitsOwned;
 	*/
 
-	/// <summary>
+    /// <summary>
+    /// Constructor for the Player user defined type.
+    /// </summary>
+    public Player()
+    {
+        this.playerId = -1;
+        this.provincesOwned = new List<Province>();
+    }
+
+    /// <summary>
     /// Constructor for the Player user defined type.
     /// </summary>
     /// <param name="playerId">The unique identification integer for this Player. Must be a nonnegative number.</param>
     /// <exception cref="ArgumentException">Thrown when the playerId parameter is less than 0.</exception>
-	public Player(int playerId){
+    public Player(int playerId){
 		if(playerId < 0){
 			throw new ArgumentException("Construction aborted: The player id must be greater than or equal to 0");
 		}
@@ -24,12 +33,21 @@ public class Player : Node2D
 		this.provincesOwned = new List<Province>();
 	}
 
-	/// <summary>
+    /// <summary>
+    /// Returns the ID of the player.
+    /// </summary>
+    /// <returns>ID of the player.</returns>
+    public int getPlayerID()
+    {
+        return playerId;
+    }
+
+    /// <summary>
     /// Checks whether two players are equal to each other by comparing their unique id. Overrides the Equals method from the Object class.
     /// </summary>
     /// <param name="obj">The object to compare to.</param>
     /// <returns>True if the object is an instance of Player and the unique id matches. False otherwise.</returns>
-	public override bool Equals(object? obj){
+    public override bool Equals(object? obj){
 		if(obj != null && obj is Player){
 			Player secondPlayer = (Player)obj;
 			return this.playerId == secondPlayer.playerId;
@@ -40,18 +58,19 @@ public class Player : Node2D
 	/// <summary>
     /// Allows for adding a province to the players list of provinces owned.
     /// </summary>
-    /// <param name="label"> The name of the province that should be added.</param>
-	public void addProvince(string label){
-
+    /// <param Province="label"> The province to be added.</param>
+	public void addProvince(Province prov){
+		provincesOwned.Add(prov);
 	}
 
-	/// <summary>
+    /// <summary>
     /// Allows for removing a province from the players list of provinces owned.
     /// </summary>
-    /// <param name="label">The name of the province that should be removed.</param>
-	public void removeProvince(string label){
-
-	}
+    /// <param Province="prov">The province to be removed.</param>
+    public void removeProvince(Province prov)
+    {
+        provincesOwned.Remove(prov);
+    }
 
 	/// <summary>
     /// Determines whether the player has any provinces owned.

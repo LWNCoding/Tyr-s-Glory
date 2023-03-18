@@ -2,5 +2,6 @@
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
     <RootNamespace>TyrsGlory</RootNamespace>
+	<LangVersion>11.0</LangVersion>
   </PropertyGroup>
 </Project>
