@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public abstract class Unit : Node2D
+public abstract class Unit : Node2D{
 	protected float health;
 
 	private int num_moved;
