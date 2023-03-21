@@ -27,7 +27,7 @@ public abstract class Unit : Node2D{
 		Random random = new Random();
 		int choice = random.Next(2);
 		
-		switch(attacker.GetType(){
+		switch(attacker.GetType()){
 			case(Artillery):
 				variation = random.NextDouble() * 0.25f;
 				break;
