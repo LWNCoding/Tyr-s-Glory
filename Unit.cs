@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public abstract class Unit : Node2D
+public abstract class Unit : Node2D{
 	protected float health;
 
 	private int num_moved;
@@ -20,8 +20,31 @@ public abstract class Unit : Node2D
 	/// Returns true if attack brings health below 0
 	/// Can be used like: if(!attacked(example)) to simulate an attack while also checking if the Unit perished
 	/// </summary>
-	public bool got_attacked(float damage){
-		float total = damage - this.defense;
+	public bool got_attacked(Unit attacker){
+		float total = attacker.attack - this.defense;
+		float variation = 0.0f;
+		
+		Random random = new Random();
+		int choice = random.Next(2);
+		
+		switch(attacker.GetType(){
+			case(Artillery):
+				variation = random.NextDouble() * 0.25f;
+				break;
+			case(Cavalry):
+				variation = random.NextDouble() * 0.125f;
+				break;
+			case(Infantry):
+				variation = random.NextDouble() * 0.05f;
+				break;
+		}
+		
+		if(choice){
+			total += variation * total;
+		}
+		else{
+			total -= variation * total;
+		}
 
 		if(total > 0){
 			this.health -= total;
