@@ -130,6 +130,10 @@ public class Province : Node2D,IEnumerable<Province>
 		return this.adjacency.Count > 0;
 	}
 
+	public bool isNeighbor(Province otherProvince){
+		return this.adjacency.Contains(otherProvince);
+	}
+
 
 
 
