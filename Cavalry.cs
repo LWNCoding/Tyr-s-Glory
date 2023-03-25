@@ -7,12 +7,12 @@ class Cavalry : Unit{
 	/// Default constructor for Cavalry
 	/// </summary>
 	public Cavalry(){
-		base.health = 0.0f; 
-		base.max_moves = 0;
-		base.max_attacks = 0;
-		base.attack = 0.0f;
-		base.defense = 0.0f;
-		base.range = 0;
+		base.health = 200.0f; 
+		base.maxMoves = 2;
+		base.maxAttacks = 2;
+		base.attack = 100.0f;
+		base.defense = 10.0f;
+		base.range = 1;
 	}
   
 }
