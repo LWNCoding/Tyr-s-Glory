@@ -133,10 +133,7 @@ public class Province : Node2D,IEnumerable<Province>
 	public bool isNeighbor(Province otherProvince){
 		return this.adjacency.Contains(otherProvince);
 	}
-
-
-
-
+	
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
