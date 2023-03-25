@@ -7,8 +7,8 @@ public class Province : Node2D,IEnumerable<Province>
 	private Player currentPlayer;
 	/*
 	Color provinceColor{get;set;}
-	private List<Units> currentUnits;
 	*/
+	private List<Units> currentUnits;
 	private string label;
 	private string region;
 	private LinkedList<Province> adjacency;

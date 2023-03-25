@@ -134,9 +134,3 @@ public class Game : Node
 //      
 //  }
 }
-
-
-private void _on_Province_input_event(object viewport, object @event, int shape_idx)
-{
-	// Replace with function body.
-}
