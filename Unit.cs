@@ -3,25 +3,45 @@ using System;
 
 public abstract class Unit : Node2D{
 	protected float health;
+	public float getHealth(){
+		return this.health;
+	}
 
-	private int num_moved;
-	protected int max_moves;
+	private int numMoved;
+	public int getNumMoved(){
+		return this.numMoved;
+	}
+	
+	protected int maxMoves;
 
-	private int num_attacked;
-	protected int max_attacks;
+	private int numAttacked;
+	public int getNumAttacked(){
+		return this.numAttacked
+	}
+	
+	protected int maxAttacks;
 
 	protected float attack; 
+	public float getAttack{
+		return this.attack;
+	}
 
 	protected float defense;
+	public float getDefense(){
+		return this.defense;
+	}
 
 	protected int range;
+	public int getRange(){
+		return this.range;
+	}
 
 	/// <summary>
 	/// Returns true if attack brings health below 0
-	/// Can be used like: if(!attacked(example)) to simulate an attack while also checking if the Unit perished
+	/// Can be used like: if(!gotAttacked(example)) to simulate an attack while also checking if the Unit perished
 	/// </summary>
-	public bool got_attacked(Unit attacker){
-		float total = attacker.attack - this.defense;
+	public bool gotAttacked(Unit attacker){
+		float total = attacker.attack;
 		float variation = 0.0f;
 		
 		Random random = new Random();
@@ -45,12 +65,14 @@ public abstract class Unit : Node2D{
 		else{
 			total -= variation * total;
 		}
+		
+		total -= defense
 
 		if(total > 0){
 			this.health -= total;
 		}
 
-		return health > 0;
+		return this.health > 0;
 	}
 	
 	/// <summary>
@@ -58,31 +80,39 @@ public abstract class Unit : Node2D{
 	/// Can be used like: if(moved()) to simulate moving while also checking if its possible to move still
 	/// </summary>
 	public bool moved(){
-		if(num_moved == max_moves){
+		if(this.numMoved == this.maxMoves){
 			return false;
 		}
-		num_moved++;
+		this.numMoved++;
 		return true;
 	}
+	
+	/// <summary>
+	/// Check if Unit can move
+	/// </summary>
+	public bool canMove(){
+		return this.numMoved == this.maxMoves;
+	}
+	
 
 	/// <summary>
 	/// Returns true if successfully attacked, false if not
 	/// Can be used like: if(attacked()) to simulate moving while also checking if its possible to attack still
 	/// </summary>
 	public bool attacked(){
-		if(num_attacked == max_attacks){
+		if(this.numAttacked == this.maxAttacks){
 			return false;
 		}
-		num_attacked++;
+		this.numAttacked++;
 		return true;
 	}
 	
 	/// </summary>
 	/// Resests counters at the end of the turn
 	/// </summary>
-	public void reset_turn(){
-		this.num_attacked = 0;
-		this.num_moved = 0;
+	public void resetTurn(){
+		this.numAttacked = 0;
+		this.numMoved = 0;
 	}
 }
 

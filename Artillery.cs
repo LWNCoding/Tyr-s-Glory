@@ -7,12 +7,12 @@ class Artillery : Unit{
 	/// Default constructor for Artillery
 	/// </summary>
 	public Artillery(){
-		base.health = 0.0f; 
-		base.max_moves = 0;
-		base.max_attacks = 0;
-		base.attack = 0.0f;
-		base.defense = 0.0f;
-		base.range = 0;
+		base.health = 100.0f; 
+		base.maxMoves = 1;
+		base.maxAttacks = 2;
+		base.attack = 70.0f;
+		base.defense = 20.0f;
+		base.range = 2;
 	}
   
 }
