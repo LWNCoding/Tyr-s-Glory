@@ -49,6 +49,9 @@ margin_bottom = 40.0
 position = Vector2( 276, 42 )
 texture = ExtResource( 11 )
 
+[node name="CollisionPolygon2D" parent="Province2" index="1"]
+polygon = PoolVector2Array( 163, 43, 185, 74, 199, 74, 206, 83, 220, 84, 226, 89, 255, 63, 266, 63, 273, 58, 273, 65, 280, 65, 285, 67, 277, 59, 293, 53, 300, 63, 319, 68, 328, 74, 333, 65, 338, 55, 350, 59, 336, 38, 318, 32, 326, 22, 366, 7, 388, -1, 332, 3, 305, 5, 294, 21, 274, 28, 255, 31, 229, 30, 205, 25, 185, 34 )
+
 [node name="Province3" parent="." instance=ExtResource( 1 )]
 
 [node name="Sprite" parent="Province3" index="0"]
