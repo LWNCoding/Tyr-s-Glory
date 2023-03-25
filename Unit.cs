@@ -16,13 +16,13 @@ public abstract class Unit : Node2D{
 
 	private int numAttacked;
 	public int getNumAttacked(){
-		return this.numAttacked
+		return this.numAttacked;
 	}
 	
 	protected int maxAttacks;
 
 	protected float attack; 
-	public float getAttack{
+	public float getAttack(){
 		return this.attack;
 	}
 
@@ -66,7 +66,7 @@ public abstract class Unit : Node2D{
 			total -= variation * total;
 		}
 		
-		total -= defense
+		total -= defense;
 
 		if(total > 0){
 			this.health -= total;
