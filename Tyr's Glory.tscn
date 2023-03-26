@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://Province.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.cs" type="Script" id=2]
@@ -34,12 +34,29 @@
 [ext_resource path="res://Risk Assets/22.png" type="Texture" id=32]
 [ext_resource path="res://Risk Assets/57.png" type="Texture" id=33]
 [ext_resource path="res://Risk Assets/worldmap.png" type="Texture" id=34]
+[ext_resource path="res://Risk Assets/61.png" type="Texture" id=35]
+[ext_resource path="res://Risk Assets/64.png" type="Texture" id=36]
+[ext_resource path="res://Risk Assets/59.png" type="Texture" id=37]
+[ext_resource path="res://Risk Assets/62.png" type="Texture" id=38]
+[ext_resource path="res://Risk Assets/63.png" type="Texture" id=39]
+[ext_resource path="res://Risk Assets/58.png" type="Texture" id=40]
+[ext_resource path="res://Risk Assets/65.png" type="Texture" id=41]
+[ext_resource path="res://Risk Assets/60.png" type="Texture" id=42]
+[ext_resource path="res://Risk Assets/67.png" type="Texture" id=43]
+[ext_resource path="res://Risk Assets/66.png" type="Texture" id=44]
+[ext_resource path="res://Risk Assets/68.png" type="Texture" id=45]
+[ext_resource path="res://Risk Assets/69.png" type="Texture" id=46]
+[ext_resource path="res://Risk Assets/73.png" type="Texture" id=47]
+[ext_resource path="res://Risk Assets/72.png" type="Texture" id=48]
+[ext_resource path="res://Risk Assets/74.png" type="Texture" id=49]
+[ext_resource path="res://Risk Assets/70.png" type="Texture" id=50]
+[ext_resource path="res://Risk Assets/71.png" type="Texture" id=51]
 
 [node name="Game" type="Node"]
 script = ExtResource( 4 )
 
 [node name="Player" type="Node2D" parent="."]
-position = Vector2( -455, 291 )
+position = Vector2( -332, 345 )
 script = ExtResource( 2 )
 
 [node name="Player - View Info" type="Control" parent="Player"]
@@ -47,7 +64,7 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="Unit" type="Node2D" parent="."]
-position = Vector2( -486, 228 )
+position = Vector2( -363, 282 )
 script = ExtResource( 5 )
 
 [node name="Cavalry" type="Node2D" parent="Unit"]
@@ -63,7 +80,7 @@ position = Vector2( 47, 37 )
 script = ExtResource( 6 )
 
 [node name="Board" type="Node2D" parent="."]
-position = Vector2( -486, 263 )
+position = Vector2( -363, 317 )
 script = ExtResource( 3 )
 
 [node name="Board - View Info" type="Control" parent="Board"]
@@ -73,7 +90,7 @@ margin_right = 19.0
 margin_bottom = 68.0
 
 [node name="Province1" parent="." instance=ExtResource( 1 )]
-position = Vector2( -358, 170 )
+position = Vector2( -235, 224 )
 
 [node name="Sprite" parent="Province1" index="0"]
 texture = ExtResource( 9 )
@@ -82,7 +99,7 @@ texture = ExtResource( 9 )
 polygon = PoolVector2Array( 0, 62, 20, 53, 12, 49, 21, 37, 39, 32, 42, 29, 33, 25, 48, 23, 53, 14, 85, 5, 126, 6, 111, 39, 103, 64, 94, 49, 69, 43, 48, 44, 36, 52, 29, 57 )
 
 [node name="Province2" parent="." instance=ExtResource( 1 )]
-position = Vector2( -375, 222 )
+position = Vector2( -252, 276 )
 
 [node name="Sprite" parent="Province2" index="0"]
 position = Vector2( 88, 110 )
@@ -92,7 +109,7 @@ texture = ExtResource( 10 )
 polygon = PoolVector2Array( 33, 129, 34, 112, 45, 97, 49, 85, 71, 89, 92, 83, 117, 117, 131, 115, 138, 124, 144, 125, 133, 134, 106, 134, 102, 137, 79, 133, 54, 133 )
 
 [node name="Province3" parent="." instance=ExtResource( 1 )]
-position = Vector2( -374, 200 )
+position = Vector2( -251, 254 )
 
 [node name="Sprite" parent="Province3" index="0"]
 position = Vector2( 276, 42 )
@@ -102,7 +119,7 @@ texture = ExtResource( 11 )
 polygon = PoolVector2Array( 163, 43, 185, 74, 199, 74, 206, 83, 220, 84, 226, 89, 255, 63, 266, 63, 273, 58, 273, 65, 280, 65, 285, 67, 277, 59, 293, 53, 300, 63, 319, 68, 328, 74, 333, 65, 338, 55, 350, 59, 336, 38, 318, 32, 326, 22, 366, 7, 388, -1, 332, 3, 305, 5, 294, 21, 274, 28, 255, 31, 229, 30, 205, 25, 185, 34 )
 
 [node name="Province4" parent="." instance=ExtResource( 1 )]
-position = Vector2( -349, 195 )
+position = Vector2( -226, 249 )
 
 [node name="Sprite" parent="Province4" index="0"]
 position = Vector2( 274, 224 )
@@ -112,7 +129,7 @@ texture = ExtResource( 24 )
 polygon = PoolVector2Array( 194, 199, 211, 195, 237, 185, 261, 188, 302, 182, 307, 185, 312, 182, 333, 184, 340, 188, 353, 188, 353, 194, 339, 194, 334, 199, 329, 209, 313, 216, 320, 224, 314, 230, 295, 234, 287, 233, 273, 242, 256, 245, 240, 263, 231, 265, 220, 260, 218, 242, 231, 227, 227, 220, 216, 205, 198, 205 )
 
 [node name="Province5" parent="." instance=ExtResource( 1 )]
-position = Vector2( -279, 493 )
+position = Vector2( -156, 547 )
 
 [node name="Sprite" parent="Province5" index="0"]
 position = Vector2( -53.7364, -31.31 )
@@ -122,7 +139,7 @@ texture = ExtResource( 17 )
 polygon = PoolVector2Array( -30.7364, -8.31004, -64.7364, -8.31004, -63.7364, -14.31, -66.7364, -15.31, -65.7364, -10.31, -72.7364, -10.31, -77.7364, -16.31, -77.7364, -20.31, -71.7364, -21.31, -72.7364, -26.31, -72.7364, -36.31, -78.7364, -40.31, -76.7364, -44.31, -71.7364, -44.31, -68.7364, -40.31, -61.7364, -47.31, -60.7364, -53.31, -42.7364, -51.31, -39.7364, -40.31, -36.7364, -37.31, -29.7364, -13.31 )
 
 [node name="Province6" parent="." instance=ExtResource( 1 )]
-position = Vector2( -338.338, 528.946 )
+position = Vector2( -215.338, 582.946 )
 
 [node name="Sprite" parent="Province6" index="0"]
 position = Vector2( 29.3378, 12.0541 )
@@ -132,7 +149,7 @@ texture = ExtResource( 19 )
 polygon = PoolVector2Array( 68.3378, -6.94588, -9.66216, -9.94588, -6.66216, 0.0541229, -1.66216, 8.05412, 2.33784, 33.0541, 67.3378, 35.0541 )
 
 [node name="Province7" parent="." instance=ExtResource( 1 )]
-position = Vector2( -310, 545 )
+position = Vector2( -187, 599 )
 
 [node name="Sprite" parent="Province7" index="0"]
 position = Vector2( 45.8139, -68.2014 )
@@ -142,7 +159,7 @@ texture = ExtResource( 16 )
 polygon = PoolVector2Array( 11.8139, -89.2014, 11.8139, -62.2014, 12.8139, -46.2014, 26.8139, -45.2014, 42.8139, -51.2014, 48.8139, -41.2014, 57.8139, -41.2014, 59.8139, -36.2014, 67.8139, -36.2014, 79.8139, -45.2014, 77.8139, -50.2014, 75.8139, -64.2014, 72.8139, -70.2014, 75.8139, -80.2014, 64.8139, -84.2014, 57.8139, -88.2014, 52.8139, -88.2014, 48.8139, -94.2014, 40.8139, -95.2014, 38.8139, -99.2014, 31.8139, -99.2014, 29.8139, -95.2014, 23.8139, -94.2014, 19.8139, -90.2014 )
 
 [node name="Province8" parent="." instance=ExtResource( 1 )]
-position = Vector2( -122.166, 341.748 )
+position = Vector2( 0.833984, 395.748 )
 
 [node name="Sprite" parent="Province8" index="0"]
 position = Vector2( 59.1656, -18.7478 )
@@ -152,7 +169,7 @@ texture = ExtResource( 12 )
 polygon = PoolVector2Array( 49.1656, -57.7478, 58.1656, -58.7478, 70.1656, -54.7478, 71.1656, -45.7478, 74.1656, -41.7478, 87.1656, -48.7478, 89.1656, -39.7478, 94.1656, -26.7478, 101.166, -23.7478, 101.166, -17.7478, 97.1656, -10.7478, 97.1656, -5.74777, 105.166, 0.252228, 103.166, 3.25223, 83.1656, 3.25223, 92.1656, -8.74777, 92.1656, -12.7478, 76.1656, -7.74777, 67.1656, -9.74777, 59.1656, -7.74777, 56.1656, -4.74777, 58.1656, -1.74777, 63.1656, -1.74777, 59.1656, 5.25223, 62.1656, 10.2522, 72.1656, 11.2522, 53.1656, 21.2522, 50.1656, 18.2522, 54.1656, 13.2522, 37.1656, 21.2522, 26.1656, 16.2522, 13.1656, -0.747772, 13.1656, -11.7478, 22.1656, -18.7478, 22.1656, -24.7478, 37.1656, -33.7478, 39.1656, -37.7478, 39.1656, -45.7478 )
 
 [node name="Province9" parent="." instance=ExtResource( 1 )]
-position = Vector2( -267, 295 )
+position = Vector2( -144, 349 )
 
 [node name="Sprite" parent="Province9" index="0"]
 position = Vector2( 32.0944, -1.992 )
@@ -162,7 +179,7 @@ texture = ExtResource( 26 )
 polygon = PoolVector2Array( 8.09435, 21.008, 9.09435, 7.008, 15.0944, 1.008, 18.0944, -5.992, 30.0944, -23.992, 36.0944, -23.992, 38.0944, -21.992, 40.0944, -25.992, 51.0944, -25.992, 56.0944, -13.992, 58.0944, 1.008, 52.0944, 12.008, 45.0944, 17.008, 44.0944, 22.008 )
 
 [node name="Province10" parent="." instance=ExtResource( 1 )]
-position = Vector2( -206.484, 325.393 )
+position = Vector2( -83.484, 379.393 )
 
 [node name="Sprite" parent="Province10" index="0"]
 position = Vector2( 45.4841, 3.60683 )
@@ -172,7 +189,7 @@ texture = ExtResource( 15 )
 polygon = PoolVector2Array( 1.4841, -18.3932, 16.4841, -19.3932, 35.4841, -17.3932, 72.4841, -16.3932, 86.4841, -15.3932, 90.4841, 23.6068, 61.4841, 23.6068, 51.4841, 23.6068, 43.4841, 27.6068, 24.4841, 20.6068, 0.4841, 19.6068, 6.4841, 3.60683, 6.4841, -6.39317 )
 
 [node name="Province11" parent="." instance=ExtResource( 1 )]
-position = Vector2( -387.684, 279.159 )
+position = Vector2( -264.684, 333.159 )
 
 [node name="Sprite" parent="Province11" index="0"]
 position = Vector2( 50.684, -4.15939 )
@@ -182,7 +199,7 @@ texture = ExtResource( 18 )
 polygon = PoolVector2Array( 8.68396, -25.1594, 8.68396, -17.1594, 10.684, -12.1594, 11.684, 12.8406, 44.684, 13.8406, 53.684, 11.8406, 60.684, 17.8406, 68.684, 8.84061, 72.684, 7.84061, 78.684, 0.840607, 86.684, -0.159393, 93.684, -10.1594, 87.684, -12.1594, 85.684, -18.1594, 78.684, -23.1594, 64.684, -14.1594, 52.684, -19.1594, 46.684, -19.1594, 43.684, -22.1594, 30.684, -25.1594, 24.684, -21.1594, 20.684, -24.1594 )
 
 [node name="Province12" parent="." instance=ExtResource( 1 )]
-position = Vector2( -374.499, 392.678 )
+position = Vector2( -251.499, 446.678 )
 
 [node name="Sprite" parent="Province12" index="0"]
 position = Vector2( 18.4986, -1.67813 )
@@ -192,7 +209,7 @@ texture = ExtResource( 25 )
 polygon = PoolVector2Array( 0.498562, -33.6781, 3.49856, -19.6781, 11.4986, -12.6781, 12.4986, -2.67813, 16.4986, 7.32187, 14.4986, 10.3219, 15.4986, 15.3219, 20.4986, 20.3219, 21.4986, 26.3219, 24.4986, 31.3219, 28.4986, 31.3219, 24.4986, 21.3219, 24.4986, 12.3219, 17.4986, -1.67813, 20.4986, -6.67813, 25.4986, -1.67813, 29.4986, 0.321869, 36.4986, -17.6781, 33.4986, -32.6781 )
 
 [node name="Province13" parent="." instance=ExtResource( 1 )]
-position = Vector2( -328.265, 414.635 )
+position = Vector2( -205.265, 468.635 )
 
 [node name="Sprite" parent="Province13" index="0"]
 position = Vector2( 32.2649, -3.63504 )
@@ -202,7 +219,7 @@ texture = ExtResource( 13 )
 polygon = PoolVector2Array( 4.2649, 17.365, 11.2649, -0.63504, 8.2649, -13.635, 13.2649, -21.635, 17.2649, -23.635, 31.2649, -23.635, 41.2649, -22.635, 61.2649, -17.635, 61.2649, -4.63504, 51.2649, -2.63504, 51.2649, 5.36496, 42.2649, 8.36496, 41.2649, 15.365, 31.2649, 15.365, 26.2649, 17.365 )
 
 [node name="Province14" parent="." instance=ExtResource( 1 )]
-position = Vector2( -208.012, 489.616 )
+position = Vector2( -85.012, 543.616 )
 
 [node name="Sprite" parent="Province14" index="0"]
 position = Vector2( 52.012, 18.3838 )
@@ -212,7 +229,7 @@ texture = ExtResource( 21 )
 polygon = PoolVector2Array( 18.012, -9.61624, 31.012, -11.6162, 57.012, -11.6162, 61.012, -12.6162, 64.012, -10.6162, 92.012, -10.6162, 100.012, -12.6162, 107.012, -9.61624, 107.012, 3.38376, 81.012, 22.3838, 78.012, 27.3838, 81.012, 45.3838, 77.012, 50.3838, 72.012, 43.3838, 72.012, 32.3838, 67.012, 27.3838, 61.012, 28.3838, 53.012, 24.3838, 44.012, 32.3838, 32.012, 26.3838, 13.012, 37.3838, 3.01204, 28.3838, -2.98796, 25.3838, -3.98796, 17.3838, 6.01204, 15.3838, 6.01204, 6.38376, 15.012, 5.38376, 15.012, -5.61624 )
 
 [node name="Province15" parent="." instance=ExtResource( 1 )]
-position = Vector2( -95, 457 )
+position = Vector2( 28, 511 )
 
 [node name="Sprite" parent="Province15" index="0"]
 texture = ExtResource( 14 )
@@ -221,7 +238,7 @@ texture = ExtResource( 14 )
 polygon = PoolVector2Array( 10.2514, 20.8722, 17.2514, 16.8722, 31.2514, 16.8722, 37.2514, -1.12779, 45.2514, -1.12779, 51.2514, 9.87221, 55.2514, 20.8722, 57.2514, 30.8722, 71.2514, 31.8722, 95.2514, 35.8722, 106.251, 40.8722, 106.251, 46.8722, 115.251, 60.8722, 115.251, 64.8722, 106.251, 71.8722, 103.251, 71.8722, 99.2514, 66.8722, 105.251, 52.8722, 93.2514, 44.8722, 79.2514, 40.8722, 61.2514, 41.8722, 33.2514, 41.8722, 32.2514, 37.8722, 36.2514, 28.8722, 24.2514, 21.8722 )
 
 [node name="Province16" parent="." instance=ExtResource( 1 )]
-position = Vector2( -6.89197, 270.049 )
+position = Vector2( 116.108, 324.049 )
 
 [node name="Sprite" parent="Province16" index="0"]
 position = Vector2( 28.8922, 2.95126 )
@@ -231,7 +248,7 @@ texture = ExtResource( 23 )
 polygon = PoolVector2Array( -1.10779, -27.0487, 20.8922, -28.0487, 30.8922, -31.0487, 40.8922, -30.0487, 48.8922, -27.0487, 57.8922, -18.0487, 49.8922, 7.95126, 51.8922, 15.9513, 57.8922, 23.9513, 56.8922, 33.9513, 47.8922, 37.9513, 16.8922, 19.9513, 17.8922, 7.95126, 10.8922, -3.04874, 6.89221, -6.04874, 6.89221, -10.0487 )
 
 [node name="Province17" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0.0119629, 346.049 )
+position = Vector2( 123.012, 400.049 )
 
 [node name="Sprite" parent="Province17" index="0"]
 position = Vector2( 31.9882, 3.95135 )
@@ -241,7 +258,7 @@ texture = ExtResource( 20 )
 polygon = PoolVector2Array( 14.9882, -0.048645, 23.9882, -0.048645, 31.9882, -5.04865, 35.9882, -13.0486, 47.9882, -15.0486, 48.9882, -10.0486, 39.9882, 10.9514, 44.9882, 12.9514, 43.9882, 22.9514, 32.9882, 22.9514, 17.9882, 10.9514, 14.9882, 10.9514 )
 
 [node name="Province18" parent="." instance=ExtResource( 1 )]
-position = Vector2( -2.53503, 440.836 )
+position = Vector2( 120.465, 494.836 )
 
 [node name="Sprite" parent="Province18" index="0"]
 position = Vector2( 29.5347, -0.836212 )
@@ -251,7 +268,7 @@ texture = ExtResource( 22 )
 polygon = PoolVector2Array( 13.5347, -17.8362, 12.5347, -5.83621, 18.5347, 4.16379, 18.5347, 9.16379, 25.5347, 14.1638, 39.5347, 19.1638, 48.5347, 12.1638, 44.5347, 10.1638, 36.5347, 12.1638, 28.5347, 3.16379, 30.5347, -17.8362, 20.5347, -20.8362 )
 
 [node name="Province19" parent="." instance=ExtResource( 1 )]
-position = Vector2( -50, 1347 )
+position = Vector2( -56, 1282 )
 
 [node name="Sprite" parent="Province19" index="0"]
 texture = ExtResource( 27 )
@@ -260,7 +277,7 @@ texture = ExtResource( 27 )
 polygon = PoolVector2Array( 48, 56, 63, 34, 59, 14, 66, 15, 72, 10, 77, 17, 77, 39, 67, 57, 65, 60 )
 
 [node name="Province20" parent="." instance=ExtResource( 1 )]
-position = Vector2( 19, 1335 )
+position = Vector2( 13, 1270 )
 
 [node name="Sprite" parent="Province20" index="0"]
 texture = ExtResource( 29 )
@@ -269,7 +286,7 @@ texture = ExtResource( 29 )
 polygon = PoolVector2Array( 35, 14, 29, 20, 23, 20, 22, 25, 28, 30, 27, 49, 30, 52, 42, 52, 47, 58, 67, 49, 71, 50, 72, 52, 79, 52, 89, 47, 95, 47, 103, 48, 105, 42, 100, 43, 80, 25, 81, 22, 78, 22, 75, 24, 60, 23, 47, 16, 42, 17, 36, 14 )
 
 [node name="Province21" parent="." instance=ExtResource( 1 )]
-position = Vector2( -61, 1405 )
+position = Vector2( -67, 1340 )
 
 [node name="Sprite" parent="Province21" index="0"]
 position = Vector2( 40, 28 )
@@ -279,7 +296,7 @@ texture = ExtResource( 30 )
 polygon = PoolVector2Array( 4, -12, 4, -4, 13, 4, 19, 19, 27, 29, 30, 38, 43, 45, 56, 57, 56, 83, 64, 83, 73, 74, 77, 64, 69, 34, 36, 1, 32, -13, 22, -25, 5, -27, 5, -23, 8, -19 )
 
 [node name="Province22" parent="." instance=ExtResource( 1 )]
-position = Vector2( 20, 1424 )
+position = Vector2( 14, 1359 )
 
 [node name="Sprite" parent="Province22" index="0"]
 texture = ExtResource( 32 )
@@ -288,7 +305,7 @@ texture = ExtResource( 32 )
 polygon = PoolVector2Array( 13.7655, -21.7507, 11.7655, -12.7507, 8.76553, -8.75067, 5.76553, 0.249329, -0.234467, 5.24933, 4.76553, 7.24933, 12.7655, 20.2493, 14.7655, 31.2493, 47.7655, 62.2493, 55.7655, 87.2493, 62.7655, 89.2493, 71.7655, 86.2493, 79.7655, 86.2493, 93.7655, 91.2493, 97.7655, 89.2493, 104.766, 89.2493, 108.766, 84.2493, 114.766, 84.2493, 124.766, 74.2493, 124.766, 60.2493, 116.766, 45.2493, 116.766, 35.2493, 109.766, 28.2493, 97.7655, 18.2493, 91.7655, 5.24933, 67.7655, -21.7507, 64.7655, -21.7507, 62.7655, -18.7507, 52.7655, -22.7507, 32.7655, -15.7507, 27.7655, -19.7507 )
 
 [node name="Province23" parent="." instance=ExtResource( 1 )]
-position = Vector2( 119, 1397 )
+position = Vector2( 113, 1332 )
 
 [node name="Sprite" parent="Province23" index="0"]
 position = Vector2( 46, 27 )
@@ -298,7 +315,7 @@ texture = ExtResource( 28 )
 polygon = PoolVector2Array( 13, -26, 16, 7, 18, 10, 16, 32, 19, 42, 27, 52, 29, 64, 25, 67, 29, 73, 45, 96, 55, 98, 57, 104, 64, 107, 78, 106, 63, 97, 59, 97, 56, 88, 60, 74, 54, 67, 59, 52, 54, 47, 61, 45, 64, 36, 75, 34, 79, 24, 67, -15, 67, -33, 73, -42, 72, -47, 55, -54, 49, -54, 41, -49, 33, -52, 31, -38, 21, -28 )
 
 [node name="Province24" parent="." instance=ExtResource( 1 )]
-position = Vector2( -12, 1507 )
+position = Vector2( -18, 1442 )
 
 [node name="Sprite" parent="Province24" index="0"]
 position = Vector2( 30.0135, 28.2551 )
@@ -312,13 +329,182 @@ position = Vector2( 567, 931 )
 texture = ExtResource( 34 )
 
 [node name="Province57" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1395.03, 1045.66 )
+position = Vector2( 1318, 1038 )
 
 [node name="Sprite" parent="Province57" index="0"]
 texture = ExtResource( 33 )
 
 [node name="CollisionPolygon2D" parent="Province57" index="1"]
 polygon = PoolVector2Array( 40.9716, 12.3447, 55.9716, 32.3447, 66.9716, 51.3447, 75.9716, 61.3447, 84.9716, 61.3447, 85.9716, 50.3447, 71.9716, 30.3447, 51.9716, 11.3447, 42.9716, 8.34473 )
+
+[node name="Province58" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1403, 1025 )
+
+[node name="Sprite" parent="Province58" index="0"]
+position = Vector2( 49.6481, 6.07263 )
+texture = ExtResource( 40 )
+
+[node name="CollisionPolygon2D" parent="Province58" index="1"]
+polygon = PoolVector2Array( 43.6481, -32.9274, 31.6481, -23.9274, 22.6481, -13.9274, 20.6481, -10.9274, 13.6481, -10.9274, 12.6481, -4.92737, 16.6481, 8.07263, -2.35193, 26.0726, -2.35193, 30.0726, 17.6481, 35.0726, 37.6481, 38.0726, 55.6481, 43.0726, 73.6481, 44.0726, 86.6481, 38.0726, 101.648, 12.0726, 95.6481, -13.9274, 90.6481, -13.9274, 47.6481, -32.9274 )
+
+[node name="Province59" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1393, 995 )
+
+[node name="Sprite" parent="Province59" index="0"]
+position = Vector2( -18.4, 10.6938 )
+texture = ExtResource( 37 )
+
+[node name="CollisionPolygon2D" parent="Province59" index="1"]
+polygon = PoolVector2Array( -28.9999, -20.9999, -30.9999, -5.99994, -37.9999, 25.0001, -36.9999, 27.0001, -6.99988, 41.0001, 2.00012, 35.0001, -2.99988, 21.0001, -1.99988, 15.0001, -5.99988, 10.0001, -12.9999, 2.00006, -18.9999, 6.10352e-05, -22.9999, -4.99994, -20.9999, -9.99994, -22.9999, -16.9999 )
+
+[node name="Province60" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1283, 976 )
+
+[node name="Sprite" parent="Province60" index="0"]
+position = Vector2( 16.3607, 25.525 )
+texture = ExtResource( 42 )
+
+[node name="CollisionPolygon2D" parent="Province60" index="1"]
+polygon = PoolVector2Array( -20.9999, 15.9999, -1.99988, 23.9999, 1.00012, 29.9999, -3.99988, 36.9999, 5.00012, 35.9999, 10.0001, 40.9999, 20.0001, 40.9999, 26.0001, 32.9999, 36.0001, 43.9999, 53.0001, 49.9999, 53.0001, 46.9999, 48.0001, 42.9999, 62.0001, 17.9999, 59.0001, 12.9999, 54.0001, 9.99988, 50.0001, 9.99988, 50.0001, 13.9999, 55.0001, 17.9999, 44.0001, 23.9999, -0.999878, 3.99988, -11.9999, 11.9999, -19.9999, -0.00012207, -30.9999, 3.99988, -22.9999, 8.99988 )
+
+[node name="Province61" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1303, 1056 )
+
+[node name="Sprite" parent="Province61" index="0"]
+position = Vector2( 10.6926, 28.47 )
+texture = ExtResource( 35 )
+
+[node name="CollisionPolygon2D" parent="Province61" index="1"]
+polygon = PoolVector2Array( 36.6926, -17.53, 25.6926, -4.53003, 20.6926, -4.53003, 12.6926, 6.46997, 1.69263, 9.46997, -16.3074, 17.47, -20.3074, 23.47, -21.3074, 63.47, -26.3074, 71.47, -25.3074, 75.47, -17.3074, 76.47, -3.30737, 71.47, 10.6926, 70.47, 36.6926, 61.47, 40.6926, 13.47, 48.6926, -15.53, 43.6926, -19.53 )
+
+[node name="Province62" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1324, 1145 )
+
+[node name="Sprite" parent="Province62" index="0"]
+position = Vector2( -3.59131, 35.0836 )
+texture = ExtResource( 38 )
+
+[node name="CollisionPolygon2D" parent="Province62" index="1"]
+polygon = PoolVector2Array( 16.4087, 1.08362, 21.4087, 13.0836, 26.4087, 18.0836, 28.4087, 30.0836, 27.4087, 35.0836, 32.4087, 40.0836, 45.4087, 65.0836, 19.4087, 67.0836, 1.40869, 64.0836, -6.59131, 54.0836, -24.5913, 58.0836, -52.5913, 60.0836, -51.5913, 43.0836, -45.5913, 19.0836, -39.5913, 19.0836, -38.5913, 13.0836, -34.5913, 9.08362, -21.5913, 5.08362, -8.59131, 9.08362, -12.5913, 20.0836, 1.40869, 31.0836, 10.4087, 22.0836, 10.4087, 13.0836 )
+
+[node name="Province63" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1349, 1135 )
+
+[node name="Sprite" parent="Province63" index="0"]
+texture = ExtResource( 39 )
+
+[node name="CollisionPolygon2D" parent="Province63" index="1"]
+polygon = PoolVector2Array( 13.7051, -6.42358, 12.7051, 29.5764, 23.7051, 32.5764, 29.7051, 44.5764, 41.7051, 58.5764, 48.7051, 83.5764, 52.7051, 83.5764, 63.7051, 76.5764, 77.7051, 57.5764, 102.705, 34.5764, 112.705, 19.5764, 113.705, -0.423584, 84.7051, -0.423584, 70.7051, -1.42358, 64.7051, -11.4236, 56.7051, -12.4236, 40.7051, -8.42358 )
+
+[node name="Province64" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1448, 1103 )
+
+[node name="Sprite" parent="Province64" index="0"]
+position = Vector2( 19.3536, -2.86182 )
+texture = ExtResource( 36 )
+
+[node name="CollisionPolygon2D" parent="Province64" index="1"]
+polygon = PoolVector2Array( 43.9999, -33, 42.9999, -18, 34.9999, -13, 18.9999, -2, -15.0001, 18, -16.0001, 25, -3.00012, 22, 26.9999, 3, 35.9999, 0, 57.9999, -17, 49.9999, -18 )
+
+[node name="Province65" parent="." instance=ExtResource( 1 )]
+position = Vector2( 481.126, 1323.4 )
+
+[node name="Sprite" parent="Province65" index="0"]
+position = Vector2( 42.8744, 24.5979 )
+texture = ExtResource( 41 )
+
+[node name="CollisionPolygon2D" parent="Province65" index="1"]
+polygon = PoolVector2Array( 29.8744, -1.4021, 15.8744, 10.5979, 11.8744, 23.5979, -6.12561, 39.5979, -9.12561, 47.5979, 23.8744, 49.5979, 36.8744, 49.5979, 49.8744, 45.5979, 61.8744, 50.5979, 72.8744, 50.5979, 90.8744, 57.5979, 84.8744, 40.5979, 94.8744, 0.5979, 93.8744, -8.4021, 61.8744, -5.4021, 42.8744, 2.5979 )
+
+[node name="Province66" parent="." instance=ExtResource( 1 )]
+position = Vector2( 550, 1243 )
+
+[node name="Sprite" parent="Province66" index="0"]
+position = Vector2( 23.6042, 37.1583 )
+texture = ExtResource( 44 )
+
+[node name="CollisionPolygon2D" parent="Province66" index="1"]
+polygon = PoolVector2Array( -2.39575, 7.15833, 33.6042, 25.1583, 38.6042, 15.1583, 46.6042, 14.1583, 57.6042, 19.1583, 53.6042, 68.1583, 25.6042, 66.1583, 10.6042, 59.1583, -2.39575, 61.1583, -10.3958, 43.1583 )
+
+[node name="Province67" parent="." instance=ExtResource( 1 )]
+position = Vector2( 471, 1286 )
+
+[node name="Sprite" parent="Province67" index="0"]
+position = Vector2( 33.5236, 1.42029 )
+texture = ExtResource( 43 )
+
+[node name="CollisionPolygon2D" parent="Province67" index="1"]
+polygon = PoolVector2Array( 9.52356, -20.5797, 8.52356, 23.4203, 61.5236, 23.4203, 47.5236, -3.57971, 52.5236, -9.57971, 50.5236, -18.5797 )
+
+[node name="Province68" parent="." instance=ExtResource( 1 )]
+position = Vector2( 460.56, 1282.84 )
+
+[node name="Sprite" parent="Province68" index="0"]
+position = Vector2( -58.5599, 31.1587 )
+texture = ExtResource( 45 )
+
+[node name="CollisionPolygon2D" parent="Province68" index="1"]
+polygon = PoolVector2Array( -108.56, -16.8413, -56.5599, -17.8413, -12.5599, -9.84131, 1.44009, 17.1587, 2.44009, 50.1587, -4.55991, 82.1587, -24.5599, 73.1587, -36.5599, 64.1587, -59.5599, 72.1587, -71.5599, 72.1587, -85.5599, 73.1587, -102.56, 60.1587, -115.56, 40.1587, -118.56, 26.1587, -112.56, 14.1587, -116.56, -1.84131 )
+
+[node name="Province69" parent="." instance=ExtResource( 1 )]
+position = Vector2( 391, 1384 )
+
+[node name="Sprite" parent="Province69" index="0"]
+position = Vector2( -31.6401, 25.0623 )
+texture = ExtResource( 46 )
+
+[node name="CollisionPolygon2D" parent="Province69" index="1"]
+polygon = PoolVector2Array( -68.6401, -16.9377, -47.6401, -17.9377, -38.6401, -10.9377, -9.64008, -7.93774, -10.6401, 7.06226, -2.64008, 30.0623, 0.359924, 51.0623, 5.35992, 52.0623, 6.35992, 62.0623, 0.359924, 66.0623, -32.6401, 70.0623, -57.6401, 64.0623, -54.6401, 9.06226, -67.6401, -7.93774 )
+
+[node name="Province70" parent="." instance=ExtResource( 1 )]
+position = Vector2( 398.643, 1399.38 )
+
+[node name="Sprite" parent="Province70" index="0"]
+position = Vector2( 67.3574, 37.6245 )
+texture = ExtResource( 50 )
+
+[node name="CollisionPolygon2D" parent="Province70" index="1"]
+polygon = PoolVector2Array( 10.3574, -22.3755, 8.35742, 0.624512, 17.3574, 21.6245, 18.3574, 40.6245, 24.3574, 41.6245, 26.3574, 50.6245, 35.3574, 55.6245, 42.3574, 69.6245, 55.3574, 70.6245, 66.3574, 83.6245, 69.3574, 95.6245, 76.3574, 99.6245, 110.357, 62.6245, 126.357, 33.6245, 125.357, 22.6245, 101.357, 30.6245, 92.3574, 24.6245, 91.3574, 17.6245, 76.3574, 3.62451, 75.3574, -4.37549, 66.3574, -14.3755, 65.3574, -22.3755 )
+
+[node name="Province71" parent="." instance=ExtResource( 1 )]
+position = Vector2( 517, 1408 )
+
+[node name="Sprite" parent="Province71" index="0"]
+position = Vector2( 54.4318, 18.188 )
+texture = ExtResource( 51 )
+
+[node name="CollisionPolygon2D" parent="Province71" index="1"]
+polygon = PoolVector2Array( 16.4318, -25.812, 14.4318, -17.812, 11.4318, -15.812, 7.43176, 2.18799, 11.4318, 9.18799, 18.4318, 15.188, 25.4318, 33.188, 23.4318, 35.188, 28.4318, 47.188, 21.4318, 61.188, 31.4318, 63.188, 61.4318, 66.188, 95.4318, 66.188, 101.432, 45.188, 99.4318, 7.18799, 100.432, -9.81201, 87.4318, -28.812, 78.4318, -28.812, 77.4318, -26.812, 44.4318, -20.812, 27.4318, -25.812 )
+
+[node name="Province72" parent="." instance=ExtResource( 1 )]
+position = Vector2( 600, 1356 )
+
+[node name="Sprite" parent="Province72" index="0"]
+position = Vector2( 43.6498, 4.47144 )
+texture = ExtResource( 48 )
+
+[node name="CollisionPolygon2D" parent="Province72" index="1"]
+polygon = PoolVector2Array( 6.64984, -24.5286, 5.64984, -37.5286, 8.64984, -40.5286, 15.6498, -39.5286, 49.6498, -37.5286, 80.6498, -38.5286, 81.6498, -35.5286, 75.6498, -18.5286, 82.6498, -6.52856, 82.6498, 13.4714, 79.6498, 32.4714, 72.6498, 41.4714, 57.6498, 49.4714, 49.6498, 47.4714, 35.6498, 49.4714, 31.6498, 46.4714, 31.6498, 38.4714, 19.6498, 19.4714, 14.6498, -8.52856 )
+
+[node name="Province73" parent="." instance=ExtResource( 1 )]
+position = Vector2( 691, 1304 )
+
+[node name="Sprite" parent="Province73" index="0"]
+position = Vector2( 32.7613, 34.3965 )
+texture = ExtResource( 47 )
+
+[node name="CollisionPolygon2D" parent="Province73" index="1"]
+polygon = PoolVector2Array( 18.7613, -35.6035, 18.7613, -1.60352, 20.7613, 18.3965, 7.76129, 58.3965, 13.7613, 71.3965, 10.7613, 107.396, 16.7613, 105.396, 22.7613, 97.3965, 21.7613, 90.3965, 33.7613, 80.3965, 34.7613, 70.3965, 30.7613, 64.3965, 56.7613, 40.3965, 56.7613, 18.3965, 49.7613, 4.39648, 50.7613, -5.60352, 42.7613, -12.6035, 40.7613, -24.6035, 26.7613, -36.6035 )
+
+[node name="Province74" parent="." instance=ExtResource( 1 )]
+position = Vector2( 650, 1288 )
+
+[node name="Sprite" parent="Province74" index="0"]
+position = Vector2( 18.5381, -6.60437 )
+texture = ExtResource( 49 )
+
+[node name="CollisionPolygon2D" parent="Province74" index="1"]
+polygon = PoolVector2Array( 2.53809, 5.39563, 3.53809, 20.3956, 7.53809, 23.3956, 14.5381, 23.3956, 22.5381, 17.3956, 35.5381, -24.6044, 30.5381, -38.6044, 22.5381, -27.6044, 15.5381, -21.6044, 7.53809, -18.6044, 8.53809, -5.60437, 5.53809, -0.60437, 2.53809, 9.39563 )
 
 [editable path="Province1"]
 [editable path="Province2"]
@@ -345,3 +531,20 @@ polygon = PoolVector2Array( 40.9716, 12.3447, 55.9716, 32.3447, 66.9716, 51.3447
 [editable path="Province23"]
 [editable path="Province24"]
 [editable path="Province57"]
+[editable path="Province58"]
+[editable path="Province59"]
+[editable path="Province60"]
+[editable path="Province61"]
+[editable path="Province62"]
+[editable path="Province63"]
+[editable path="Province64"]
+[editable path="Province65"]
+[editable path="Province66"]
+[editable path="Province67"]
+[editable path="Province68"]
+[editable path="Province69"]
+[editable path="Province70"]
+[editable path="Province71"]
+[editable path="Province72"]
+[editable path="Province73"]
+[editable path="Province74"]
