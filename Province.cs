@@ -14,6 +14,11 @@ public class Province : Node2D,IEnumerable<Province>
 	private LinkedList<Province> adjacency;
 	private bool visited;
 
+	/*SIGNAL CODE
+		[Signal]
+		public delegate void ProvinceClicked(Province pName);
+	*/
+
 
 	/// <summary>
 	/// Constructor for the Province defined type.
@@ -138,12 +143,16 @@ public class Province : Node2D,IEnumerable<Province>
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		/*SIGNAL CODE
+			this.Connect("ProvinceClicked", GetNode<Node2d>("Game"), handlerFunctionName);
+		*/
 		
 	}
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
 //  public override void _Process(float delta)
 //  {
-//      
+// 
+
 //  }
 }
