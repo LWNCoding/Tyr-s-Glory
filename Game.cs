@@ -11,7 +11,13 @@ public class Game : Node
 	private List<Player> PARR;
 	private Board top;
 
-	private int countScore(int PLID)
+	private int _on_Province_input_event(Province one)
+	{
+		return 0;
+	}
+
+
+    private int countScore(int PLID)
 	{
 		int[] reg = top.getRegionControl();
 		int addAmount = 3;
