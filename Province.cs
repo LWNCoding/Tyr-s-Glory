@@ -14,10 +14,9 @@ public class Province : Node2D,IEnumerable<Province>
 	private LinkedList<Province> adjacency;
 	private bool visited;
 
-	/*SIGNAL CODE
-		[Signal]
-		public delegate void ProvinceClicked(Province pName);
-	*/
+	/*SIGNAL CODE*/
+	[Signal]
+	public delegate void ProvinceClicked(Province pName);
 
 
 	/// <summary>
@@ -138,14 +137,20 @@ public class Province : Node2D,IEnumerable<Province>
 	public bool isNeighbor(Province otherProvince){
 		return this.adjacency.Contains(otherProvince);
 	}
-	
 
+	public override void _Input(InputEvent @event){
+		if(@event is InputEventMouseButton clicked){
+			if(clicked.Pressed && clicked.ButtonIndex == (int)ButtonList.Left){
+				EmitSignal("ProvinceClicked", this);
+			}
+		}
+	}
+		
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		/*SIGNAL CODE
-			this.Connect("ProvinceClicked", GetNode<Node2d>("Game"), handlerFunctionName);
-		*/
+		/*SIGNAL CODE*/
+		this.Connect("ProvinceClicked", GetNode<Node2d>("Game"), "_on_Province_input_event");
 		
 	}
 
