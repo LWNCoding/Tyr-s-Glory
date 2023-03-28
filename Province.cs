@@ -2,13 +2,13 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public class Province : Node2D,IEnumerable<Province>
+public class Province : Node2D
 {
 	private Player currentPlayer;
 	/*
 	Color provinceColor{get;set;}
 	*/
-	private List<Units> currentUnits;
+	private List<Unit> currentUnits;
 	private string label;
 	private string region;
 	private LinkedList<Province> adjacency;
@@ -50,15 +50,16 @@ public class Province : Node2D,IEnumerable<Province>
 			Province secondProvince = (Province)obj;
 			return this.label.ToLower().Equals(secondProvince.getLabel().ToLower());
 		}
+		return false;
 	}
 
 	public override int GetHashCode() {
-		return this.label.toLower().GetHashCode();
+		return this.label.ToLower().GetHashCode();
 	}
 
-	public override IEnumerator<Province> GetEnumerator() {
+	/*public override IEnumerator<Province> GetEnumerator() {
 		return (IEnumerator<Province>)this.adjacency.GetEnumerator();
-	}
+	}*/
 
 	/// <summary>
 	/// Accessor for the region member.
@@ -150,7 +151,7 @@ public class Province : Node2D,IEnumerable<Province>
 	public override void _Ready()
 	{
 		/*SIGNAL CODE*/
-		this.Connect("ProvinceClicked", GetNode<Node2d>("Game"), "_on_Province_input_event");
+		this.Connect("ProvinceClicked", GetNode<Node2D>("Game"), "_on_Province_input_event");
 		
 	}
 

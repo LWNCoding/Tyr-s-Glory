@@ -40,15 +40,28 @@ public abstract class Unit : Node2D{
 	/// Returns true if attack brings health below 0
 	/// Can be used like: if(!gotAttacked(example)) to simulate an attack while also checking if the Unit perished
 	/// </summary>
-	public bool gotAttacked(Unit attacker){
+	public bool gotAttacked(Unit attacker) {
 		float total = attacker.attack;
 		float variation = 0.0f;
-		
+
 		Random random = new Random();
 		int choice = random.Next(2);
-		
-		switch(attacker.GetType()){
-			case(Artillery):
+
+		if (attacker.GetType() == typeof(Artillery))
+		{
+            variation = (float) random.NextDouble() * 0.25f;
+        }
+        if (attacker.GetType() == typeof(Cavalry))
+        {
+            variation = (float) random.NextDouble() * 125f;
+        }
+        if (attacker.GetType() == typeof(Infantry))
+        {
+            variation = (float) random.NextDouble() * 0.05f;
+        }
+
+        /*switch(attacker.GetType()){
+			case( Artillery):
 				variation = random.NextDouble() * 0.25f;
 				break;
 			case(Cavalry):
@@ -57,9 +70,9 @@ public abstract class Unit : Node2D{
 			case(Infantry):
 				variation = random.NextDouble() * 0.05f;
 				break;
-		}
-		
-		if(choice){
+		}*/
+
+        if (choice == 1){
 			total += variation * total;
 		}
 		else{
