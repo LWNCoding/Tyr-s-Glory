@@ -151,7 +151,7 @@ public class Province : Node2D
 	public override void _Ready()
 	{
 		/*SIGNAL CODE*/
-		this.Connect("ProvinceClicked", GetNode<Node2D>("Game"), "_on_Province_input_event");
+		this.Connect("ProvinceClicked", this.GetParent(), "_on_Province_input_event");
 		
 	}
 

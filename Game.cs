@@ -5,17 +5,12 @@ using System.Collections.Generic;
 public class Game : Node
 {
 	private int currentPlayer = 0;
+	private int addAmount = 0;
 	private int playerNum;
 	private SignalAttribute SIGNA;
 
 	private List<Player> PARR;
 	private Board top;
-
-	private int _on_Province_input_event(Province one)
-	{
-		return 0;
-	}
-
 
     private int countScore(int PLID)
 	{
@@ -59,17 +54,18 @@ public class Game : Node
 		return 0;
 	}
 
-	private async void signalReceived() { 
-		await ToSignal(this, "AddOnClick");
-	}
+    public int _on_Province_input_event(Province one)
+    {
+        addAmount--;
+        return 0;
+    }
 
-	public int distributeMen(int PLID)
+    public int distributeMen(int PLID)
 	{
-		int addAmount = countScore(PLID);
+		addAmount = countScore(PLID);
 		while (addAmount > 0)
 		{
-			signalReceived();
-			addAmount--;
+			
 		}
 		return 0;
 	}
