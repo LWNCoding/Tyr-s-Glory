@@ -131,6 +131,14 @@ public class Province : Node2D
 		return true;
 	}
 
+	public void addUnit(Unit unitName){
+		this.currentUnits.Add(unitName);
+	}
+
+	public bool removeUnit(Unit unitName){
+		return this.currentUnits.Remove(unitName);
+	}
+
 	public bool hasNeighbor() {
 		return this.adjacency.Count > 0;
 	}
@@ -141,7 +149,8 @@ public class Province : Node2D
 
 	public override void _Input(InputEvent @event){
 		if(@event is InputEventMouseButton clicked){
-			if(clicked.Pressed && clicked.ButtonIndex == (int)ButtonList.Left){
+			bool clickedOnce = clicked.Pressed;
+			if(!clicked.Pressed && clickedOnce && clicked.ButtonIndex == (int)ButtonList.Left){
 				EmitSignal("ProvinceClicked", this);
 			}
 		}
