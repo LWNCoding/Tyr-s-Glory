@@ -65,8 +65,9 @@ public class Game : Node
 		addAmount = countScore(PLID);
 		while (addAmount > 0)
 		{
-			
-		}
+            
+        }
+		GD.Print("DONE");
 		return 0;
 	}
 
