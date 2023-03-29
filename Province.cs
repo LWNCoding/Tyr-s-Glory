@@ -13,6 +13,7 @@ public class Province : Node2D
 	private string region;
 	private LinkedList<Province> adjacency;
 	private bool visited;
+	private bool isInArea;
 
 	/*SIGNAL CODE*/
 	[Signal]
@@ -29,6 +30,7 @@ public class Province : Node2D
 		this.adjacency = new LinkedList<Province>();
 		this.visited = false;
 		this.currentPlayer = null;
+		this.isInArea = false;
 	}
 
 	/// <summary>
@@ -43,6 +45,7 @@ public class Province : Node2D
 		this.adjacency = new LinkedList<Province>();
 		this.visited = false;
 		this.currentPlayer = new Player(playerId);
+		this.isInArea = false;
 	}
 
 	public override bool Equals(object? obj) {
@@ -149,10 +152,19 @@ public class Province : Node2D
 
 	public override void _Input(InputEvent @event){
 		if(@event is InputEventMouseButton clicked){
-			if(clicked.Pressed && clicked.ButtonIndex == (int)ButtonList.Left){
+			if(isInArea && clicked.Pressed && clicked.ButtonIndex == (int)ButtonList.Left){
+				//GD.Print("Pressed!");
 				EmitSignal("ProvinceClicked", this);
 			}
 		}
+	}
+	
+	private void MouseIsInArea(){
+		this.isInArea = true;
+	}
+	
+	private void MouseNotInArea(){
+		this.isInArea = false;
 	}
 		
 	// Called when the node enters the scene tree for the first time.
@@ -160,6 +172,8 @@ public class Province : Node2D
 	{
 		/*SIGNAL CODE*/
 		this.Connect("ProvinceClicked", this.GetParent(), "_on_Province_input_event");
+		this.Connect("mouse_entered", this, "MouseIsInArea");
+		this.Connect("mouse_exited", this, "MouseNotInArea");
 		
 	}
 

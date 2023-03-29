@@ -12,7 +12,7 @@ public class Game : Node
 	private List<Player> PARR;
 	private Board top;
 
-    private int countScore(int PLID)
+	private int countScore(int PLID)
 	{
 		int[] reg = top.getRegionControl();
 		int addAmount = 3;
@@ -54,19 +54,19 @@ public class Game : Node
 		return 0;
 	}
 
-    public int _on_Province_input_event(Province one)
-    {
-        addAmount--;
-        return 0;
-    }
+	public int _on_Province_input_event(Province one)
+	{
+		addAmount--;
+		return 0;
+	}
 
-    public int distributeMen(int PLID)
+	public int distributeMen(int PLID)
 	{
 		addAmount = countScore(PLID);
 		while (addAmount > 0)
 		{
-            
-        }
+			
+		}
 		GD.Print("DONE");
 		return 0;
 	}
