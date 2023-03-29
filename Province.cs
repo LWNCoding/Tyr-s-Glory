@@ -28,6 +28,7 @@ public class Province : Node2D
 		this.label = "";
 		this.region = "";
 		this.adjacency = new LinkedList<Province>();
+		this.currentUnits = new List<Unit>();
 		this.visited = false;
 		this.currentPlayer = null;
 		this.isInArea = false;
@@ -43,6 +44,7 @@ public class Province : Node2D
 		this.label = label;
 		this.region = region;
 		this.adjacency = new LinkedList<Province>();
+		this.currentUnits = new List<Unit>();
 		this.visited = false;
 		this.currentPlayer = new Player(playerId);
 		this.isInArea = false;

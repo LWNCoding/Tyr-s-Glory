@@ -13,12 +13,8 @@
         "packagesPath": "C:\\Users\\Aaryan Paudyal\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Aaryan Paudyal\\Desktop\\Tyr-s-Glory\\.mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Users\\Aaryan Paudyal\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Aaryan Paudyal\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Users\\Aaryan Paudyal\\AppData\\Roaming\\NuGet\\config\\Godot.Offline.Config"
+          "C:\\Users\\Aaryan Paudyal\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net472"
@@ -45,11 +41,11 @@
             "Microsoft.NETFramework.ReferenceAssemblies": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[1.0.2, )",
+              "version": "[1.0.3, )",
               "autoReferenced": true
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
