@@ -161,6 +161,7 @@ position = Vector2( 274, 224 )
 texture = ExtResource( 24 )
 
 [node name="CollisionPolygon2D" parent="Province4" index="1"]
+position = Vector2( 0, -2 )
 polygon = PoolVector2Array( 194, 199, 211, 195, 237, 185, 261, 188, 302, 182, 307, 185, 312, 182, 333, 184, 340, 188, 353, 188, 353, 194, 339, 194, 334, 199, 329, 209, 313, 216, 320, 224, 314, 230, 295, 234, 287, 233, 273, 242, 256, 245, 240, 263, 231, 265, 220, 260, 218, 242, 231, 227, 227, 220, 216, 205, 198, 205 )
 
 [node name="Province5" parent="." instance=ExtResource( 1 )]
