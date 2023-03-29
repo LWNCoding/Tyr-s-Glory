@@ -48,6 +48,11 @@ public class Player : Node2D
 		return false;
 	}
 
+	public override int GetHashCode()
+	{
+		return 1;
+	}
+
 	/// <summary>
 	/// Accessor method for player id.
 	/// </summary>
@@ -89,7 +94,7 @@ public class Player : Node2D
 	}
 
 	public bool ownsProvince(Province otherProvince){
-		return this.provincesOwned.Contains(otherProvince);
+		return this.provincesOwned.Contains(otherProvince.getLabel());
 	}
 
 	// Called when the node enters the scene tree for the first time.

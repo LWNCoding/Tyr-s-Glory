@@ -2,17 +2,22 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public class Province : Node2D,IEnumerable<Province>
+public class Province : Node2D
 {
 	private Player currentPlayer;
 	/*
 	Color provinceColor{get;set;}
 	*/
-	private List<Units> currentUnits;
+	private List<Unit> currentUnits;
 	private string label;
 	private string region;
 	private LinkedList<Province> adjacency;
 	private bool visited;
+	private bool isInArea;
+
+	/*SIGNAL CODE*/
+	[Signal]
+	public delegate void ProvinceClicked(Province pName);
 
 
 	/// <summary>
@@ -25,6 +30,7 @@ public class Province : Node2D,IEnumerable<Province>
 		this.adjacency = new LinkedList<Province>();
 		this.visited = false;
 		this.currentPlayer = null;
+		this.isInArea = false;
 	}
 
 	/// <summary>
@@ -39,6 +45,7 @@ public class Province : Node2D,IEnumerable<Province>
 		this.adjacency = new LinkedList<Province>();
 		this.visited = false;
 		this.currentPlayer = new Player(playerId);
+		this.isInArea = false;
 	}
 
 	public override bool Equals(object? obj) {
@@ -46,15 +53,16 @@ public class Province : Node2D,IEnumerable<Province>
 			Province secondProvince = (Province)obj;
 			return this.label.ToLower().Equals(secondProvince.getLabel().ToLower());
 		}
+		return false;
 	}
 
 	public override int GetHashCode() {
-		return this.label.toLower().GetHashCode();
+		return this.label.ToLower().GetHashCode();
 	}
 
-	public override IEnumerator<Province> GetEnumerator() {
+	/*public override IEnumerator<Province> GetEnumerator() {
 		return (IEnumerator<Province>)this.adjacency.GetEnumerator();
-	}
+	}*/
 
 	/// <summary>
 	/// Accessor for the region member.
@@ -126,6 +134,14 @@ public class Province : Node2D,IEnumerable<Province>
 		return true;
 	}
 
+	public void addUnit(Unit unitName){
+		this.currentUnits.Add(unitName);
+	}
+
+	public bool removeUnit(Unit unitName){
+		return this.currentUnits.Remove(unitName);
+	}
+
 	public bool hasNeighbor() {
 		return this.adjacency.Count > 0;
 	}
@@ -133,17 +149,38 @@ public class Province : Node2D,IEnumerable<Province>
 	public bool isNeighbor(Province otherProvince){
 		return this.adjacency.Contains(otherProvince);
 	}
-	
 
+	public override void _Input(InputEvent @event){
+		if(@event is InputEventMouseButton clicked){
+			if(isInArea && clicked.Pressed && clicked.ButtonIndex == (int)ButtonList.Left){
+				//GD.Print("Pressed!");
+				EmitSignal("ProvinceClicked", this);
+			}
+		}
+	}
+	
+	private void MouseIsInArea(){
+		this.isInArea = true;
+	}
+	
+	private void MouseNotInArea(){
+		this.isInArea = false;
+	}
+		
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		/*SIGNAL CODE*/
+		this.Connect("ProvinceClicked", this.GetParent(), "_on_Province_input_event");
+		this.Connect("mouse_entered", this, "MouseIsInArea");
+		this.Connect("mouse_exited", this, "MouseNotInArea");
 		
 	}
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
 //  public override void _Process(float delta)
 //  {
-//      
+// 
+
 //  }
 }

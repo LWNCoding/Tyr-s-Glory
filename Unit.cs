@@ -49,6 +49,7 @@ public abstract class Unit : Node2D{
 
 		if (attacker.GetType() == typeof(Artillery))
 		{
+<<<<<<< HEAD
 			variation = (float) random.NextDouble() * 0.25f;
 		}
 		if (attacker.GetType() == typeof(Cavalry))
@@ -61,6 +62,20 @@ public abstract class Unit : Node2D{
 		}
 
 		/*switch(attacker.GetType()){
+=======
+            variation = (float) random.NextDouble() * 0.25f;
+        }
+        if (attacker.GetType() == typeof(Cavalry))
+        {
+            variation = (float) random.NextDouble() * 125f;
+        }
+        if (attacker.GetType() == typeof(Infantry))
+        {
+            variation = (float) random.NextDouble() * 0.05f;
+        }
+
+        /*switch(attacker.GetType()){
+>>>>>>> 27e6f95795c3ed12b689a0c99586aa4cf0b32086
 			case( Artillery):
 				variation = random.NextDouble() * 0.25f;
 				break;
@@ -72,7 +87,11 @@ public abstract class Unit : Node2D{
 				break;
 		}*/
 
+<<<<<<< HEAD
 		if (choice == 1){
+=======
+        if (choice == 1){
+>>>>>>> 27e6f95795c3ed12b689a0c99586aa4cf0b32086
 			total += variation * total;
 		}
 		else{

@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "OzYA65hy/rkzulZFD0Dc2WwUs2DE3N54hleCW5RCJhPPoyAvTSQ1rZnGeRUVI4UpLQ+HPYrUFYpmp8a6iP1FIw==",
+  "dgSpecHash": "liC3JcaWvjftzUhX8BY5tBEDdxundPjYf0o8y6woGQbbYf59bn4E7iudW9ql7LQub+sf4XY3/KCBzmvZomJJsw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\nicho\\OneDrive\\Documents\\Tyr-s-Glory\\Tyr's Glory.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Aaryan Paudyal\\Desktop\\Tyr-s-Glory\\Tyr's Glory.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Aaryan Paudyal\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.2\\microsoft.netframework.referenceassemblies.1.0.2.nupkg.sha512",
+    "C:\\Users\\Aaryan Paudyal\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net472\\1.0.2\\microsoft.netframework.referenceassemblies.net472.1.0.2.nupkg.sha512"
+  ],
   "logs": []
 }
