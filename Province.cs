@@ -149,8 +149,7 @@ public class Province : Node2D
 
 	public override void _Input(InputEvent @event){
 		if(@event is InputEventMouseButton clicked){
-			bool clickedOnce = clicked.Pressed;
-			if(!clicked.Pressed && clickedOnce && clicked.ButtonIndex == (int)ButtonList.Left){
+			if(clicked.Pressed && clicked.ButtonIndex == (int)ButtonList.Left){
 				EmitSignal("ProvinceClicked", this);
 			}
 		}
