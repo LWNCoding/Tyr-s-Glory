@@ -152,6 +152,15 @@ public class Province : Node2D
 		return this.adjacency.Contains(otherProvince);
 	}
 
+	public bool attack(Province other, Unit currentPlayerUnit, Unit otherPlayerUnit){
+		return otherPlayerUnit.gotAttacked(currentPlayerUnit);
+	}
+
+	public bool move(Province other, Unit currentUnit){
+		other.addUnit(currentUnit);
+		return this.removeUnit(currentUnit);
+	}
+
 	public override void _Input(InputEvent @event){
 		if(@event is InputEventMouseButton clicked){
 			if(isInArea && clicked.Pressed && clicked.ButtonIndex == (int)ButtonList.Left){
