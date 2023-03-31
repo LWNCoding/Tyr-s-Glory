@@ -172,10 +172,12 @@ public class Province : Area2D
 	
 	private void MouseIsInArea(){
 		this.isInArea = true;
+		Modulate = new Color(1,1,1,0.5f);
 	}
 	
 	private void MouseNotInArea(){
 		this.isInArea = false;
+		Modulate = new Color(1,1,1,1);
 	}
 		
 	// Called when the node enters the scene tree for the first time.

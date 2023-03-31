@@ -7,8 +7,8 @@ public class Game : Node
 	private int currentPlayer = 0;
 	private int addAmount = 0;
 	private int stage = 0;
-    int unclaimed = 75;
-    private int playerNum;
+	int unclaimed = 75;
+	private int playerNum;
 
 	private List<Player> PARR;
 	private Board top;
@@ -57,8 +57,8 @@ public class Game : Node
 			return -1;
 		}
 		GD.Print(currentPlayer);
-        GD.Print(unclaimed);
-        one.setPlayer(currentPlayer);
+		GD.Print(unclaimed);
+		one.setPlayer(currentPlayer);
 		one.addUnit(new Infantry());
 		unclaimed--;
 		if (unclaimed == 0)
@@ -66,27 +66,27 @@ public class Game : Node
 			stage += 1;
 			currentPlayer = 0;
 		}
-         else if (currentPlayer == playerNum)
+		 else if (currentPlayer == playerNum)
 		{
-            currentPlayer = 0;
+			currentPlayer = 0;
 		}
 		else
 		{
-            currentPlayer++; 
+			currentPlayer++; 
 		}
 		return 0;
 	}
 
 	public int _on_Province_input_event(Province one)
 	{
-        switch (stage)
+		switch (stage)
 		{
 			case 0:
-                addOne(one);
+				addOne(one);
 			break;
 			case 1:
 				addAmount--;
-            break;
+			break;
 		}
 		return 0;
 	}
@@ -115,8 +115,8 @@ public class Game : Node
 
 	public void setup(int PNUM)
 	{
-        playerNum = PNUM;
-        for (int i = 0; i < PNUM; i++)
+		playerNum = PNUM;
+		for (int i = 0; i < PNUM; i++)
 		{
 			PARR.Add(new Player(i));
 		}
@@ -141,16 +141,16 @@ public class Game : Node
 			Province s = (Province) GetNode<Province>("Province" + i);
 			top.addProv("" + i, s);
 		}
-    }
+	}
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-        PARR = new List<Player>();
-        top = new Board();
-        createBoard();
-        setup(6);
-    }
+		PARR = new List<Player>();
+		top = new Board();
+		createBoard();
+		setup(6);
+	}
 
 	public void main()
 	{
