@@ -62,9 +62,9 @@ public class Province : Area2D
 		return this.label.ToLower().GetHashCode();
 	}
 
-	/*public override IEnumerator<Province> GetEnumerator() {
-		return (IEnumerator<Province>)this.adjacency.GetEnumerator();
-	}*/
+	public LinkedList<Province>.Enumerator getAdjacencyEnumerator() {
+		return this.adjacency.GetEnumerator();
+	}
 
 	/// <summary>
 	/// Accessor for the region member.
@@ -157,9 +157,19 @@ public class Province : Area2D
 	}
 
 	public bool move(Province other, Unit currentUnit){
-		other.addUnit(currentUnit);
-		return this.removeUnit(currentUnit);
+		bool success = this.removeUnit(currentUnit);
+		if(success){
+			other.addUnit(currentUnit);
+		}
+		return success;
+		
 	}
+
+	/*public bool moveUnitTypes(Province other, int numArtillery, int numCavalry, int numInfantry){
+		for(int i = 0; i < numArtillery; i++){
+			for(int j = 0; j < )
+		}
+	}*/
 
 	public override void _Input(InputEvent @event){
 		if(@event is InputEventMouseButton clicked){
