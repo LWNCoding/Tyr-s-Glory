@@ -53,7 +53,7 @@ public abstract class Unit : Node2D{
 		}
 		if (attacker.GetType() == typeof(Cavalry))
 		{
-			variation = (float) random.NextDouble() * 125f;
+			variation = (float) random.NextDouble() * 0.125f;
 		}
 		if (attacker.GetType() == typeof(Infantry))
 		{
