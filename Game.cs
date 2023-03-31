@@ -6,8 +6,9 @@ public class Game : Node
 {
 	private int currentPlayer = 0;
 	private int addAmount = 0;
-	private int playerNum;
-	private SignalAttribute SIGNA;
+	private int stage = 0;
+    int unclaimed = 75;
+    private int playerNum;
 
 	private List<Player> PARR;
 	private Board top;
@@ -49,14 +50,44 @@ public class Game : Node
 		return addAmount;
 	}
 
-	public int addOne(int PLID)
+	public int addOne(Province one)
 	{
+		if (one.getPlayer() != null)
+		{
+			return -1;
+		}
+		GD.Print(currentPlayer);
+        GD.Print(unclaimed);
+        one.setPlayer(currentPlayer);
+		one.addUnit(new Infantry());
+		unclaimed--;
+		if (unclaimed == 0)
+		{
+			stage += 1;
+			currentPlayer = 0;
+		}
+         else if (currentPlayer == playerNum)
+		{
+            currentPlayer = 0;
+		}
+		else
+		{
+            currentPlayer++; 
+		}
 		return 0;
 	}
 
 	public int _on_Province_input_event(Province one)
 	{
-		addAmount--;
+        switch (stage)
+		{
+			case 0:
+                addOne(one);
+			break;
+			case 1:
+				addAmount--;
+            break;
+		}
 		return 0;
 	}
 
@@ -84,29 +115,13 @@ public class Game : Node
 
 	public void setup(int PNUM)
 	{
-		int unclaimed = 74;
-		int x = 0;
-		playerNum = PNUM;
-		for (int i = 0; i < PNUM; i++)
+        playerNum = PNUM;
+        for (int i = 0; i < PNUM; i++)
 		{
 			PARR.Add(new Player(i));
 		}
-
-		while (unclaimed > 0)
-		{
-			addOne(x);
-			if (x < PNUM - 1)
-			{
-				x++;
-			}
-			else
-			{
-				x = 0;
-			}
-			unclaimed--;
-		}
-
-		top.updateRegionControl();
+		
+		int prevPlayer = currentPlayer;
 	}
 
 	public void mainLoop()
@@ -119,16 +134,27 @@ public class Game : Node
 
 	}
 
+	public void createBoard()
+	{
+		for (int i = 1;i < 75;i++)
+		{
+			Province s = (Province) GetNode<Province>("Province" + i);
+			top.addProv("" + i, s);
+		}
+    }
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		
-	}
+        PARR = new List<Player>();
+        top = new Board();
+        createBoard();
+        setup(6);
+    }
 
 	public void main()
 	{
-		setup(6);
-		mainLoop();
+		//mainLoop();*/
 	}
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.

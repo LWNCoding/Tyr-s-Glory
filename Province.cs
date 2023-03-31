@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public class Province : Node2D
+public class Province : Area2D
 {
 	private Player currentPlayer;
 	/*
@@ -40,13 +40,13 @@ public class Province : Node2D
 	/// <param name="label">Parameter for the label of the province.</param>
 	/// <param name="region">Parameter for the region this province is grouped under.</param>
 	/// <param name="playerId">Parameter for the playerId of the player that currently owns this province.</param>
-	public Province(string label,string region,int playerId){
+	public Province(string label,string region){
 		this.label = label;
 		this.region = region;
 		this.adjacency = new LinkedList<Province>();
 		this.currentUnits = new List<Unit>();
 		this.visited = false;
-		this.currentPlayer = new Player(playerId);
+		this.currentPlayer = null;
 		this.isInArea = false;
 	}
 

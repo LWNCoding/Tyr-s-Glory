@@ -16,6 +16,11 @@ public class Board : Node2D
 		regionControl = new int[] { -1, -1, -1, -1, -1, -1, -1}; //NA=0,SA=1,EU=2,AF=3,AS=4,ME=5,OC=6
 	}
 
+	public void addProv(string lab, Province one)
+	{
+		provDict.Add(lab, one);	
+	}
+
 	public Dictionary<string, Province> getProvDict()
 	{
 		return provDict;
