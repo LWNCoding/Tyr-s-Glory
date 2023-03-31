@@ -1,29 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Aaryan Paudyal\\Desktop\\Tyr-s-Glory\\Tyr's Glory.csproj": {}
+    "C:\\USERS\\NICHO\\ONEDRIVE\\DOCUMENTS\\TYR-S-GLORY\\Tyr's Glory.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Aaryan Paudyal\\Desktop\\Tyr-s-Glory\\Tyr's Glory.csproj": {
+    "C:\\USERS\\NICHO\\ONEDRIVE\\DOCUMENTS\\TYR-S-GLORY\\Tyr's Glory.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Aaryan Paudyal\\Desktop\\Tyr-s-Glory\\Tyr's Glory.csproj",
+        "projectUniqueName": "C:\\USERS\\NICHO\\ONEDRIVE\\DOCUMENTS\\TYR-S-GLORY\\Tyr's Glory.csproj",
         "projectName": "Tyr's Glory",
-        "projectPath": "C:\\Users\\Aaryan Paudyal\\Desktop\\Tyr-s-Glory\\Tyr's Glory.csproj",
-        "packagesPath": "C:\\Users\\Aaryan Paudyal\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Aaryan Paudyal\\Desktop\\Tyr-s-Glory\\.mono\\temp\\obj\\",
+        "projectPath": "C:\\USERS\\NICHO\\ONEDRIVE\\DOCUMENTS\\TYR-S-GLORY\\Tyr's Glory.csproj",
+        "packagesPath": "C:\\Users\\nicho\\.nuget\\packages\\",
+        "outputPath": "C:\\USERS\\NICHO\\ONEDRIVE\\DOCUMENTS\\TYR-S-GLORY\\.mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Users\\Aaryan Paudyal\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Aaryan Paudyal\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Users\\Aaryan Paudyal\\AppData\\Roaming\\NuGet\\config\\Godot.Offline.Config"
+          "C:\\Users\\nicho\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net472"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -41,15 +44,7 @@
       "frameworks": {
         "net472": {
           "targetAlias": "net472",
-          "dependencies": {
-            "Microsoft.NETFramework.ReferenceAssemblies": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[1.0.2, )",
-              "autoReferenced": true
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
