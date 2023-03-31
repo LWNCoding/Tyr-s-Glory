@@ -152,7 +152,7 @@ public class Province : Area2D
 		return this.adjacency.Contains(otherProvince);
 	}
 
-	public bool attack(Province other, Unit currentPlayerUnit, Unit otherPlayerUnit){
+	public bool attack(Unit currentPlayerUnit, Unit otherPlayerUnit){
 		return otherPlayerUnit.gotAttacked(currentPlayerUnit);
 	}
 
