@@ -64,11 +64,12 @@ public class Game : Node
         unclaimed--;
         if (unclaimed == 0)
         {
+            GD.Print("END OF ADDING PHASE");
             stage += 1;
             currentPlayer = 0;
             startTurn();
         }
-		 else if (currentPlayer == playerNum)
+        else if (currentPlayer == playerNum)
         {
             currentPlayer = 0;
         }
@@ -79,6 +80,15 @@ public class Game : Node
         return 0;
     }
 
+    public override void _Input(InputEvent @event){
+        if (@event is InputEventKey keyEvent && keyEvent.Pressed){
+            if (OS.GetScancodeString(keyEvent.PhysicalScancode) == "Tab" && stage == 1)
+            {
+                endTurn();
+            }
+        }
+    }
+
     public int _on_Province_input_event(Province one)
     {
         switch (stage)
@@ -87,6 +97,7 @@ public class Game : Node
                 addOne(one);
                 break;
             case 1:
+                GD.Print("ADD  " + addAmount);
                 if (addAmount > 0 && one.getPlayer().getPlayerID() == currentPlayer)
                 {
                     addAmount--;
@@ -98,7 +109,11 @@ public class Game : Node
                 }
                 else if (selected != null)
                 {
-                    if (selected.getPlayer().getPlayerID() == currentPlayer && one.getPlayer().getPlayerID() == currentPlayer)
+                    if (one == selected)
+                    {
+
+                    }
+                    else if (selected.getPlayer().getPlayerID() == currentPlayer && one.getPlayer().getPlayerID() == currentPlayer)
                     {
                         if (one.isNeighbor(selected))
                         {
@@ -111,9 +126,7 @@ public class Game : Node
                     }
                     selected = null;
                 }
-                addAmount--;
                 break;
-			break;
         }
         return 0;
     }
@@ -154,6 +167,7 @@ public class Game : Node
 
     public void endTurn()
     {
+        GD.Print("eww");
         if (currentPlayer == playerNum)
         {
             currentPlayer = 0;
@@ -166,7 +180,7 @@ public class Game : Node
     }
     public void createBoard()
     {
-        for (int i = 1; i < 75; i++)
+        for (int i = 1; i < 74; i++)
         {
             Province s = (Province)GetNode<Province>("Province" + i);
             top.addProv("" + i, s);
