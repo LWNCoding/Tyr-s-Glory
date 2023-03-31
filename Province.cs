@@ -14,6 +14,7 @@ public class Province : Area2D
 	private LinkedList<Province> adjacency;
 	private bool visited;
 	private bool isInArea;
+	private bool isClicked = false;
 
 	/*SIGNAL CODE*/
 	[Signal]
@@ -175,6 +176,14 @@ public class Province : Area2D
 		if(@event is InputEventMouseButton clicked){
 			if(isInArea && clicked.Pressed && clicked.ButtonIndex == (int)ButtonList.Left){
 				//GD.Print("Pressed!");
+				if(!isClicked){
+					Modulate = new Color(1,1,1,0.5f);
+					isClicked = true;
+				}
+				else{
+					Modulate = new Color(1,1,1,1);
+					isClicked = false;
+				}
 				EmitSignal("ProvinceClicked", this);
 			}
 		}
@@ -187,7 +196,8 @@ public class Province : Area2D
 	
 	private void MouseNotInArea(){
 		this.isInArea = false;
-		Modulate = new Color(1,1,1,1);
+		if(!isClicked)
+			Modulate = new Color(1,1,1,1);
 	}
 		
 	// Called when the node enters the scene tree for the first time.
