@@ -166,11 +166,21 @@ public class Province : Area2D
 		
 	}
 
-	/*public bool moveUnitTypes(Province other, int numArtillery, int numCavalry, int numInfantry){
-		for(int i = 0; i < numArtillery; i++){
-			for(int j = 0; j < )
+	private void moveNumUnits(Province other, int numUnits, Type unitType){
+		for(int i = 0; i < numUnits; i++){
+			foreach(Unit unitName in this.currentUnits){
+				if(unitName.GetType() == unitType){
+					this.move(other,unitName);
+				}
+			}
 		}
-	}*/
+	}
+
+	public bool moveUnitTypes(Province other, int numArtillery, int numCavalry, int numInfantry){
+		this.moveNumUnits(other,numArtillery,typeof(Artillery));
+		this.moveNumUnits(other,numArtillery,typeof(Cavalry));
+		this.moveNumUnits(other,numInfantry,typeof(Infantry));
+	}
 
 	public override void _Input(InputEvent @event){
 		if(@event is InputEventMouseButton clicked){
