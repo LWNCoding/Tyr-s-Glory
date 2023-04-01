@@ -7,7 +7,7 @@ public class Game : Node
 	private int currentPlayer = 0;
 	private int addAmount = 0;
 	private int stage = 0;
-	int unclaimed = 75;
+	int unclaimed = 74;
 	private int playerNum;
 
 	private List<Player> PARR;
@@ -51,7 +51,6 @@ public class Game : Node
 		return addAmount;
 	}
 
-<<<<<<< HEAD
     public int addOne(Province one)
     {
         if (one.getPlayer() != null)
@@ -118,66 +117,12 @@ public class Game : Node
                     {
                         if (one.isNeighbor(selected))
                         {
-=======
-	public int addOne(Province one)
-	{
-		if (one.getPlayer() != null)
-		{
-			return -1;
-		}
-		GD.Print(currentPlayer);
-		GD.Print(unclaimed);
-		one.setPlayer(currentPlayer);
-		one.addUnit(new Infantry());
-		unclaimed--;
-		if (unclaimed == 0)
-		{
-			stage += 1;
-			currentPlayer = 0;
-			startTurn();
-		}
-		 else if (currentPlayer == playerNum)
-		{
-			currentPlayer = 0;
-		}
-		else
-		{
-			currentPlayer++;
-		}
-		return 0;
-	}
-
-	public int _on_Province_input_event(Province one)
-	{
-		switch (stage)
-		{
-			case 0:
-				addOne(one);
-				break;
-			case 1:
-				if (addAmount > 0 && one.getPlayer().getPlayerID() == currentPlayer)
-				{
-					addAmount--;
-					one.addUnit(new Infantry());
-				}
-				else if (selected == null && one.getPlayer().getPlayerID() == currentPlayer)
-				{
-					selected = one;
-				}
-				else if (selected != null)
-				{
-					if (selected.getPlayer().getPlayerID() == currentPlayer && one.getPlayer().getPlayerID() == currentPlayer)
-					{
-						if (one.isNeighbor(selected))
-						{
->>>>>>> 7be391edee13da66ee610bbebbaefb3032e6a87c
 
 						}
 					}
 					else if (selected.getPlayer().getPlayerID() == currentPlayer && one.getPlayer().getPlayerID() != currentPlayer)
 					{
 
-<<<<<<< HEAD
                     }
                     selected = null;
                 }
@@ -185,17 +130,6 @@ public class Game : Node
         }
         return 0;
     }
-=======
-					}
-					selected = null;
-				}
-				addAmount--;
-				break;
-			break;
-		}
-		return 0;
-	}
->>>>>>> 7be391edee13da66ee610bbebbaefb3032e6a87c
 
 	public int distributeMen(int PLID)
 	{
@@ -231,7 +165,6 @@ public class Game : Node
 		//move(currentPlayer);
 	}
 
-<<<<<<< HEAD
     public void endTurn()
     {
         GD.Print("eww");
@@ -253,28 +186,6 @@ public class Game : Node
             top.addProv("" + i, s);
         }
     }
-=======
-	public void endTurn()
-	{
-		if (currentPlayer == playerNum)
-		{
-			currentPlayer = 0;
-		}
-		else
-		{
-			currentPlayer++;
-		}
-		top.updateRegionControl();
-	}
-	public void createBoard()
-	{
-		for (int i = 1; i < 75; i++)
-		{
-			Province s = (Province)GetNode<Province>("Province" + i);
-			top.addProv("" + i, s);
-		}
-	}
->>>>>>> 7be391edee13da66ee610bbebbaefb3032e6a87c
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
