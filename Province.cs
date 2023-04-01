@@ -176,7 +176,7 @@ public class Province : Area2D
 		}
 	}
 
-	public bool moveUnitTypes(Province other, int numArtillery, int numCavalry, int numInfantry){
+	public void moveUnitTypes(Province other, int numArtillery, int numCavalry, int numInfantry){
 		this.moveNumUnits(other,numArtillery,typeof(Artillery));
 		this.moveNumUnits(other,numArtillery,typeof(Cavalry));
 		this.moveNumUnits(other,numInfantry,typeof(Infantry));
