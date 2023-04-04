@@ -184,6 +184,16 @@ public class Province : Area2D
 		this.moveNumUnits(other,numInfantry,typeof(Infantry));
 	}
 
+	public void moveUnitTypes(Province other, List<Unit> unitList){
+		foreach(Unit playerUnit in unitList){
+			foreach(Unit provinceUnit in this.currentUnits){
+				if(playerUnit == provinceUnit){
+					this.move(other, provinceUnit);
+				}
+			}
+		}
+	}
+
 	public override void _Input(InputEvent @event){
 		if(@event is InputEventMouseButton clicked){
 			if(isInArea && clicked.Pressed && clicked.ButtonIndex == (int)ButtonList.Left){
