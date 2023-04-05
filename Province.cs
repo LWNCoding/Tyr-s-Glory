@@ -69,6 +69,10 @@ public class Province : Area2D
 		return this.adjacency.GetEnumerator();
 	}
 
+	public Province getCurrentSelected(){
+		return this.singleProvince.getCurrentSelected();
+	}
+
 	/// <summary>
 	/// Accessor for the region member.
 	/// </summary>
