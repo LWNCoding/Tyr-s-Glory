@@ -198,6 +198,10 @@ public class Province : Area2D
 		}
 	}
 
+	public void resetSelected(){
+		this.singleProvince.setCurrentSelected(null);
+	}
+
 	public override void _Input(InputEvent @event){
 		if(@event is InputEventMouseButton clicked){
 			if(isInArea && clicked.Pressed && clicked.ButtonIndex == (int)ButtonList.Left){
