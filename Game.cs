@@ -77,7 +77,8 @@ public class Game : Node
 		{
 			currentPlayer++;
 		}
-		return 0;
+		one.resetSelected();
+        return 0;
 	}
 
 	public override void _Input(InputEvent @event){
@@ -167,7 +168,6 @@ public class Game : Node
 
 	public void endTurn()
 	{
-		GD.Print("eww");
 		if (currentPlayer == playerNum)
 		{
 			currentPlayer = 0;
