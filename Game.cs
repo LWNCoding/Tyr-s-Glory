@@ -78,7 +78,7 @@ public class Game : Node
 			currentPlayer++;
 		}
 		one.resetSelected();
-        return 0;
+		return 0;
 	}
 
 	public override void _Input(InputEvent @event){

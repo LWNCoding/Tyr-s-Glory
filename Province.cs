@@ -199,6 +199,9 @@ public class Province : Area2D
 	}
 
 	public void resetSelected(){
+		if(singleProvince.currentSelected != null){
+			this.singleProvince.currentSelected.Modulate = new Color(1,1,1,1);
+		}
 		this.singleProvince.setCurrentSelected(null);
 	}
 
