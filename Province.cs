@@ -91,10 +91,6 @@ public class Province : Area2D
 		return this.currentPlayer;
 	}
 
-	public void setColor(float r, float g, float b){
-		this.Modulate = new Color(r,g,b);
-	}
-
 	/// <summary>
 	/// Mutator for the player member.
 	/// </summary>

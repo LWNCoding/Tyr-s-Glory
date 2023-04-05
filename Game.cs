@@ -174,11 +174,11 @@ public class Game : Node
 			currentPlayer = 0;
 		}
 		else
-        {
-            currentPlayer++;
+		{
+			currentPlayer++;
 		}
 		top.getProvince("1").resetSelected();
-        top.updateRegionControl();
+		top.updateRegionControl();
 	}
 	public void createBoard()
 	{
