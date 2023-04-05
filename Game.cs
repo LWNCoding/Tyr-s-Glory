@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Security.Policy;
 
 public class Game : Node
 {
@@ -173,10 +174,11 @@ public class Game : Node
 			currentPlayer = 0;
 		}
 		else
-		{
-			currentPlayer++;
+        {
+            currentPlayer++;
 		}
-		top.updateRegionControl();
+		top.getProvince("1").resetSelected();
+        top.updateRegionControl();
 	}
 	public void createBoard()
 	{
