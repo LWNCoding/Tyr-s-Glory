@@ -17,6 +17,7 @@ public class Province : Area2D
 	//private bool isClicked = false;
 
 	private CurrentSelectedProvince singleProvince = CurrentSelectedProvince.getInstance();	
+	private Label provinceLabel;
 
 	/*SIGNAL CODE*/
 	[Signal]
@@ -145,6 +146,7 @@ public class Province : Area2D
 
 	public void addUnit(Unit unitName){
 		this.currentUnits.Add(unitName);
+		this.updateProvinceLabel();
 	}
 
 	public bool removeUnit(Unit unitName){
@@ -235,6 +237,15 @@ public class Province : Area2D
 			Modulate = new Color(1,1,1,1);
 		}
 	}
+
+	private void updateProvinceLabel(){
+		this.provinceLabel.Text = (int.Parse(this.provinceLabel.Text)+1).ToString();
+	}
+
+	public void setLabelColor(float r, float g, float b){
+		this.provinceLabel.AddColorOverride("font_color", new Color(r,g,b,1));
+	}
+
 		
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -244,7 +255,9 @@ public class Province : Area2D
 		this.Connect("ProvinceClicked", this, "ProvinceSelected");
 		this.Connect("mouse_entered", this, "MouseIsInArea");
 		this.Connect("mouse_exited", this, "MouseNotInArea");
-		
+		this.provinceLabel = GetNode<Sprite>("Sprite").GetNode<Label>("Label");
+		this.provinceLabel.Text = "0";
+		this.setLabelColor(1,1,1);
 	}
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
