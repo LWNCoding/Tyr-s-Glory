@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=2]
+[gd_scene load_steps=85 format=2]
 
 [ext_resource path="res://Province.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.cs" type="Script" id=2]
@@ -83,6 +83,7 @@
 [ext_resource path="res://Risk Assets/41.png" type="Texture" id=81]
 [ext_resource path="res://Risk Assets/40.png" type="Texture" id=82]
 [ext_resource path="res://Risk Assets/54.png" type="Texture" id=83]
+[ext_resource path="res://Interface/UnitList.cs" type="Script" id=84]
 
 [node name="Game" type="Node"]
 script = ExtResource( 4 )
@@ -867,6 +868,15 @@ texture = ExtResource( 34 )
 [node name="CollisionPolygon2D" parent="Province 75" index="1"]
 position = Vector2( -66, 17 )
 polygon = PoolVector2Array( 372, 335, 375, 343, 382, 348, 391, 357, 396, 362, 404, 377, 420, 392, 420, 399, 428, 417, 449, 417, 451, 415, 456, 415, 457, 417, 462, 417, 469, 408, 471, 403, 477, 397, 479, 386, 478, 379, 470, 377, 461, 369, 458, 368, 450, 367, 441, 367, 440, 369, 437, 365, 437, 362, 431, 358, 425, 359, 422, 357, 420, 354, 415, 354, 415, 347, 411, 340, 411, 335, 404, 330, 394, 329, 392, 333, 386, 333, 379, 332 )
+
+[node name="InterfaceControl" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="UnitSelection" type="ItemList" parent="InterfaceControl"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 84 )
 
 [editable path="Province1"]
 [editable path="Province2"]
