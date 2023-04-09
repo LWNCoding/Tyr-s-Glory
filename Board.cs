@@ -24,8 +24,8 @@ public class Board : Node2D
     public bool canAttack(Unit dude, Province one, Province two)
     {
         int rangee = dude.getRange();
-        IEnumerator<Province> iter = one.getAdjacencyEnumerator();
-
+        IEnumerator<Province> iter = (System.Collections.Generic.IEnumerator<Province>) one.getAdjacencyEnumerator(); //System.Collections.Generic.IEnumerator<Province>
+        
         do
         {
             if (iter.Current == two)
