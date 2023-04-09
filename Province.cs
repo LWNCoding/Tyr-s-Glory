@@ -66,12 +66,12 @@ public class Province : Area2D
 		return this.label.ToLower().GetHashCode();
 	}
 
-	public LinkedList<Province>.Enumerator getAdjacencyEnumerator() {
-		return this.adjacency.GetEnumerator();
+	public IEnumerable<Province> getAdjacencyEnumerator() {
+		return (IEnumerable<Province>)this.adjacency;
 	}
 
-	public List<Unit>.Enumerator getUnitEnumerator() {
-		return this.currentUnits.GetEnumerator();
+	public IEnumerable<Unit> getUnitEnumerator() {
+		return (IEnumerable<Unit>)this.currentUnits;
 	}
 
 	public Province getCurrentSelected(){
