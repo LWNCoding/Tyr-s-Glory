@@ -216,6 +216,7 @@ public class Province : Area2D
 		if(@event is InputEventMouseButton clicked){
 			if(isInArea && clicked.Pressed && clicked.ButtonIndex == (int)ButtonList.Left){
 				//GD.Print("Pressed!");
+				this.ProvinceSelected(this);
 				EmitSignal("ProvinceClicked", this);
 			}
 		}
@@ -263,7 +264,7 @@ public class Province : Area2D
 	{
 		/*SIGNAL CODE*/
 		this.Connect("ProvinceClicked", this.GetParent(), "_on_Province_input_event");
-		this.Connect("ProvinceClicked", this, "ProvinceSelected");
+		//this.Connect("ProvinceClicked", this, "ProvinceSelected");
 		this.Connect("mouse_entered", this, "MouseIsInArea");
 		this.Connect("mouse_exited", this, "MouseNotInArea");
 		this.provinceLabel = GetNode<Sprite>("Sprite").GetNode<Label>("Label");
