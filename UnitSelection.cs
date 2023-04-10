@@ -10,6 +10,8 @@ public class UnitSelection : PopupMenu
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
+        this.Show();
+        
         Connect("id_pressed", this, nameof(_OnUnitSelected), new Godot.Collections.Array() { false });
         Connect("id_pressed", this, nameof(_OnUnitDeselected), new Godot.Collections.Array() { false });
 
@@ -29,7 +31,6 @@ public class UnitSelection : PopupMenu
             currentUnits.Add(unit);
         }
 
-        this.Show();
     }
 
     private void _OnUnitSelected(int id, bool rightMouseButton)

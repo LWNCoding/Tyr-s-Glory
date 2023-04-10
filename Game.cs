@@ -113,9 +113,11 @@ public class Game : Node
 				else if (selected == null && one.getPlayer().getPlayerID() == currentPlayer)
 				{
 					selected = one;
-					movers = unitSelectionGUI(selected);
+					UnitSelection test = new UnitSelection();
+					test.unitSelectionGUI(selected);
+                    //movers = unitSelectionGUI(selected);
 
-				}
+                }
 				else if (selected != null)
 				{
 					if (one == selected)
