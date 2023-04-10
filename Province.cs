@@ -102,12 +102,13 @@ public class Province : Area2D
 	/// </summary>
 	/// <param name="newPlayerId">The player id for the new player that owns this current province.</param>
 	/// <exception cref="ArgumentException">Thrown when the newPlayerId parameter is less than 0.</exception>
-	public void setPlayer(int newPlayerId) {
+	public void setPlayer(int newPlayerId, float[] colorR) {
 		if (newPlayerId < 0) {
 			throw new ArgumentException("Construction aborted: The player id must be greater than or equal to 0");
 		}
-		this.currentPlayer = new Player(newPlayerId);
-	}
+		this.currentPlayer = new Player(newPlayerId, colorR);
+		setProvinceColor(colorR[0], colorR[1], colorR[2]);
+    }
 
 	/// <summary>
 	/// Accessor for the label member.

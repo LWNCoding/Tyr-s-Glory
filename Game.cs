@@ -8,7 +8,7 @@ public class Game : Node
 	private int currentPlayer = 0;
 	private int addAmount = 0;
 	private int stage = 0;
-	int unclaimed = 74;
+	int unclaimed = 75;
 	private int playerNum;
 
 	private List<Player> PARR;
@@ -65,7 +65,7 @@ public class Game : Node
 		}
 		GD.Print(currentPlayer);
 		GD.Print(unclaimed);
-		one.setPlayer(currentPlayer);
+		one.setPlayer(currentPlayer, PARR[currentPlayer].getColorArr());
 		one.addUnit(new Infantry());
 		unclaimed--;
 		if (unclaimed == 0)
@@ -75,13 +75,10 @@ public class Game : Node
 			currentPlayer = 0;
 			startTurn();
 		}
-		else if (currentPlayer == playerNum)
+		currentPlayer++;
+		if (currentPlayer == playerNum)
 		{
 			currentPlayer = 0;
-		}
-		else
-		{
-			currentPlayer++;
 		}
 		one.resetSelected();
 		return 0;
@@ -177,7 +174,37 @@ public class Game : Node
 		playerNum = PNUM;
 		for (int i = 0; i < PNUM; i++)
 		{
-			PARR.Add(new Player(i));
+            float[] colorR = { 0, 0, 0 };
+            switch (i)
+			{
+				case 0:
+					colorR[0] = 1;
+					break;
+                case 1:
+					colorR[1] = 1;
+                    break;
+                case 2:
+					colorR[2] = 1;
+                    break;
+                case 3:
+                    colorR[0] = 1;
+                    colorR[1] = 1;
+                    break;
+                case 4:
+                    colorR[0] = 1;
+                    colorR[2] = 1;
+                    break;
+                case 5:
+                    colorR[1] = 1;
+                    colorR[2] = 1;
+                    break;
+                case 6:
+					colorR[0] = 0.5f;
+                    colorR[1] = 1;
+                    colorR[2] = 0.5f;
+                    break;
+            }
+			PARR.Add(new Player(i, colorR));
 		}
 
 		int prevPlayer = currentPlayer;

@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.ComponentModel;
 
 public abstract class Unit : Node2D{
 	protected float health;
@@ -112,6 +113,22 @@ public abstract class Unit : Node2D{
 		return true;
 	}
 	
+	public String toString()
+	{
+		if (this.GetType() == typeof(Artillery))
+		{
+			return "Artillery";
+		}
+		else if (this.GetType() == typeof(Infantry))
+		{
+			return "Infantry";
+		}
+		else
+		{
+			return "Cavalry";
+		}
+	}
+
 	/// <summary>
 	/// Check if Unit can move
 	/// </summary>
