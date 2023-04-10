@@ -17,6 +17,7 @@ public class Province : Area2D
 	//private bool isClicked = false;
 
 	private CurrentSelectedProvince singleProvince = CurrentSelectedProvince.getInstance();	
+	private Color provinceColor = new Color(1,1,1,1);
 	private Label provinceLabel;
 
 	/*SIGNAL CODE*/
@@ -222,23 +223,23 @@ public class Province : Area2D
 	
 	private void MouseIsInArea(){
 		this.isInArea = true;
-		Modulate = new Color(1,1,1,0.5f);
+		Modulate = new Color(this.provinceColor, 0.5f);
 	}
 	
 	private void MouseNotInArea(){
 		this.isInArea = false;
 		if(this.singleProvince.currentSelected == null || this != this.singleProvince.currentSelected)
-			Modulate = new Color(1,1,1,1);
+			Modulate = new Color(this.provinceColor,1);
 	}
 
 	private void ProvinceSelected(Province pName){
 		if(this.singleProvince.currentSelected == null){
 			this.singleProvince.currentSelected = pName;
-			Modulate = new Color(1,1,1,0.5f);
+			Modulate = new Color(this.provinceColor,0.5f);
 		}
 		else if(this.singleProvince.currentSelected == pName){
 			this.singleProvince.currentSelected = null;
-			Modulate = new Color(1,1,1,1);
+			Modulate = new Color(this.provinceColor,1);
 		}
 	}
 
@@ -246,8 +247,10 @@ public class Province : Area2D
 		this.provinceLabel.Text = (int.Parse(this.provinceLabel.Text)+1).ToString();
 	}
 
-	public void setLabelColor(float r, float g, float b){
-		this.provinceLabel.AddColorOverride("font_color", new Color(r,g,b,1));
+	public void setProvinceColor(float r, float g, float b){
+		
+		this.provinceColor = new Color(r,g,b,1);
+		Modulate = this.provinceColor;
 	}
 
 		
@@ -261,7 +264,7 @@ public class Province : Area2D
 		this.Connect("mouse_exited", this, "MouseNotInArea");
 		this.provinceLabel = GetNode<Sprite>("Sprite").GetNode<Label>("Label");
 		this.provinceLabel.Text = "0";
-		this.setLabelColor(1,1,1);
+		this.provinceLabel.Modulate = new Color(0,0,0,1);
 	}
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.

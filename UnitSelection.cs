@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class UnitSelection : PopupMenu
 {
-	private List<Unit> selectedUnits = new List<Unit>();
+	//private List<Unit> selectedUnits = new List<Unit>();
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -12,7 +12,7 @@ public class UnitSelection : PopupMenu
 		
 	}
 	
-	public List<Unit> unitSelectionGUI(Province province, Node parent){
+	/*public List<Unit> unitSelectionGUI(Province province, Node parent){
 		Clear();
 		List<Unit> currentUnits = new List<Unit>();
 
@@ -60,5 +60,5 @@ public class UnitSelection : PopupMenu
 	private void _OnFinishedSelection(){
 		GetParent().Call("onUnitsSelected", selectedUnits);
 		Hide();
-	}
+	}*/
 }
