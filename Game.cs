@@ -15,6 +15,7 @@ public class Game : Node
 	private Board top;
 	private Province selected = null;
 	private List<Unit> selectedUnits = new List<Unit>();
+	private int unitChoice = 0;
 
 	public Unit[] unitSelectionGUI(Province one)
 	{
@@ -268,6 +269,12 @@ public class Game : Node
 			selectedUnits.Remove(deselectedUnit);
 		}
 	}
+	
+	private void _on_DistributeSelection_id_pressed(int id)
+	{
+		this.unitChoice = id;
+			
+	}
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -289,3 +296,6 @@ public class Game : Node
 	//      
 	//  }
 }
+
+
+

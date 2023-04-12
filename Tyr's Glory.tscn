@@ -1319,7 +1319,6 @@ position = Vector2( -66, 17 )
 polygon = PoolVector2Array( 372, 335, 375, 343, 382, 348, 391, 357, 396, 362, 404, 377, 420, 392, 420, 399, 428, 417, 449, 417, 451, 415, 456, 415, 457, 417, 462, 417, 469, 408, 471, 403, 477, 397, 479, 386, 478, 379, 470, 377, 461, 369, 458, 368, 450, 367, 441, 367, 440, 369, 437, 365, 437, 362, 431, 358, 425, 359, 422, 357, 420, 354, 415, 354, 415, 347, 411, 340, 411, 335, 404, 330, 394, 329, 392, 333, 386, 333, 379, 332 )
 
 [node name="UnitSelection" type="PopupMenu" parent="."]
-visible = true
 margin_left = 480.0
 margin_top = 201.0
 margin_right = 767.0
@@ -1334,7 +1333,15 @@ margin_right = 180.0
 margin_bottom = 181.0
 text = "Finished"
 
+[node name="DistributeSelection" type="PopupMenu" parent="."]
+margin_left = 602.0
+margin_top = 264.0
+margin_right = 673.0
+margin_bottom = 342.0
+items = [ "Infantry", null, 0, false, false, 0, 0, null, "", false, "Cavalry", null, 0, false, false, 1, 0, null, "", false, "Artillery", null, 0, false, false, 2, 0, null, "", false ]
+
 [connection signal="pressed" from="UnitSelection/Button" to="UnitSelection" method="_on_Button_pressed"]
+[connection signal="id_pressed" from="DistributeSelection" to="." method="_on_DistributeSelection_id_pressed"]
 
 [editable path="Province1"]
 [editable path="Province2"]
