@@ -13,17 +13,11 @@ public class UnitSelection : PopupMenu
 		
 		this.Connect("id_pressed", this.GetParent(), "_OnUnitSelected");
 		this.Connect("id_pressed", this.GetParent(), "_OnUnitDeselected");
-
-		Button finishedButton = new Button();
-		finishedButton.Text = "Finished Selection";
-		AddChild(finishedButton);
-		finishedButton.Connect("pressed", this, nameof(_OnFinishedSelection));
 	}
 
-	private void _OnFinishedSelection()
+	private void _on_Button_pressed()
 	{
+	// Replace with function body.
 		this.Hide();
-		//Send signal to game with selectedUnits
-
 	}
 }
