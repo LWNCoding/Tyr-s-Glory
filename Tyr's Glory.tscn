@@ -1324,6 +1324,7 @@ margin_top = 201.0
 margin_right = 767.0
 margin_bottom = 394.0
 hide_on_item_selection = false
+hide_on_checkable_item_selection = false
 script = ExtResource( 84 )
 
 [node name="Button" type="Button" parent="UnitSelection"]
@@ -1341,7 +1342,6 @@ margin_bottom = 342.0
 items = [ "Infantry", null, 0, false, false, 0, 0, null, "", false, "Cavalry", null, 0, false, false, 1, 0, null, "", false, "Artillery", null, 0, false, false, 2, 0, null, "", false ]
 
 [node name="PopupMenu" type="PopupMenu" parent="."]
-visible = true
 margin_left = 267.0
 margin_top = 71.0
 margin_right = 1067.0

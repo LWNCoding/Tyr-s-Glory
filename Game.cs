@@ -248,25 +248,27 @@ public class Game : Node
 		p.Clear();
 		foreach (Unit unit in province.getUnitEnumerator())
 		{
-			p.AddItem(unit.ToString());
+			p.AddCheckItem(unit.ToString());
 		}
 	}
 
 	public void _OnUnitSelected(int id)
 	{
-		Unit selectedUnit = this.selected.getUnit(id);
-		if (selectedUnit != null && !this.selectedUnits.Contains(selectedUnit))
-		{
-			selectedUnits.Add(selectedUnit);
+		PopupMenu p = GetNode<PopupMenu>("UnitSelection");
+		if(!p.IsItemChecked(id)){
+			Unit selectedUnit = this.selected.getUnit(id);
+			if (selectedUnit != null && !this.selectedUnits.Contains(selectedUnit))
+			{
+				selectedUnits.Add(selectedUnit);
+				p.SetItemChecked(id,true);
+			}
 		}
-	}
-
-	public void _OnUnitDeselected(int id)
-	{
-		Unit deselectedUnit = this.selected.getUnit(id);
-		if (deselectedUnit != null && this.selectedUnits.Contains(deselectedUnit))
-		{
-			selectedUnits.Remove(deselectedUnit);
+		else{
+			Unit deselectedUnit = this.selected.getUnit(id);
+			if(deselectedUnit != null && this.selectedUnits.Contains(deselectedUnit)){
+				selectedUnits.Remove(deselectedUnit);
+				p.SetItemChecked(id,false);
+			}
 		}
 	}
 	
