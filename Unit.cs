@@ -113,7 +113,7 @@ public abstract class Unit : Node2D{
 		return true;
 	}
 	
-	public String toString()
+	public override String ToString()
 	{
 		if (this.GetType() == typeof(Artillery))
 		{

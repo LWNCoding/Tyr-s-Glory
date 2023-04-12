@@ -108,7 +108,7 @@ public class Province : Area2D
 		}
 		this.currentPlayer = new Player(newPlayerId, colorR);
 		setProvinceColor(colorR[0], colorR[1], colorR[2]);
-    }
+	}
 
 	/// <summary>
 	/// Accessor for the label member.
@@ -159,6 +159,13 @@ public class Province : Area2D
 		return this.currentUnits.Remove(unitName);
 	}
 
+	public Unit getUnit(int index){
+		if(index >-1 && index < this.currentUnits.Count){
+			return this.currentUnits[index];
+		}
+		return null;
+	}
+
 	public bool hasNeighbor() {
 		return this.adjacency.Count > 0;
 	}
@@ -175,6 +182,8 @@ public class Province : Area2D
 		bool success = this.removeUnit(currentUnit);
 		if(success){
 			other.addUnit(currentUnit);
+			other.updateProvinceLabel();
+			this.updateProvinceLabel();
 		}
 		return success;
 		

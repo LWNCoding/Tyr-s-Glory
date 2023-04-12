@@ -10,19 +10,19 @@ public class Player : Node2D
 	private int playerId;
 	private List<string> provincesOwned;
 	private float[] colorArr;
-    /*
+	/*
 	private List<Units> unitsOwned;
 	*/
 
-    /// <summary>
-    /// Constructor for the Player user defined type.
-    /// </summary>
-    public Player()
+	/// <summary>
+	/// Constructor for the Player user defined type.
+	/// </summary>
+	public Player()
 	{
 		this.playerId = -1;
 		this.provincesOwned = new List<string>();
 		colorArr = new float[3];
-    }
+	}
 
 	/// <summary>
 	/// Constructor for the Player user defined type.
@@ -37,17 +37,17 @@ public class Player : Node2D
 		this.provincesOwned = new List<string>();
 		colorArr = colorARR;
 	}
-    public float[] getColorArr()
-    {
-        return colorArr;
-    }
+	public float[] getColorArr()
+	{
+		return colorArr;
+	}
 
-    /// <summary>
-    /// Checks whether two players are equal to each other by comparing their unique id. Overrides the Equals method from the Object class.
-    /// </summary>
-    /// <param name="obj">The object to compare to.</param>
-    /// <returns>True if the object is an instance of Player and the unique id matches. False otherwise.</returns>
-    public override bool Equals(object? obj){
+	/// <summary>
+	/// Checks whether two players are equal to each other by comparing their unique id. Overrides the Equals method from the Object class.
+	/// </summary>
+	/// <param name="obj">The object to compare to.</param>
+	/// <returns>True if the object is an instance of Player and the unique id matches. False otherwise.</returns>
+	public override bool Equals(object? obj){
 		if(obj != null && obj is Player){
 			Player secondPlayer = (Player)obj;
 			return this.playerId == secondPlayer.playerId;

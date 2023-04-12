@@ -14,6 +14,7 @@ public class Game : Node
 	private List<Player> PARR;
 	private Board top;
 	private Province selected = null;
+	private List<Unit> selectedUnits = new List<Unit>();
 
 	public Unit[] unitSelectionGUI(Province one)
 	{
@@ -113,11 +114,12 @@ public class Game : Node
 				else if (selected == null && one.getPlayer().getPlayerID() == currentPlayer)
 				{
 					selected = one;
-					UnitSelection test = new UnitSelection();
-					test.unitSelectionGUI(selected);
-                    //movers = unitSelectionGUI(selected);
+					PopupMenu p = GetNode<PopupMenu>("UnitSelection");
+					this.unitSelectionGUI(p,selected);
+					p.Show();
+					//movers = unitSelectionGUI(selected);
 
-                }
+				}
 				else if (selected != null)
 				{
 					if (one == selected)
@@ -176,36 +178,36 @@ public class Game : Node
 		playerNum = PNUM;
 		for (int i = 0; i < PNUM; i++)
 		{
-            float[] colorR = { 0, 0, 0 };
-            switch (i)
+			float[] colorR = { 0, 0, 0 };
+			switch (i)
 			{
 				case 0:
 					colorR[0] = 1;
 					break;
-                case 1:
+				case 1:
 					colorR[1] = 1;
-                    break;
-                case 2:
+					break;
+				case 2:
 					colorR[2] = 1;
-                    break;
-                case 3:
-                    colorR[0] = 1;
-                    colorR[1] = 1;
-                    break;
-                case 4:
-                    colorR[0] = 1;
-                    colorR[2] = 1;
-                    break;
-                case 5:
-                    colorR[1] = 1;
-                    colorR[2] = 1;
-                    break;
-                case 6:
+					break;
+				case 3:
+					colorR[0] = 1;
+					colorR[1] = 1;
+					break;
+				case 4:
+					colorR[0] = 1;
+					colorR[2] = 1;
+					break;
+				case 5:
+					colorR[1] = 1;
+					colorR[2] = 1;
+					break;
+				case 6:
 					colorR[0] = 0.5f;
-                    colorR[1] = 1;
-                    colorR[2] = 0.5f;
-                    break;
-            }
+					colorR[1] = 1;
+					colorR[2] = 0.5f;
+					break;
+			}
 			PARR.Add(new Player(i, colorR));
 		}
 
@@ -237,6 +239,34 @@ public class Game : Node
 		{
 			Province s = (Province)GetNode<Province>("Province" + i);
 			top.addProv("" + i, s);
+		}
+	}
+
+	public  void unitSelectionGUI(PopupMenu p, Province province)
+	{	
+		p.Clear();
+		foreach (Unit unit in province.getUnitEnumerator())
+		{
+			p.AddItem(unit.ToString());
+		}
+	}
+
+	public void _OnUnitSelected(int id)
+	{
+		Unit selectedUnit = this.selected.getUnit(id);
+		if (selectedUnit != null && !this.selectedUnits.Contains(selectedUnit))
+		{
+			selectedUnits.Add(selectedUnit);
+		}
+		GD.Print(this.selectedUnits.Count);
+	}
+
+	public void _OnUnitDeselected(int id)
+	{
+		Unit deselectedUnit = this.selected.getUnit(id);
+		if (deselectedUnit != null && this.selectedUnits.Contains(deselectedUnit))
+		{
+			selectedUnits.Remove(deselectedUnit);
 		}
 	}
 
