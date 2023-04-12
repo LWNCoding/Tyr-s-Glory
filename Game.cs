@@ -242,7 +242,7 @@ public class Game : Node
 		}
 	}
 
-	public  void unitSelectionGUI(PopupMenu p, Province province)
+	public void unitSelectionGUI(PopupMenu p, Province province)
 	{	
 		p.Clear();
 		foreach (Unit unit in province.getUnitEnumerator())
@@ -258,7 +258,6 @@ public class Game : Node
 		{
 			selectedUnits.Add(selectedUnit);
 		}
-		GD.Print(this.selectedUnits.Count);
 	}
 
 	public void _OnUnitDeselected(int id)
