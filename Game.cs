@@ -17,11 +17,6 @@ public class Game : Node
 	private List<Unit> selectedUnits = new List<Unit>();
 	private int unitChoice = 0;
 
-	public Unit[] unitSelectionGUI(Province one)
-	{
-		return new Unit[3];
-	}
-
 	private int countScore(int PLID)
 	{
 		int[] reg = top.getRegionControl();
@@ -65,8 +60,6 @@ public class Game : Node
 		{
 			return -1;
 		}
-		GD.Print(currentPlayer);
-		GD.Print(unclaimed);
 		one.setPlayer(currentPlayer, PARR[currentPlayer].getColorArr());
 		one.addUnit(new Infantry());
 		unclaimed--;
@@ -92,21 +85,19 @@ public class Game : Node
 		{
 			if (OS.GetScancodeString(keyEvent.PhysicalScancode) == "Tab" && stage == 1)
 			{
-				endTurn();
+                endTurn();
 			}
 		}
 	}
 
 	public int _on_Province_input_event(Province one)
 	{
-		Unit[] movers = null;
 		switch (stage)
 		{
 			case 0:
 				addOne(one);
 				break;
 			case 1:
-				GD.Print("ADD  " + addAmount);
 				if (addAmount > 0 && one.getPlayer().getPlayerID() == currentPlayer)
 				{
 					addAmount--;
@@ -118,39 +109,42 @@ public class Game : Node
 					PopupMenu p = GetNode<PopupMenu>("UnitSelection");
 					this.unitSelectionGUI(p,selected);
 					p.Show();
-					//movers = unitSelectionGUI(selected);
-
 				}
 				else if (selected != null)
 				{
 					if (one == selected)
 					{
-
-					}
+                        selected = null;
+                    }
 					else if (selected.getPlayer().getPlayerID() == currentPlayer && one.getPlayer().getPlayerID() == currentPlayer)
 					{
-						if (one.isNeighbor(selected))
+                        GD.Print(selected.hasNeighbors());
+                        if (one.isNeighbor(selected))
 						{
-							foreach (Unit i in movers)
+                            foreach (Unit i in selectedUnits)
 							{
-								if (i.moved())
+                                if (i.moved())
 								{
-									selected.move(one, i);
-								}
+                                    selected.move(one, i);
+                                }
 							}
-						}
+							selectedUnits.Clear();
+                            selected = null;
+                        }
 					}
 					else if (selected.getPlayer().getPlayerID() == currentPlayer && one.getPlayer().getPlayerID() != currentPlayer)
 					{
-						foreach (Unit i in movers)
+						foreach (Unit i in selectedUnits)
 						{
 							if (top.canAttack(i, selected, one))
 							{
-
-							}
-						}
-					}
-					selected = null;
+                                GD.Print("Just checking");
+                            }
+                            selected = null;
+                        }
+                        selectedUnits.Clear();
+                    }
+					
 				}
 				break;
 		}
@@ -231,16 +225,20 @@ public class Game : Node
 		{
 			currentPlayer++;
 		}
-		top.getProvince("1").resetSelected();
+        selected = null;
+        selectedUnits.Clear();
+        top.getProvince(1).resetSelected();
 		top.updateRegionControl();
 	}
 	public void createBoard()
 	{
-		for (int i = 1; i < 74; i++)
+        for (int i = 1; i <= 75; i++)
 		{
 			Province s = (Province)GetNode<Province>("Province" + i);
-			top.addProv("" + i, s);
+            s.setnewLab(i);
+            top.addProv(i, s);
 		}
+		top.connect();
 	}
 
 	public void unitSelectionGUI(PopupMenu p, Province province)
@@ -248,29 +246,34 @@ public class Game : Node
 		p.Clear();
 		foreach (Unit unit in province.getUnitEnumerator())
 		{
-			p.AddItem(unit.ToString());
+			p.AddCheckItem(unit.ToString());
 		}
 	}
 
 	public void _OnUnitSelected(int id)
 	{
-		Unit selectedUnit = this.selected.getUnit(id);
-		if (selectedUnit != null && !this.selectedUnits.Contains(selectedUnit))
-		{
-			selectedUnits.Add(selectedUnit);
-		}
-	}
+        PopupMenu p = GetNode<PopupMenu>("UnitSelection");
+        if (!p.IsItemChecked(id))
+        {
+            Unit selectedUnit = this.selected.getUnit(id);
+            if (selectedUnit != null && !this.selectedUnits.Contains(selectedUnit))
+            {
+                selectedUnits.Add(selectedUnit);
+                p.SetItemChecked(id, true);
+            }
+        }
+        else
+        {
+            Unit deselectedUnit = this.selected.getUnit(id);
+            if (deselectedUnit != null && this.selectedUnits.Contains(deselectedUnit))
+            {
+                selectedUnits.Remove(deselectedUnit);
+                p.SetItemChecked(id, false);
+            }
+        }
+    }
 
-	public void _OnUnitDeselected(int id)
-	{
-		Unit deselectedUnit = this.selected.getUnit(id);
-		if (deselectedUnit != null && this.selectedUnits.Contains(deselectedUnit))
-		{
-			selectedUnits.Remove(deselectedUnit);
-		}
-	}
-	
-	private void _on_DistributeSelection_id_pressed(int id)
+    private void _on_DistributeSelection_id_pressed(int id)
 	{
 		this.unitChoice = id;
 			
@@ -282,7 +285,7 @@ public class Game : Node
 		PARR = new List<Player>();
 		top = new Board();
 		createBoard();
-		setup(6);
+		setup(2);
 	}
 
 	public void main()

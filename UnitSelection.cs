@@ -12,7 +12,6 @@ public class UnitSelection : PopupMenu
 		//this.Show();
 		
 		this.Connect("id_pressed", this.GetParent(), "_OnUnitSelected");
-		this.Connect("id_pressed", this.GetParent(), "_OnUnitDeselected");
 	}
 
 	private void _on_Button_pressed()

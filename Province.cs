@@ -10,6 +10,7 @@ public class Province : Area2D
 	*/
 	private List<Unit> currentUnits;
 	private string label;
+	private int newLab;
 	private string region;
 	private LinkedList<Province> adjacency;
 	private bool visited;
@@ -24,6 +25,15 @@ public class Province : Area2D
 	[Signal]
 	public delegate void ProvinceClicked(Province pName);
 
+	public void setnewLab(int num)
+	{
+		newLab = num;
+	}
+
+	public int getnewLab()
+	{
+		return newLab;
+	}
 
 	/// <summary>
 	/// Constructor for the Province defined type.
@@ -58,7 +68,7 @@ public class Province : Area2D
 	public override bool Equals(object? obj) {
 		if (obj != null && obj is Province) {
 			Province secondProvince = (Province)obj;
-			return this.label.ToLower().Equals(secondProvince.getLabel().ToLower());
+			return this.newLab == secondProvince.newLab;
 		}
 		return false;
 	}
@@ -75,7 +85,13 @@ public class Province : Area2D
 		return (IEnumerable<Unit>)this.currentUnits;
 	}
 
-	public Province getCurrentSelected(){
+	public int unitNum()
+	{
+		return this.currentUnits.Count;
+	}
+
+
+    public Province getCurrentSelected(){
 		return this.singleProvince.getCurrentSelected();
 	}
 
@@ -134,13 +150,18 @@ public class Province : Area2D
 		this.visited = hasVisited;
 	}
 
+	public int unitNums()
+	{
+		return currentUnits.Count;
+	}
+
 	public bool addEdge(Province neighbor) {
-		//cannot have loops and multiple edges i.e. a simple graph
-		if (!this.Equals(neighbor) && !this.adjacency.Contains(neighbor)) { 
+        //cannot have loops and multiple edges i.e. a simple graph
+        if ((this.getnewLab().Equals(neighbor.getnewLab()) == false) && (this.adjacency.Contains(neighbor) == false)) {
 			this.adjacency.AddFirst(neighbor);
 			return true;
 		}
-		return false;
+        return false;
 	}
 
 	public bool removeEdge(Province neighbor) { 
@@ -170,7 +191,12 @@ public class Province : Area2D
 		return this.adjacency.Count > 0;
 	}
 
-	public bool isNeighbor(Province otherProvince){
+    public int hasNeighbors()
+    {
+        return this.adjacency.Count;
+    }
+
+    public bool isNeighbor(Province otherProvince){
 		return this.adjacency.Contains(otherProvince);
 	}
 
@@ -255,7 +281,7 @@ public class Province : Area2D
 	}
 
 	private void updateProvinceLabel(){
-		this.provinceLabel.Text = (int.Parse(this.provinceLabel.Text)+1).ToString();
+		this.provinceLabel.Text = this.unitNums().ToString();
 	}
 
 	public void setProvinceColor(float r, float g, float b){

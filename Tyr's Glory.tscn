@@ -345,7 +345,7 @@ margin_right = 18.988
 margin_bottom = -3.3838
 
 [node name="CollisionPolygon2D" parent="Province14" index="1"]
-polygon = PoolVector2Array( 18.012, -9.61624, 31.012, -11.6162, 57.012, -11.6162, 61.012, -12.6162, 64.012, -10.6162, 92.012, -10.6162, 100.012, -12.6162, 107.012, -9.61624, 107.012, 3.38376, 81.012, 22.3838, 78.012, 27.3838, 81.012, 45.3838, 77.012, 50.3838, 72.012, 43.3838, 72.012, 32.3838, 67.012, 27.3838, 61.012, 28.3838, 53.012, 24.3838, 44.012, 32.3838, 32.012, 26.3838, 13.012, 37.3838, 3.01204, 28.3838, -2.98796, 25.3838, -3.98796, 17.3838, 6.01204, 15.3838, 6.01204, 6.38376, 15.012, 5.38376, 15.012, -5.61624 )
+polygon = PoolVector2Array( 18.012, -9.61624, 31.012, -11.6162, 57.012, -11.6162, 61.012, -12.6162, 64.012, -10.6162, 92.012, -10.6162, 100.012, -12.6162, 107.012, -9.61624, 107.012, 3.38376, 81.012, 22.3838, 78.012, 27.3838, 81.012, 45.3838, 77.012, 50.3838, 72.012, 43.3838, 72.012, 32.3838, 67.012, 27.3838, 61.012, 28.3838, 53.012, 24.3838, 44.012, 32.3838, 32.012, 26.3838, 13.012, 37.3838, 3.01204, 28.3838, -2.98796, 25.3838, -3.98796, 17.3838, 6.01204, 15.3838, 6.01204, 6.38377, 15.012, 5.38376, 15.012, -5.61624 )
 
 [node name="Province15" parent="." instance=ExtResource( 1 )]
 position = Vector2( 202, 250 )
@@ -1109,6 +1109,7 @@ margin_right = 16.5913
 margin_bottom = 12.9164
 
 [node name="CollisionPolygon2D" parent="Province62" index="1"]
+position = Vector2( 1, 2 )
 polygon = PoolVector2Array( 16.4087, 1.08362, 21.4087, 13.0836, 26.4087, 18.0836, 28.4087, 30.0836, 27.4087, 35.0836, 32.4087, 40.0836, 45.4087, 65.0836, 19.4087, 67.0836, 1.40869, 64.0836, -6.59131, 54.0836, -24.5913, 58.0836, -52.5913, 60.0836, -51.5913, 43.0836, -45.5913, 19.0836, -39.5913, 19.0836, -38.5913, 13.0836, -34.5913, 9.08362, -21.5913, 5.08362, -8.59131, 9.08362, -12.5913, 20.0836, 1.40869, 31.0836, 10.4087, 22.0836, 10.4087, 13.0836 )
 
 [node name="Province63" parent="." instance=ExtResource( 1 )]
@@ -1302,19 +1303,19 @@ margin_bottom = 20.0
 [node name="CollisionPolygon2D" parent="Province74" index="1"]
 polygon = PoolVector2Array( 2.53809, 5.39563, 3.53809, 20.3956, 7.53809, 23.3956, 14.5381, 23.3956, 22.5381, 17.3956, 35.5381, -24.6044, 30.5381, -38.6044, 22.5381, -27.6044, 15.5381, -21.6044, 7.53809, -18.6044, 8.53809, -5.60437, 5.53809, -0.60437, 2.53809, 9.39563 )
 
-[node name="Province 75" parent="." instance=ExtResource( 1 )]
+[node name="Province75" parent="." instance=ExtResource( 1 )]
 
-[node name="Sprite" parent="Province 75" index="0"]
+[node name="Sprite" parent="Province75" index="0"]
 position = Vector2( 359, 389 )
 texture = ExtResource( 38 )
 
-[node name="Label" parent="Province 75/Sprite" index="0"]
+[node name="Label" parent="Province75/Sprite" index="0"]
 margin_left = -2.0
 margin_top = -1.0
 margin_right = 38.0
 margin_bottom = 29.0
 
-[node name="CollisionPolygon2D" parent="Province 75" index="1"]
+[node name="CollisionPolygon2D" parent="Province75" index="1"]
 position = Vector2( -66, 17 )
 polygon = PoolVector2Array( 372, 335, 375, 343, 382, 348, 391, 357, 396, 362, 404, 377, 420, 392, 420, 399, 428, 417, 449, 417, 451, 415, 456, 415, 457, 417, 462, 417, 469, 408, 471, 403, 477, 397, 479, 386, 478, 379, 470, 377, 461, 369, 458, 368, 450, 367, 441, 367, 440, 369, 437, 365, 437, 362, 431, 358, 425, 359, 422, 357, 420, 354, 415, 354, 415, 347, 411, 340, 411, 335, 404, 330, 394, 329, 392, 333, 386, 333, 379, 332 )
 
@@ -1324,6 +1325,7 @@ margin_top = 201.0
 margin_right = 767.0
 margin_bottom = 394.0
 hide_on_item_selection = false
+hide_on_checkable_item_selection = false
 script = ExtResource( 84 )
 
 [node name="Button" type="Button" parent="UnitSelection"]
@@ -1417,4 +1419,4 @@ items = [ "Infantry", null, 0, false, false, 0, 0, null, "", false, "Cavalry", n
 [editable path="Province72"]
 [editable path="Province73"]
 [editable path="Province74"]
-[editable path="Province 75"]
+[editable path="Province75"]
