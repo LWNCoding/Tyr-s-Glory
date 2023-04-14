@@ -91,7 +91,7 @@ public class Province : Area2D
 	}
 
 
-    public Province getCurrentSelected(){
+	public Province getCurrentSelected(){
 		return this.singleProvince.getCurrentSelected();
 	}
 
@@ -156,12 +156,12 @@ public class Province : Area2D
 	}
 
 	public bool addEdge(Province neighbor) {
-        //cannot have loops and multiple edges i.e. a simple graph
-        if ((this.getnewLab().Equals(neighbor.getnewLab()) == false) && (this.adjacency.Contains(neighbor) == false)) {
+		//cannot have loops and multiple edges i.e. a simple graph
+		if ((this.getnewLab().Equals(neighbor.getnewLab()) == false) && (this.adjacency.Contains(neighbor) == false)) {
 			this.adjacency.AddFirst(neighbor);
 			return true;
 		}
-        return false;
+		return false;
 	}
 
 	public bool removeEdge(Province neighbor) { 
@@ -191,12 +191,12 @@ public class Province : Area2D
 		return this.adjacency.Count > 0;
 	}
 
-    public int hasNeighbors()
-    {
-        return this.adjacency.Count;
-    }
+	public int hasNeighbors()
+	{
+		return this.adjacency.Count;
+	}
 
-    public bool isNeighbor(Province otherProvince){
+	public bool isNeighbor(Province otherProvince){
 		return this.adjacency.Contains(otherProvince);
 	}
 
