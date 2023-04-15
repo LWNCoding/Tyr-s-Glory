@@ -38,12 +38,12 @@ public class Province : Area2D
 	public LinkedList<Province> getAdj()
 	{
 		return adjacency;
-    }
+	}
 
-    /// <summary>
-    /// Constructor for the Province defined type.
-    /// </summary>
-    public Province()
+	/// <summary>
+	/// Constructor for the Province defined type.
+	/// </summary>
+	public Province()
 	{
 		this.label = "";
 		this.region = "";

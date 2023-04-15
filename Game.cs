@@ -118,7 +118,7 @@ public class Game : Node
 					}
 					else if (selected.getPlayer().getPlayerID() == currentPlayer && one.getPlayer().getPlayerID() == currentPlayer)
 					{
-                        if (one.isNeighbor(selected))
+						if (one.isNeighbor(selected))
 
 						GD.Print(selected.hasNeighbors());
 						if (one.isNeighbor(selected))
@@ -143,12 +143,12 @@ public class Game : Node
 								if (one.getUnit(0).gotAttacked(i) == true)
 								{
 									one.removeUnit(i);
-                                }
-                            }
-                        }
-                        selectedUnits.Clear();
-                        selected = null;
-                    }
+								}
+							}
+						}
+						selectedUnits.Clear();
+						selected = null;
+					}
 				}
 				break;
 		}
@@ -289,7 +289,7 @@ public class Game : Node
 		PARR = new List<Player>();
 		top = new Board();
 		createBoard();
-		setup(2);
+		setup(SelectedNumPlayers.getInstance().getSelectedNumPlayers());
 	}
 
 	public void main()
