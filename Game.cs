@@ -85,7 +85,7 @@ public class Game : Node
 		{
 			if (OS.GetScancodeString(keyEvent.PhysicalScancode) == "Tab" && stage == 1)
 			{
-                endTurn();
+				endTurn();
 			}
 		}
 	}
@@ -114,22 +114,25 @@ public class Game : Node
 				{
 					if (one == selected)
 					{
-                        selected = null;
-                    }
+						selected = null;
+					}
 					else if (selected.getPlayer().getPlayerID() == currentPlayer && one.getPlayer().getPlayerID() == currentPlayer)
 					{
                         if (one.isNeighbor(selected))
+
+						GD.Print(selected.hasNeighbors());
+						if (one.isNeighbor(selected))
 						{
-                            foreach (Unit i in selectedUnits)
+							foreach (Unit i in selectedUnits)
 							{
-                                if (i.moved())
+								if (i.moved())
 								{
-                                    selected.move(one, i);
-                                }
+									selected.move(one, i);
+								}
 							}
 							selectedUnits.Clear();
-                            selected = null;
-                        }
+							selected = null;
+						}
 					}
 					else if (selected.getPlayer().getPlayerID() == currentPlayer && one.getPlayer().getPlayerID() != currentPlayer)
 					{
@@ -146,7 +149,6 @@ public class Game : Node
                         selectedUnits.Clear();
                         selected = null;
                     }
-					
 				}
 				break;
 		}
@@ -227,18 +229,18 @@ public class Game : Node
 		{
 			currentPlayer++;
 		}
-        selected = null;
-        selectedUnits.Clear();
-        top.getProvince(1).resetSelected();
+		selected = null;
+		selectedUnits.Clear();
+		top.getProvince(1).resetSelected();
 		top.updateRegionControl();
 	}
 	public void createBoard()
 	{
-        for (int i = 1; i <= 75; i++)
+		for (int i = 1; i <= 75; i++)
 		{
 			Province s = (Province)GetNode<Province>("Province" + i);
-            s.setnewLab(i);
-            top.addProv(i, s);
+			s.setnewLab(i);
+			top.addProv(i, s);
 		}
 		top.connect();
 	}
@@ -254,26 +256,26 @@ public class Game : Node
 
 	public void _OnUnitSelected(int id)
 	{
-        PopupMenu p = GetNode<PopupMenu>("UnitSelection");
-        if (!p.IsItemChecked(id))
-        {
-            Unit selectedUnit = this.selected.getUnit(id);
-            if (selectedUnit != null && !this.selectedUnits.Contains(selectedUnit))
-            {
-                selectedUnits.Add(selectedUnit);
-                p.SetItemChecked(id, true);
-            }
-        }
-        else
-        {
-            Unit deselectedUnit = this.selected.getUnit(id);
-            if (deselectedUnit != null && this.selectedUnits.Contains(deselectedUnit))
-            {
-                selectedUnits.Remove(deselectedUnit);
-                p.SetItemChecked(id, false);
-            }
-        }
-    }
+		PopupMenu p = GetNode<PopupMenu>("UnitSelection");
+		if (!p.IsItemChecked(id))
+		{
+			Unit selectedUnit = this.selected.getUnit(id);
+			if (selectedUnit != null && !this.selectedUnits.Contains(selectedUnit))
+			{
+				selectedUnits.Add(selectedUnit);
+				p.SetItemChecked(id, true);
+			}
+		}
+		else
+		{
+			Unit deselectedUnit = this.selected.getUnit(id);
+			if (deselectedUnit != null && this.selectedUnits.Contains(deselectedUnit))
+			{
+				selectedUnits.Remove(deselectedUnit);
+				p.SetItemChecked(id, false);
+			}
+		}
+	}
 
 	private void _on_DistributeSelection_id_pressed(int id)
 	{
