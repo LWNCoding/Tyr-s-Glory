@@ -1,6 +1,6 @@
 public class SelectedNumPlayers{
 	private static SelectedNumPlayers singleInstance;
-	public int selectedNumPlayers;
+	public int selectedNumPlayers = 2;
 	private SelectedNumPlayers(){}
 	public static SelectedNumPlayers getInstance(){
 		if(singleInstance == null){
