@@ -118,7 +118,6 @@ public class Game : Node
                     }
 					else if (selected.getPlayer().getPlayerID() == currentPlayer && one.getPlayer().getPlayerID() == currentPlayer)
 					{
-                        GD.Print(selected.hasNeighbors());
                         if (one.isNeighbor(selected))
 						{
                             foreach (Unit i in selectedUnits)
@@ -138,11 +137,14 @@ public class Game : Node
 						{
 							if (top.canAttack(i, selected, one))
 							{
-                                GD.Print("Just checking");
+								if (one.getUnit(0).gotAttacked(i) == true)
+								{
+									one.removeUnit(i);
+                                }
                             }
-                            selected = null;
                         }
                         selectedUnits.Clear();
+                        selected = null;
                     }
 					
 				}
@@ -273,7 +275,7 @@ public class Game : Node
         }
     }
 
-    private void _on_DistributeSelection_id_pressed(int id)
+	private void _on_DistributeSelection_id_pressed(int id)
 	{
 		this.unitChoice = id;
 			

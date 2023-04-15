@@ -450,12 +450,18 @@ public class Board : Node2D
 
     public bool canAttack(Unit dude, Province one, Province two)
     {
-        int rangee = dude.getRange();
-        IEnumerator<Province> iter = (System.Collections.Generic.IEnumerator<Province>) one.getAdjacencyEnumerator(); //System.Collections.Generic.IEnumerator<Province>
-        
-        do
+        if (one != null && two != null)
         {
-            if (iter.Current == two)
+            return false;
+        }
+        one = getProvince(one.getnewLab());
+        two = getProvince(two.getnewLab());
+        IEnumerator<Province> iter = one.getAdj().GetEnumerator(); //System.Collections.Generic.IEnumerator<Province>
+        GD.Print(one.getAdj().Count);
+        while (iter.MoveNext() != false) 
+        {
+            
+            if (iter.Current.Equals(two))
             {
                 return true;
             }
@@ -463,7 +469,7 @@ public class Board : Node2D
             {
                 return true;
             }
-        } while (iter.MoveNext() != false);
+        } 
         return false;
     }
 
