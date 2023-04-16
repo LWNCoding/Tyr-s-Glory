@@ -100,7 +100,6 @@ public class Game : Node
 			case 1:
 				if (addAmount > 0 && one.getPlayer().getPlayerID() == currentPlayer)
 				{
-					addAmount--;
                     selected = one;
                     PopupMenu p = GetNode<PopupMenu>("DistributeSelection");
 					p.Show();
@@ -310,6 +309,7 @@ public class Game : Node
 		{
             selected.addUnit(new Artillery());
         }
+		addAmount--;
         unitChoice = -1;
 		selected.resetSelected();
         selected = null;
