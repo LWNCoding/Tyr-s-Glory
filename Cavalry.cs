@@ -11,7 +11,6 @@ class Cavalry : Unit{
 		base.maxMoves = 2;
 		base.maxAttacks = 2;
 		base.attack = 100.0f;
-		base.defense = 10.0f;
 		base.range = 1;
 	}
   

@@ -11,7 +11,6 @@ class Artillery : Unit{
 		base.maxMoves = 1;
 		base.maxAttacks = 2;
 		base.attack = 70.0f;
-		base.defense = 20.0f;
 		base.range = 2;
 	}
   

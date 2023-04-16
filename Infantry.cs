@@ -11,7 +11,6 @@ class Infantry : Unit{
 		base.maxMoves = 1;
 		base.maxAttacks = 1;
 		base.attack = 150.0f;
-		base.defense = 30.0f;
 		base.range = 1;
 	}
   

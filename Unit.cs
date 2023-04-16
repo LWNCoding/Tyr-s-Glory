@@ -27,11 +27,6 @@ public abstract class Unit : Node2D{
 		return this.attack;
 	}
 
-	protected float defense;
-	public float getDefense(){
-		return this.defense;
-	}
-
 	protected int range;
 	public int getRange(){
 		return this.range;
@@ -92,8 +87,6 @@ public abstract class Unit : Node2D{
 			total -= variation * total;
 		}
 		
-		total -= defense;
-
 		if(total > 0){
 			this.health -= total;
 		}

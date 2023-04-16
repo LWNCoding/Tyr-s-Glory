@@ -28,25 +28,25 @@ public class Game : Node
 				switch (i)
 				{
 					case 0: //NA
-						addAmount += 5;
+						addAmount += 2;
 						break;
 					case 1: //SA
-						addAmount += 2;
+						addAmount += 1;
 						break;
 					case 2://EU
-						addAmount += 5;
+						addAmount += 2;
 						break;
 					case 3://AF
-						addAmount += 3;
+						addAmount += 1;
 						break;
 					case 4://AS
-						addAmount += 7;
+						addAmount += 3;
 						break;
 					case 5://ME
-						addAmount += 6;
+						addAmount += 2;
 						break;
 					case 6://OC
-						addAmount += 2;
+						addAmount += 1;
 						break;
 				}
 			}
@@ -167,6 +167,10 @@ public class Game : Node
 	public int distributeMen(int PLID)
 	{
 		addAmount = countScore(PLID);
+		if (addAmount == 15)
+		{
+            this.GetTree().ChangeScene("res://GameOver.tscn");
+        }
 		return 0;
 	}
 

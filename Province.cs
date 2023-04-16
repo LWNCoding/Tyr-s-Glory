@@ -109,11 +109,17 @@ public class Province : Area2D
 		return this.region;
 	}
 
-	/// <summary>
-	/// Accessor for the player member.
-	/// </summary>
-	/// <returns>The current player at this province.</returns>
-	public Player getPlayer()
+    public string setRegion(String reg)
+    {
+		this.region = reg;
+        return this.region;
+    }
+
+    /// <summary>
+    /// Accessor for the player member.
+    /// </summary>
+    /// <returns>The current player at this province.</returns>
+    public Player getPlayer()
 	{
 		return this.currentPlayer;
 	}
