@@ -15,7 +15,7 @@ public class Game : Node
 	private Board top;
 	private Province selected = null;
 	private List<Unit> selectedUnits = new List<Unit>();
-	private int unitChoice = 0;
+	private int unitChoice = -1;
 
 	private int countScore(int PLID)
 	{
@@ -101,7 +101,9 @@ public class Game : Node
 				if (addAmount > 0 && one.getPlayer().getPlayerID() == currentPlayer)
 				{
 					addAmount--;
-					one.addUnit(new Infantry());
+                    selected = one;
+                    PopupMenu p = GetNode<PopupMenu>("DistributeSelection");
+					p.Show();
 				}
 				else if (selected == null && one.getPlayer().getPlayerID() == currentPlayer)
 				{
@@ -115,12 +117,12 @@ public class Game : Node
 					if (one == selected)
 					{
 						selected = null;
-					}
+                        one.resetSelected();
+                    }
 					else if (selected.getPlayer().getPlayerID() == currentPlayer && one.getPlayer().getPlayerID() == currentPlayer)
 					{
 						if (one.isNeighbor(selected))
 
-						GD.Print(selected.hasNeighbors());
 						if (one.isNeighbor(selected))
 						{
 							foreach (Unit i in selectedUnits)
@@ -132,23 +134,30 @@ public class Game : Node
 							}
 							selectedUnits.Clear();
 							selected = null;
-						}
+							one.resetSelected();
+                        }
 					}
 					else if (selected.getPlayer().getPlayerID() == currentPlayer && one.getPlayer().getPlayerID() != currentPlayer)
 					{
 						foreach (Unit i in selectedUnits)
 						{
-							if (top.canAttack(i, selected, one))
+                            if (one.unitNum() <= 0)
 							{
-								if (one.getUnit(0).gotAttacked(i) == true)
+                                one.setPlayer(currentPlayer, PARR[currentPlayer].getColorArr());
+                                break;
+							}
+                            if (top.canAttack(i, selected, one))
+							{
+                                if (one.getUnit(0).gotAttacked(i) <= 0)
 								{
-									one.removeUnit(i);
+                                    one.removeUnit(one.getUnit(0));
 								}
 							}
 						}
 						selectedUnits.Clear();
 						selected = null;
-					}
+                        one.resetSelected();
+                    }
 				}
 				break;
 		}
@@ -221,7 +230,7 @@ public class Game : Node
 
 	public void endTurn()
 	{
-		if (currentPlayer == playerNum)
+		if (currentPlayer == playerNum-1)
 		{
 			currentPlayer = 0;
 		}
@@ -229,10 +238,11 @@ public class Game : Node
 		{
 			currentPlayer++;
 		}
-		selected = null;
 		selectedUnits.Clear();
-		top.getProvince(1).resetSelected();
+        selected = null;
+        top.getProvince(1).resetSelected();
 		top.updateRegionControl();
+        distributeMen(currentPlayer);
 	}
 	public void createBoard()
 	{
@@ -280,8 +290,21 @@ public class Game : Node
 	private void _on_DistributeSelection_id_pressed(int id)
 	{
 		this.unitChoice = id;
-			
-	}
+		if (unitChoice == 0)
+		{
+			selected.addUnit(new Infantry());
+		}
+		else if (unitChoice == 1)
+		{
+            selected.addUnit(new Cavalry());
+        }
+		else if (unitChoice == 2)
+		{
+            selected.addUnit(new Artillery());
+        }
+		selected.resetSelected();
+        selected = null;
+    }
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()

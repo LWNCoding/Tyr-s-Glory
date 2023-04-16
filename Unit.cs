@@ -41,7 +41,7 @@ public abstract class Unit : Node2D{
 	/// Returns true if attack brings health below 0
 	/// Can be used like: if(!gotAttacked(example)) to simulate an attack while also checking if the Unit perished
 	/// </summary>
-	public bool gotAttacked(Unit attacker) {
+	public float gotAttacked(Unit attacker) {
 		float total = attacker.attack;
 		float variation = 0.0f;
 
@@ -98,7 +98,7 @@ public abstract class Unit : Node2D{
 			this.health -= total;
 		}
 
-		return this.health > 0;
+		return this.health;
 	}
 	
 	/// <summary>

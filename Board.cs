@@ -450,14 +450,9 @@ public class Board : Node2D
 
     public bool canAttack(Unit dude, Province one, Province two)
     {
-        if (one != null && two != null)
-        {
-            return false;
-        }
         one = getProvince(one.getnewLab());
         two = getProvince(two.getnewLab());
         IEnumerator<Province> iter = one.getAdj().GetEnumerator(); //System.Collections.Generic.IEnumerator<Province>
-        GD.Print(one.getAdj().Count);
         while (iter.MoveNext() != false) 
         {
             

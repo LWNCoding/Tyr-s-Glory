@@ -181,8 +181,14 @@ public class Province : Area2D
 		this.updateProvinceLabel();
 	}
 
-	public bool removeUnit(Unit unitName){
-		return this.currentUnits.Remove(unitName);
+	public bool removeUnit(Unit unitName)
+	{
+		if (this.currentUnits.Remove(unitName) == false)
+		{
+			return false;
+		}
+        this.updateProvinceLabel();
+        return true;
 	}
 
 	public Unit getUnit(int index){
@@ -206,7 +212,7 @@ public class Province : Area2D
 	}
 
 	public bool attack(Unit currentPlayerUnit, Unit otherPlayerUnit){
-		return otherPlayerUnit.gotAttacked(currentPlayerUnit);
+		return otherPlayerUnit.gotAttacked(currentPlayerUnit) <= 0;
 	}
 
 	public bool move(Province other, Unit currentUnit){
