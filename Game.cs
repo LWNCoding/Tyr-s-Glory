@@ -293,6 +293,10 @@ public class Game : Node
 
 	private void _on_DistributeSelection_id_pressed(int id)
 	{
+		if (id == -1 || selected == null)
+		{
+			return;
+		}
 		this.unitChoice = id;
 		if (unitChoice == 0)
 		{
@@ -306,6 +310,7 @@ public class Game : Node
 		{
             selected.addUnit(new Artillery());
         }
+        unitChoice = -1;
 		selected.resetSelected();
         selected = null;
     }
