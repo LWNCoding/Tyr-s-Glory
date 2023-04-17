@@ -115,15 +115,15 @@ public abstract class Unit : Node2D{
 	{
 		if (this.GetType() == typeof(Artillery))
 		{
-			return "Artillery";
+			return "Artillery: " + this.health + " hp";
 		}
 		else if (this.GetType() == typeof(Infantry))
 		{
-			return "Infantry";
+			return "Infantry: " + this.health + " hp";
 		}
 		else
 		{
-			return "Cavalry";
+			return "Cavalry: " + this.health + " hp";
 		}
 	}
 

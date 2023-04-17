@@ -100,8 +100,8 @@ public class Game : Node
 			case 1:
 				if (addAmount > 0 && one.getPlayer().getPlayerID() == currentPlayer)
 				{
-                    selected = one;
-                    PopupMenu p = GetNode<PopupMenu>("DistributeSelection");
+					selected = one;
+					PopupMenu p = GetNode<PopupMenu>("DistributeSelection");
 					p.Show();
 				}
 				else if (selected == null && one.getPlayer().getPlayerID() == currentPlayer)
@@ -116,9 +116,9 @@ public class Game : Node
 					if (one == selected)
 					{
 						selected = null;
-                        one.resetSelected();
-                        selectedUnits.Clear();
-                    }
+						one.resetSelected();
+						selectedUnits.Clear();
+					}
 					else if (selected.getPlayer().getPlayerID() == currentPlayer && one.getPlayer().getPlayerID() == currentPlayer)
 					{
 						if (one.isNeighbor(selected))
@@ -133,29 +133,29 @@ public class Game : Node
 							selectedUnits.Clear();
 							selected = null;
 							one.resetSelected();
-                        }
+						}
 					}
 					else if (selected.getPlayer().getPlayerID() == currentPlayer && one.getPlayer().getPlayerID() != currentPlayer)
 					{
 						foreach (Unit i in selectedUnits)
 						{
-                            if (one.unitNum() <= 0)
+							if (one.unitNum() <= 0)
 							{
-                                one.setPlayer(currentPlayer, PARR[currentPlayer].getColorArr());
-                                break;
+								one.setPlayer(currentPlayer, PARR[currentPlayer].getColorArr());
+								break;
 							}
-                            if (top.canAttack(i, selected, one))
+							if (top.canAttack(i, selected, one))
 							{
-                                if (one.getUnit(0).gotAttacked(i) <= 0)
+								if (one.getUnit(0).gotAttacked(i) <= 0)
 								{
-                                    one.removeUnit(one.getUnit(0));
+									one.removeUnit(one.getUnit(0));
 								}
 							}
 						}
 						selectedUnits.Clear();
 						selected = null;
-                        one.resetSelected();
-                    }
+						one.resetSelected();
+					}
 				}
 				break;
 		}
@@ -167,8 +167,8 @@ public class Game : Node
 		addAmount = countScore(PLID);
 		if (addAmount == 15)
 		{
-            this.GetTree().ChangeScene("res://GameOver.tscn");
-        }
+			this.GetTree().ChangeScene("res://GameOver.tscn");
+		}
 		return 0;
 	}
 
@@ -241,10 +241,10 @@ public class Game : Node
 			currentPlayer++;
 		}
 		selectedUnits.Clear();
-        selected = null;
-        top.getProvince(1).resetSelected();
+		selected = null;
+		top.getProvince(1).resetSelected();
 		top.updateRegionControl();
-        distributeMen(currentPlayer);
+		distributeMen(currentPlayer);
 	}
 	public void createBoard()
 	{
@@ -306,17 +306,17 @@ public class Game : Node
 		}
 		else if (unitChoice == 1)
 		{
-            selected.addUnit(new Cavalry());
-        }
+			selected.addUnit(new Cavalry());
+		}
 		else if (unitChoice == 2)
 		{
-            selected.addUnit(new Artillery());
-        }
+			selected.addUnit(new Artillery());
+		}
 		addAmount--;
-        unitChoice = -1;
+		unitChoice = -1;
 		selected.resetSelected();
-        selected = null;
-    }
+		selected = null;
+	}
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()

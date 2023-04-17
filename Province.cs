@@ -109,17 +109,17 @@ public class Province : Area2D
 		return this.region;
 	}
 
-    public string setRegion(String reg)
-    {
+	public string setRegion(String reg)
+	{
 		this.region = reg;
-        return this.region;
-    }
+		return this.region;
+	}
 
-    /// <summary>
-    /// Accessor for the player member.
-    /// </summary>
-    /// <returns>The current player at this province.</returns>
-    public Player getPlayer()
+	/// <summary>
+	/// Accessor for the player member.
+	/// </summary>
+	/// <returns>The current player at this province.</returns>
+	public Player getPlayer()
 	{
 		return this.currentPlayer;
 	}
@@ -193,8 +193,8 @@ public class Province : Area2D
 		{
 			return false;
 		}
-        this.updateProvinceLabel();
-        return true;
+		this.updateProvinceLabel();
+		return true;
 	}
 
 	public Unit getUnit(int index){
