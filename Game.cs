@@ -76,6 +76,7 @@ public class Game : Node
 			currentPlayer = 0;
 		}
 		one.resetSelected();
+		changeTurnLabel(currentPlayer);
 		return 0;
 	}
 
@@ -240,6 +241,7 @@ public class Game : Node
 		{
 			currentPlayer++;
 		}
+		changeTurnLabel(currentPlayer);
 		selectedUnits.Clear();
 		selected = null;
 		top.getProvince(1).resetSelected();
@@ -318,6 +320,11 @@ public class Game : Node
 		selected = null;
 	}
 
+	private void changeTurnLabel(int st){
+		GetNode<Label>("TurnInfo").Text = "Turn: Player " + st.ToString() ;
+	}
+
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -325,6 +332,7 @@ public class Game : Node
 		top = new Board();
 		createBoard();
 		setup(SelectedNumPlayers.getInstance().getSelectedNumPlayers());
+		changeTurnLabel(currentPlayer);
 	}
 
 	public void main()
