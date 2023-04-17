@@ -146,6 +146,10 @@ public abstract class Unit : Node2D{
 		this.numAttacked++;
 		return true;
 	}
+
+	public bool unitCanAttack(){
+		return this.numAttacked == this.maxAttacks;
+	}
 	
 	/// </summary>
 	/// Resests counters at the end of the turn
