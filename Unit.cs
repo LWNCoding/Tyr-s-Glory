@@ -22,6 +22,11 @@ public abstract class Unit : Node2D{
 	
 	protected int maxAttacks;
 
+	public int getMaxAttacks()
+	{
+		return this.maxAttacks;
+	}
+
 	protected float attack; 
 	public float getAttack(){
 		return this.attack;

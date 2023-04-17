@@ -524,6 +524,10 @@ public class Board : Node2D
 
     public bool canAttack(Unit dude, Province one, Province two)
     {
+        if (dude.getNumAttacked() >= dude.getMaxAttacks())
+        {
+            return false;
+        }
         one = getProvince(one.getnewLab());
         two = getProvince(two.getnewLab());
         IEnumerator<Province> iter = one.getAdj().GetEnumerator(); //System.Collections.Generic.IEnumerator<Province>

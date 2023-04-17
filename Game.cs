@@ -117,11 +117,10 @@ public class Game : Node
 					{
 						selected = null;
                         one.resetSelected();
+                        selectedUnits.Clear();
                     }
 					else if (selected.getPlayer().getPlayerID() == currentPlayer && one.getPlayer().getPlayerID() == currentPlayer)
 					{
-						if (one.isNeighbor(selected))
-
 						if (one.isNeighbor(selected))
 						{
 							foreach (Unit i in selectedUnits)
@@ -269,6 +268,10 @@ public class Game : Node
 
 	public void _OnUnitSelected(int id)
 	{
+		if (selected == null)
+		{
+			return;
+		}
 		PopupMenu p = GetNode<PopupMenu>("UnitSelection");
 		if (!p.IsItemChecked(id))
 		{
