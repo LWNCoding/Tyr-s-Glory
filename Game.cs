@@ -76,7 +76,7 @@ public class Game : Node
 			currentPlayer = 0;
 		}
 		one.resetSelected();
-		changeTurnLabel(currentPlayer);
+		changeTurnLabel(currentPlayer+1);
 		return 0;
 	}
 
@@ -241,7 +241,7 @@ public class Game : Node
 		{
 			currentPlayer++;
 		}
-		changeTurnLabel(currentPlayer);
+		changeTurnLabel(currentPlayer+1);
 		selectedUnits.Clear();
 		selected = null;
 		top.getProvince(1).resetSelected();
@@ -332,7 +332,7 @@ public class Game : Node
 		top = new Board();
 		createBoard();
 		setup(SelectedNumPlayers.getInstance().getSelectedNumPlayers());
-		changeTurnLabel(currentPlayer);
+		changeTurnLabel(currentPlayer+1);
 	}
 
 	public void main()
