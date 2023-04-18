@@ -146,7 +146,7 @@ public class Game : Node
 								break;
 							}
 							if (top.canAttack(i, selected, one))
-							{
+							{	
 								if (one.getUnit(0).gotAttacked(i) <= 0)
 								{
 									one.removeUnit(one.getUnit(0));

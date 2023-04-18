@@ -523,26 +523,23 @@ public class Board : Node2D
     }
 
     public bool canAttack(Unit dude, Province one, Province two)
-    {
-        if (dude.getNumAttacked() >= dude.getMaxAttacks())
-        {
-            return false;
+    {   if(dude.attacked()){
+            one = getProvince(one.getnewLab());
+            two = getProvince(two.getnewLab());
+            IEnumerator<Province> iter = one.getAdj().GetEnumerator(); //System.Collections.Generic.IEnumerator<Province>
+            while (iter.MoveNext() != false) 
+            {
+                
+                if (iter.Current.Equals(two))
+                {
+                    return true;
+                }
+                else if (iter.Current.isNeighbor(two) == true)
+                {
+                    return true;
+                }
+            }
         }
-        one = getProvince(one.getnewLab());
-        two = getProvince(two.getnewLab());
-        IEnumerator<Province> iter = one.getAdj().GetEnumerator(); //System.Collections.Generic.IEnumerator<Province>
-        while (iter.MoveNext() != false) 
-        {
-            
-            if (iter.Current.Equals(two))
-            {
-                return true;
-            }
-            else if (iter.Current.isNeighbor(two) == true)
-            {
-                return true;
-            }
-        } 
         return false;
     }
 

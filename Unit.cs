@@ -42,60 +42,60 @@ public abstract class Unit : Node2D{
 	/// Can be used like: if(!gotAttacked(example)) to simulate an attack while also checking if the Unit perished
 	/// </summary>
 	public float gotAttacked(Unit attacker) {
-		float total = attacker.attack;
-		float variation = 0.0f;
+			float total = attacker.attack;
+			float variation = 0.0f;
 
-		Random random = new Random();
-		int choice = random.Next(2);
+			Random random = new Random();
+			int choice = random.Next(2);
 
-		if (attacker.GetType() == typeof(Artillery))
-		{
-			variation = (float) random.NextDouble() * 0.25f;
-		}
-		if (attacker.GetType() == typeof(Cavalry))
-		{
-			variation = (float) random.NextDouble() * 0.125f;
-		}
-		if (attacker.GetType() == typeof(Infantry))
-		{
-			variation = (float) random.NextDouble() * 0.05f;
-		}
+			if (attacker.GetType() == typeof(Artillery))
+			{
+				variation = (float) random.NextDouble() * 0.25f;
+			}
+			if (attacker.GetType() == typeof(Cavalry))
+			{
+				variation = (float) random.NextDouble() * 0.125f;
+			}
+			if (attacker.GetType() == typeof(Infantry))
+			{
+				variation = (float) random.NextDouble() * 0.05f;
+			}
 
-		/*switch(attacker.GetType()){
-			variation = (float) random.NextDouble() * 0.25f;
-		}
-		if (attacker.GetType() == typeof(Cavalry))
-		{
-			variation = (float) random.NextDouble() * 125f;
-		}
-		if (attacker.GetType() == typeof(Infantry))
-		{
-			variation = (float) random.NextDouble() * 0.05f;
-		}
+			/*switch(attacker.GetType()){
+				variation = (float) random.NextDouble() * 0.25f;
+			}
+			if (attacker.GetType() == typeof(Cavalry))
+			{
+				variation = (float) random.NextDouble() * 125f;
+			}
+			if (attacker.GetType() == typeof(Infantry))
+			{
+				variation = (float) random.NextDouble() * 0.05f;
+			}
 
-		/*switch(attacker.GetType()){
-			case( Artillery):
-				variation = random.NextDouble() * 0.25f;
-				break;
-			case(Cavalry):
-				variation = random.NextDouble() * 0.125f;
-				break;
-			case(Infantry):
-				variation = random.NextDouble() * 0.05f;
-				break;
-		}*/
+			/*switch(attacker.GetType()){
+				case( Artillery):
+					variation = random.NextDouble() * 0.25f;
+					break;
+				case(Cavalry):
+					variation = random.NextDouble() * 0.125f;
+					break;
+				case(Infantry):
+					variation = random.NextDouble() * 0.05f;
+					break;
+			}*/
 
-		if (choice == 1){
-			total += variation * total;
-		}
-		else{
-			total -= variation * total;
-		}
+			if (choice == 1){
+				total += variation * total;
+			}
+			else{
+				total -= variation * total;
+			}
+			
+			if(total > 0){
+				this.health -= total;
+			}
 		
-		if(total > 0){
-			this.health -= total;
-		}
-
 		return this.health;
 	}
 	
@@ -115,15 +115,15 @@ public abstract class Unit : Node2D{
 	{
 		if (this.GetType() == typeof(Artillery))
 		{
-			return "Artillery: " + this.health + " hp";
+			return "Artillery: " + this.health + " hp | Moves left: " + (this.maxMoves-this.numMoved) + " | Attacks Left: " + (this.maxAttacks - this.numAttacked);
 		}
 		else if (this.GetType() == typeof(Infantry))
 		{
-			return "Infantry: " + this.health + " hp";
+			return "Infantry: " + this.health + " hp | Moves left: " + (this.maxMoves-this.numMoved) + " | Attacks Left: " + (this.maxAttacks - this.numAttacked);
 		}
 		else
 		{
-			return "Cavalry: " + this.health + " hp";
+			return "Cavalry: " + this.health + " hp | Moves left: " + (this.maxMoves-this.numMoved) + " | Attacks Left: " + (this.maxAttacks - this.numAttacked);
 		}
 	}
 
@@ -145,10 +145,6 @@ public abstract class Unit : Node2D{
 		}
 		this.numAttacked++;
 		return true;
-	}
-
-	public bool unitCanAttack(){
-		return this.numAttacked == this.maxAttacks;
 	}
 	
 	/// </summary>
