@@ -12,6 +12,7 @@ public class Game : Node
 	private int playerNum;
 
 	private List<Player> PARR;
+	private List<Unit> usedUnit = new List<Unit>();
 	private Board top;
 	private Province selected = null;
 	private List<Unit> selectedUnits = new List<Unit>();
@@ -65,7 +66,6 @@ public class Game : Node
 		unclaimed--;
 		if (unclaimed == 0)
 		{
-			GD.Print("END OF ADDING PHASE");
 			stage += 1;
 			currentPlayer = 0;
 			startTurn();
@@ -129,7 +129,8 @@ public class Game : Node
 								if (i.moved())
 								{
 									selected.move(one, i);
-								}
+									usedUnit.Add(i);
+                                }
 							}
 							selectedUnits.Clear();
 							selected = null;
@@ -143,7 +144,8 @@ public class Game : Node
 							if (one.unitNum() <= 0)
 							{
 								one.setPlayer(currentPlayer, PARR[currentPlayer].getColorArr());
-								break;
+                                usedUnit.Add(i);
+                                break;
 							}
 							if (top.canAttack(i, selected, one))
 							{	
@@ -151,6 +153,7 @@ public class Game : Node
 								{
 									one.removeUnit(one.getUnit(0));
 								}
+								usedUnit.Add(i);
 							}
 						}
 						selectedUnits.Clear();
@@ -166,7 +169,15 @@ public class Game : Node
 	public int distributeMen(int PLID)
 	{
 		addAmount = countScore(PLID);
-		if (addAmount == 15)
+		int count = 0;
+		for (int i = 0; i < 6; i++)
+		{
+			if (top.getElim()[i] == 0)
+			{
+				count++;
+			}
+		}
+		if (count == 5)
 		{
 			this.GetTree().ChangeScene("res://GameOver.tscn");
 		}
@@ -233,20 +244,32 @@ public class Game : Node
 
 	public void endTurn()
 	{
-		if (currentPlayer == playerNum-1)
+		int[] check = top.updateRegionControl();
+		do
 		{
-			currentPlayer = 0;
+			if (currentPlayer == playerNum - 1)
+			{
+				currentPlayer = 0;
+			}
+			else
+			{
+				currentPlayer++;
+			}
 		}
-		else
-		{
-			currentPlayer++;
-		}
+		while (check[currentPlayer] != 0);
+
 		changeTurnLabel(currentPlayer+1);
 		selectedUnits.Clear();
 		selected = null;
 		top.getProvince(1).resetSelected();
-		top.updateRegionControl();
 		distributeMen(currentPlayer);
+        IEnumerator<Unit> iter = usedUnit.GetEnumerator();
+		while (iter.MoveNext())
+		{
+			Unit unit = iter.Current;
+			unit.resetTurn();
+		}
+        usedUnit.Clear();
 	}
 	public void createBoard()
 	{

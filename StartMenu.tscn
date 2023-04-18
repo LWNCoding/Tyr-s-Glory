@@ -135,10 +135,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -962.5
-margin_top = -549.5
-margin_right = 962.5
-margin_bottom = 549.5
+margin_left = -962.0
+margin_top = -544.0
+margin_right = 963.0
+margin_bottom = 555.0
 
 [node name="CenterContainer" type="CenterContainer" parent="StartGame"]
 anchor_left = 0.5

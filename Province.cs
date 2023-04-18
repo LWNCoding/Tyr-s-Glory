@@ -268,7 +268,6 @@ public class Province : Area2D
 	public override void _Input(InputEvent @event){
 		if(@event is InputEventMouseButton clicked){
 			if(isInArea && clicked.Pressed && clicked.ButtonIndex == (int)ButtonList.Left){
-				//GD.Print("Pressed!");
 				this.ProvinceSelected(this);
 				EmitSignal("ProvinceClicked", this);
 			}

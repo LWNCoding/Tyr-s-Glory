@@ -7,6 +7,7 @@ public class Board : Node2D
 {
     private Dictionary<int, Province> provDict;
     private int[] regionControl;
+    private int[] elimPlayer = { 0, 0, 0, 0, 0, 0 };
     /// <summary>
     /// Constructor for the Board defined type.
     /// </summary>
@@ -553,7 +554,7 @@ public class Board : Node2D
         return provDict[label];
     }
 
-    public void updateRegionControl()
+    public int[] updateRegionControl()
     {
         int NAP = -1;
         int SAP = -1;
@@ -562,6 +563,12 @@ public class Board : Node2D
         int ASP = -1;
         int MEP = -1;
         int OCP = -1;
+        elimPlayer[0] = 0;
+        elimPlayer[1] = 0;
+        elimPlayer[2] = 0;
+        elimPlayer[3] = 0;
+        elimPlayer[4] = 0;
+        elimPlayer[5] = 0;
         foreach (Province i in provDict.Values)
         {
             if (i.getRegion() == "NA" && NAP > -2)
@@ -641,6 +648,7 @@ public class Board : Node2D
                     OCP = -2;
                 }
             }
+            elimPlayer[i.getPlayer().getPlayerID()] += 1;
         }
 
         regionControl[0] = NAP;
@@ -650,7 +658,13 @@ public class Board : Node2D
         regionControl[4] = ASP;
         regionControl[5] = MEP;
         regionControl[6] = OCP;
+        return elimPlayer;
     }
+
+    public int[] getElim()
+    {
+        return elimPlayer;
+    } 
 
     public int[] getRegionControl()
     {
