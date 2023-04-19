@@ -161,11 +161,6 @@ public class Province : Area2D
 		this.visited = hasVisited;
 	}
 
-	public int unitNums()
-	{
-		return currentUnits.Count;
-	}
-
 	public bool addEdge(Province neighbor) {
 		//cannot have loops and multiple edges i.e. a simple graph
 		if ((this.getnewLab().Equals(neighbor.getnewLab()) == false) && (this.adjacency.Contains(neighbor) == false)) {
@@ -297,7 +292,7 @@ public class Province : Area2D
 	}
 
 	private void updateProvinceLabel(){
-		this.provinceLabel.Text = this.unitNums().ToString();
+		this.provinceLabel.Text = this.unitNum().ToString();
 	}
 
 	public void setProvinceColor(float r, float g, float b){

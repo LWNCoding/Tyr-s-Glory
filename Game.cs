@@ -144,7 +144,6 @@ public class Game : Node
 							if (one.unitNum() <= 0)
 							{
 								one.setPlayer(currentPlayer, PARR[currentPlayer].getColorArr());
-								usedUnit.Add(i);
 								break;
 							}
 							if (top.canAttack(i, selected, one))
@@ -256,7 +255,7 @@ public class Game : Node
 				currentPlayer++;
 			}
 		}
-		while (check[currentPlayer] != 0);
+		while (check[currentPlayer] == 0);
 
 		changeTurnLabel(currentPlayer+1);
 		selectedUnits.Clear();
