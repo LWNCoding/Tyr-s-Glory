@@ -347,6 +347,12 @@ public class Game : Node
 		GetNode<Label>("TurnInfo").Text = "Turn: Player " + st.ToString() ;
 	}
 
+	private void updateScoreboard(){
+		for(int i = 1; i <= playerNum; i++){
+			this.GetNode<Label>("PlayerScore" + i).Text = "Player " + i + " Score: " + (this.countScore(i-1)-3);
+		}
+	}
+
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -356,6 +362,7 @@ public class Game : Node
 		createBoard();
 		setup(SelectedNumPlayers.getInstance().getSelectedNumPlayers());
 		changeTurnLabel(currentPlayer+1);
+		updateScoreboard();
 	}
 
 	public void main()

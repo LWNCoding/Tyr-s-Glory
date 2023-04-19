@@ -1326,10 +1326,11 @@ position = Vector2( -66, 17 )
 polygon = PoolVector2Array( 372, 335, 375, 343, 382, 348, 391, 357, 396, 362, 404, 377, 420, 392, 420, 399, 428, 417, 449, 417, 451, 415, 456, 415, 457, 417, 462, 417, 469, 408, 471, 403, 477, 397, 479, 386, 478, 379, 470, 377, 461, 369, 458, 368, 450, 367, 441, 367, 440, 369, 437, 365, 437, 362, 431, 358, 425, 359, 422, 357, 420, 354, 415, 354, 415, 347, 411, 340, 411, 335, 404, 330, 394, 329, 392, 333, 386, 333, 379, 332 )
 
 [node name="UnitSelection" type="PopupMenu" parent="."]
-margin_left = 1356.0
-margin_top = 570.0
-margin_right = 1643.0
-margin_bottom = 763.0
+visible = true
+margin_left = 394.0
+margin_top = 539.0
+margin_right = 681.0
+margin_bottom = 732.0
 hide_on_item_selection = false
 hide_on_checkable_item_selection = false
 script = ExtResource( 84 )
@@ -1342,10 +1343,11 @@ margin_bottom = 181.0
 text = "Finished"
 
 [node name="DistributeSelection" type="PopupMenu" parent="."]
-margin_left = 1274.0
-margin_top = 579.0
-margin_right = 1345.0
-margin_bottom = 657.0
+visible = true
+margin_left = 493.0
+margin_top = 440.0
+margin_right = 564.0
+margin_bottom = 518.0
 items = [ "Infantry", null, 0, false, false, 0, 0, null, "", false, "Cavalry", null, 0, false, false, 1, 0, null, "", false, "Artillery", null, 0, false, false, 2, 0, null, "", false ]
 
 [node name="TurnInfo" type="Label" parent="."]
@@ -1361,7 +1363,6 @@ margin_top = 369.0
 margin_right = 567.0
 margin_bottom = 426.0
 custom_fonts/font = SubResource( 1 )
-text = "t"
 
 [node name="PlayerScore2" type="Label" parent="."]
 margin_left = 17.0
@@ -1369,7 +1370,6 @@ margin_top = 408.0
 margin_right = 567.0
 margin_bottom = 465.0
 custom_fonts/font = SubResource( 1 )
-text = "t"
 
 [node name="PlayerScore3" type="Label" parent="."]
 margin_left = 18.0
@@ -1377,7 +1377,6 @@ margin_top = 445.0
 margin_right = 568.0
 margin_bottom = 502.0
 custom_fonts/font = SubResource( 1 )
-text = "t"
 
 [node name="PlayerScore4" type="Label" parent="."]
 margin_left = 18.0
@@ -1385,7 +1384,6 @@ margin_top = 481.0
 margin_right = 568.0
 margin_bottom = 538.0
 custom_fonts/font = SubResource( 1 )
-text = "t"
 
 [node name="PlayerScore5" type="Label" parent="."]
 margin_left = 20.0
@@ -1393,7 +1391,6 @@ margin_top = 556.0
 margin_right = 570.0
 margin_bottom = 613.0
 custom_fonts/font = SubResource( 1 )
-text = "t"
 
 [node name="PlayerScore6" type="Label" parent="."]
 margin_left = 19.0
@@ -1401,7 +1398,6 @@ margin_top = 520.0
 margin_right = 569.0
 margin_bottom = 577.0
 custom_fonts/font = SubResource( 1 )
-text = "t"
 
 [node name="ScoreboardLabel" type="Label" parent="."]
 margin_left = 10.0
