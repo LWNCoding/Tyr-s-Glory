@@ -130,7 +130,7 @@ public class Game : Node
 								{
 									selected.move(one, i);
 									usedUnit.Add(i);
-                                }
+								}
 							}
 							selectedUnits.Clear();
 							selected = null;
@@ -144,8 +144,8 @@ public class Game : Node
 							if (one.unitNum() <= 0)
 							{
 								one.setPlayer(currentPlayer, PARR[currentPlayer].getColorArr());
-                                usedUnit.Add(i);
-                                break;
+								usedUnit.Add(i);
+								break;
 							}
 							if (top.canAttack(i, selected, one))
 							{	
@@ -263,13 +263,13 @@ public class Game : Node
 		selected = null;
 		top.getProvince(1).resetSelected();
 		distributeMen(currentPlayer);
-        IEnumerator<Unit> iter = usedUnit.GetEnumerator();
+		IEnumerator<Unit> iter = usedUnit.GetEnumerator();
 		while (iter.MoveNext())
 		{
 			Unit unit = iter.Current;
 			unit.resetTurn();
 		}
-        usedUnit.Clear();
+		usedUnit.Clear();
 	}
 	public void createBoard()
 	{
