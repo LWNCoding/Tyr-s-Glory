@@ -67,7 +67,8 @@ public class Game : Node
 		if (unclaimed == 0)
 		{
 			stage += 1;
-			currentPlayer = 0;
+            updateScoreboard();
+            currentPlayer = 0;
 			startTurn();
 		}
 		currentPlayer++;
@@ -144,7 +145,8 @@ public class Game : Node
 							if (one.unitNum() <= 0)
 							{
 								one.setPlayer(currentPlayer, PARR[currentPlayer].getColorArr());
-								break;
+                                updateScoreboard();
+                                break;
 							}
 							if (top.canAttack(i, selected, one))
 							{	
@@ -260,7 +262,7 @@ public class Game : Node
 		changeTurnLabel(currentPlayer+1);
 		selectedUnits.Clear();
 		selected = null;
-		top.getProvince(1).resetSelected();
+        top.getProvince(1).resetSelected();
 		distributeMen(currentPlayer);
 		IEnumerator<Unit> iter = usedUnit.GetEnumerator();
 		while (iter.MoveNext())
