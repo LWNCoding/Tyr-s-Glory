@@ -139,9 +139,11 @@ public class Game : Node
 									usedUnit.Add(i);
 								}
 							}
-							selectedUnits.Clear();
-							selected = null;
-							one.resetSelected();
+							if(selectedUnits.Count > 0){
+								selectedUnits.Clear();
+								selected = null;
+								one.resetSelected();
+							}
 						}
 					}
 					else if (selected.getPlayer().getPlayerID() == currentPlayer && one.getPlayer().getPlayerID() != currentPlayer)
@@ -163,9 +165,11 @@ public class Game : Node
 								usedUnit.Add(i);
 							}
 						}
-						selectedUnits.Clear();
-						selected = null;
-						one.resetSelected();
+						if(selectedUnits.Count > 0){
+							selectedUnits.Clear();
+							selected = null;
+							one.resetSelected();
+						}
 					}
 				}
 				break;
