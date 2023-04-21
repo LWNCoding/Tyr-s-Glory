@@ -113,6 +113,12 @@ public class Game : Node
 					this.unitSelectionGUI(p,selected);
 					p.Show();
 				}
+				else if(selected == null && one.getPlayer().getPlayerID() != currentPlayer){
+					PopupMenu p = GetNode<PopupMenu>("EnemyMenu");
+					this.enemyMenuGUI(p,one);
+					p.Show();
+					one.resetSelected();
+				}
 				else if (selected != null)
 				{
 					if (one == selected)
@@ -289,6 +295,13 @@ public class Game : Node
 		foreach (Unit unit in province.getUnitEnumerator())
 		{
 			p.AddCheckItem(unit.ToString());
+		}
+	}
+
+	public void enemyMenuGUI(PopupMenu p, Province province){
+		p.Clear();
+		foreach(Unit u in province.getUnitEnumerator()){
+			p.AddItem(u.ToString());
 		}
 	}
 
