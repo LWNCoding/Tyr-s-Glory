@@ -1332,10 +1332,10 @@ polygon = PoolVector2Array( 372, 335, 375, 343, 382, 348, 391, 357, 396, 362, 40
 
 [node name="UnitSelection" type="PopupMenu" parent="."]
 visible = true
-margin_left = 355.0
-margin_top = 569.0
-margin_right = 767.0
-margin_bottom = 762.0
+margin_left = 360.0
+margin_top = 527.0
+margin_right = 772.0
+margin_bottom = 720.0
 hide_on_item_selection = false
 hide_on_checkable_item_selection = false
 script = ExtResource( 84 )
@@ -1350,10 +1350,10 @@ text = "X"
 
 [node name="EnemyMenu" type="PopupMenu" parent="."]
 visible = true
-margin_left = 774.0
-margin_top = 570.0
-margin_right = 1186.0
-margin_bottom = 763.0
+margin_left = 782.0
+margin_top = 528.0
+margin_right = 1194.0
+margin_bottom = 721.0
 hide_on_item_selection = false
 hide_on_checkable_item_selection = false
 script = ExtResource( 86 )
@@ -1367,7 +1367,6 @@ custom_fonts/font = SubResource( 2 )
 text = "X"
 
 [node name="DistributeSelection" type="PopupMenu" parent="."]
-visible = true
 margin_left = 493.0
 margin_top = 440.0
 margin_right = 564.0
