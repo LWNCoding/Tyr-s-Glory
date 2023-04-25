@@ -168,8 +168,8 @@ public class Board : Node2D
                     provDict[i].addEdge(provDict[19]);
                     provDict[i].addEdge(provDict[20]);
                     provDict[i].addEdge(provDict[21]);
-                    provDict[i].addEdge(provDict[22]);
                     provDict[i].addEdge(provDict[23]);
+                    provDict[i].addEdge(provDict[24]);
                     provDict[i].addEdge(provDict[75]);
                     provDict[i].setRegion("SA");
                     break;
